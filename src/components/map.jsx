@@ -22,7 +22,7 @@ const Map = ({ data }) => {
       width="700px"
       height="500px"
       onViewportChange={(viewport) => setViewport(viewport)}
-      mapboxApiAccessToken={process.env.GATSBY_MAPBOX_ACCESS_TOKEN}
+      mapboxApiAccessToken="pk.eyJ1IjoiaWhpbGwiLCJhIjoiY2plZzUwMTRzMW45NjJxb2R2Z2thOWF1YiJ9.szIAeMS4c9YTgNsJeG36gg"
       mapStyle="mapbox://styles/ihill/ckjn5vkva2jbv19oxvi39hc66"
     >
       <Source id="2010 Census Tracts" type="vector" url="mapbox://ihill.aw7gvvhk">

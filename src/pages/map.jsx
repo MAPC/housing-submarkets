@@ -10,7 +10,7 @@ const MapPage = ({ data }) => (
   <Layout>
     <SEO title="Home" />
     <Helmet>
-      <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.css" rel="stylesheet" />
+      <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v1.13.0/mapbox-gl.css" rel="stylesheet" />
     </Helmet>
     <h1>MAPC Housing Submarkets</h1>
     <Map data={data.allDataCsv.nodes} />
