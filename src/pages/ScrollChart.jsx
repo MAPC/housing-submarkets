@@ -25,6 +25,7 @@ export const data = graphql`
         ct10_id
         class
         mhi
+        ch_rhu_p
       }
     }
   }
