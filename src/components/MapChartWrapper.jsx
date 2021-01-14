@@ -1,21 +1,9 @@
 import React, { useReducer } from 'react';
 import ReactMapGL, { Source, Layer } from 'react-map-gl';
-import StripPlot from './StripPlot';
-import submarketColors from '../utils/colors';
+import StripPlots from './StripPlots';
+import { choroplethColors } from '../utils/colors';
 
 const MapChartWrapper = ({ data }) => {
-  const allData = { allData: data };
-
-  const reducedData = {
-    1: data.filter((row) => +row.class === 1),
-    2: data.filter((row) => +row.class === 2),
-    3: data.filter((row) => +row.class === 3),
-    4: data.filter((row) => +row.class === 4),
-    5: data.filter((row) => +row.class === 5),
-    6: data.filter((row) => +row.class === 6),
-    7: data.filter((row) => +row.class === 7),
-  };
-
   const initialState = {
     viewport: {
       latitude: 42.365386297918825,
@@ -23,8 +11,6 @@ const MapChartWrapper = ({ data }) => {
       zoom: 8.4,
     },
   };
-
-  const colors = ['#f2f0f7', '#dadaeb', '#bcbddc', '#9e9ac8', '#807dba', '#6a51a3', '#4a1486'];
 
   function reducer(state, action) {
     switch (action.type) {
@@ -39,19 +25,19 @@ const MapChartWrapper = ({ data }) => {
 
   function choroplethColor(value) {
     if (value <= 35000) {
-      return colors[6];
+      return choroplethColors[6];
     } if (value <= 50000) {
-      return colors[5];
+      return choroplethColors[5];
     } if (value <= 75000) {
-      return colors[4];
+      return choroplethColors[4];
     } if (value <= 100000) {
-      return colors[3];
+      return choroplethColors[3];
     } if (value <= 150000) {
-      return colors[2];
+      return choroplethColors[2];
     } if (value <= 200000) {
-      return colors[1];
+      return choroplethColors[1];
     } if (value <= 250000) {
-      return colors[0];
+      return choroplethColors[0];
     }
   }
 
@@ -85,13 +71,7 @@ const MapChartWrapper = ({ data }) => {
         </Source>
       </ReactMapGL>
       <div>
-        <StripPlot data={reducedData[1]} submarket={1} color={submarketColors[0]} />
-        <StripPlot data={reducedData[2]} submarket={2} color={submarketColors[1]} />
-        <StripPlot data={reducedData[3]} submarket={3} color={submarketColors[2]} />
-        <StripPlot data={reducedData[4]} submarket={4} color={submarketColors[3]} />
-        <StripPlot data={reducedData[5]} submarket={5} color={submarketColors[4]} />
-        <StripPlot data={reducedData[6]} submarket={6} color={submarketColors[5]} />
-        <StripPlot data={reducedData[7]} submarket={7} color={submarketColors[6]} />
+        <StripPlots data={data} field="mhi" domain={[0, 250000]} format="$,f" />
       </div>
     </div>
   );
