@@ -3,11 +3,22 @@ import ReactMapGL, { Source, Layer } from 'react-map-gl';
 import { VegaLite } from 'react-vega';
 
 const MapChartWrapper = ({ data }) => {
+  const allData = { allData: data };
+
   const initialState = {
     viewport: {
       latitude: 42.365386297918825,
       longitude: -71.08346183618282,
       zoom: 8.4,
+    },
+    spec: {
+      $schema: 'https://vega.github.io/schema/vega-lite/v4.json',
+      data: { name: 'allData' },
+      mark: 'tick',
+      encoding: {
+        x: { field: 'mhi', type: 'quantitative' },
+        y: { field: 'class', type: 'quantitative' },
+      },
     },
   };
 
@@ -17,6 +28,8 @@ const MapChartWrapper = ({ data }) => {
     switch (action.type) {
       case 'setViewport':
         return { ...state, viewport: action.viewport };
+      case 'setSpec':
+        return { ...state, spec: action.spec };
       default:
         return { state };
     }
@@ -68,6 +81,7 @@ const MapChartWrapper = ({ data }) => {
           />
         </Source>
       </ReactMapGL>
+      <VegaLite spec={state.spec} data={allData} />
     </div>
   );
 };
