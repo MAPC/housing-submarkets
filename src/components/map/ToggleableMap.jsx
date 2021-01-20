@@ -42,7 +42,7 @@ const ToggleableMap = ({ data }) => {
         height="500px"
         onViewportChange={(viewport) => dispatch({ type: 'setViewport', viewport })}
         mapboxApiAccessToken="pk.eyJ1IjoiaWhpbGwiLCJhIjoiY2plZzUwMTRzMW45NjJxb2R2Z2thOWF1YiJ9.szIAeMS4c9YTgNsJeG36gg"
-        mapStyle="mapbox://styles/ihill/ckjn5vkva2jbv19oxvi39hc66"
+        mapStyle="mapbox://styles/ihill/ckk4b7xz43i8a17mjm1u1r8xs"
       >
         <Source id="2010 Census Tracts" type="vector" url="mapbox://ihill.aw7gvvhk">
           <SubmarketLayer id={1} data={data} isVisible={state.layerVisibility['1']} />
