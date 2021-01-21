@@ -10,12 +10,14 @@ function getClickedTractId(clickData) {
   }
 }
 
-const SubmarketChoropleth = ({ viewport, dispatch, choropleth }) => (
+const SubmarketChoropleth = ({
+  viewport, dispatch, choropleth, selectedTract,
+}) => (
   <ReactMapGL
     {...viewport}
     width="600px"
     height="550px"
-    onViewportChange={(viewport) => dispatch({ type: 'setViewport', viewport })}
+    onViewportChange={(updatedViewport) => dispatch({ type: 'setViewport', updatedViewport })}
     mapboxApiAccessToken="pk.eyJ1IjoiaWhpbGwiLCJhIjoiY2plZzUwMTRzMW45NjJxb2R2Z2thOWF1YiJ9.szIAeMS4c9YTgNsJeG36gg"
     mapStyle="mapbox://styles/ihill/ckjn5vkva2jbv19oxvi39hc66"
     onClick={(e) => dispatch({ type: 'setSelectedTract', tract: getClickedTractId(e) })}
@@ -37,6 +39,17 @@ const SubmarketChoropleth = ({ viewport, dispatch, choropleth }) => (
         source-layer="MAPC_borders-0im3ea"
       />
     </Source>
+    <Layer
+      type="line"
+      id="Highlighted tract"
+      source="2010 Census Tracts"
+      source-layer="Tracts-2jsl06"
+      paint={{
+        'line-color': '#FDB525',
+        'line-width': 3,
+        'line-opacity': selectedTract ? ['match', ['get', 'ct10_id'], selectedTract, 1, 0] : 0,
+      }}
+    />
   </ReactMapGL>
 );
 
@@ -48,6 +61,11 @@ SubmarketChoropleth.propTypes = {
   }).isRequired,
   dispatch: PropTypes.func.isRequired,
   choropleth: PropTypes.array.isRequired,
+  selectedTract: PropTypes.string,
+};
+
+SubmarketChoropleth.defaultProps = {
+  selectedTract: null,
 };
 
 export default SubmarketChoropleth;

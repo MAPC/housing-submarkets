@@ -54,6 +54,7 @@ const MapChartWrapper = ({ data }) => {
           viewport={state.viewport}
           dispatch={dispatch}
           choropleth={state.choropleth}
+          selectedTract={state.selectedTract}
         />
         <StripPlots
           data={data}
