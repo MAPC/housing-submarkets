@@ -1,5 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ReactMapGL, { Source, Layer } from 'react-map-gl';
+
+function getClickedTractId(clickData) {
+  try {
+    return clickData.features.find((feature) => feature.layer.id === 'Tract choropleth').properties.ct10_id;
+  } catch (e) {
+    return null;
+  }
+}
 
 const SubmarketChoropleth = ({ viewport, dispatch, choropleth }) => (
   <ReactMapGL
@@ -9,8 +18,7 @@ const SubmarketChoropleth = ({ viewport, dispatch, choropleth }) => (
     onViewportChange={(viewport) => dispatch({ type: 'setViewport', viewport })}
     mapboxApiAccessToken="pk.eyJ1IjoiaWhpbGwiLCJhIjoiY2plZzUwMTRzMW45NjJxb2R2Z2thOWF1YiJ9.szIAeMS4c9YTgNsJeG36gg"
     mapStyle="mapbox://styles/ihill/ckjn5vkva2jbv19oxvi39hc66"
-    style={{ flexShrink: 0 }}
-    // onClick={(e) => getClickedTractId(e)}
+    onClick={(e) => dispatch({ type: 'setSelectedTract', tract: getClickedTractId(e) })}
   >
     <Source id="2010 Census Tracts" type="vector" url="mapbox://ihill.aw7gvvhk">
       <Layer
@@ -32,4 +40,15 @@ const SubmarketChoropleth = ({ viewport, dispatch, choropleth }) => (
   </ReactMapGL>
 );
 
+SubmarketChoropleth.propTypes = {
+  viewport: PropTypes.shape({
+    latitude: PropTypes.number,
+    longitude: PropTypes.number,
+    zoom: PropTypes.number,
+  }).isRequired,
+  dispatch: PropTypes.func.isRequired,
+  choropleth: PropTypes.array.isRequired,
+};
+
 export default SubmarketChoropleth;
+export { getClickedTractId };

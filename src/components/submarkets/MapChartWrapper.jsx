@@ -3,10 +3,6 @@ import SubmarketChoropleth from './SubmarketChoropleth';
 import StripPlots from './StripPlots';
 import schema from '../../utils/stripPlotsSchema';
 
-function getClickedTractId(clickData) {
-  return clickData;
-}
-
 const MapChartWrapper = ({ data }) => {
   const initialState = {
     viewport: {
@@ -16,6 +12,7 @@ const MapChartWrapper = ({ data }) => {
     },
     chartView: 'mhi',
     choropleth: [],
+    selectedTract: null,
   };
 
   function reducer(state, action) {
@@ -28,6 +25,8 @@ const MapChartWrapper = ({ data }) => {
         return { ...state, chartView: action.chartView };
       case 'setMapChoropleth':
         return { ...state, choropleth: action.choropleth };
+      case 'setSelectedTract':
+        return { ...state, selectedTract: action.tract };
       default:
         return { state };
     }
@@ -50,7 +49,7 @@ const MapChartWrapper = ({ data }) => {
         <option value="mhi">Median Household Income</option>
         <option value="ch_rhu_p">Change in % Rented Housing Units</option>
       </select>
-      <div style={{ display: 'flex', flexDirection: 'row' }}>
+      <div>
         <SubmarketChoropleth
           viewport={state.viewport}
           dispatch={dispatch}
@@ -68,4 +67,3 @@ const MapChartWrapper = ({ data }) => {
 };
 
 export default MapChartWrapper;
-export { getClickedTractId };
