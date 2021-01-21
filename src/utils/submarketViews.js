@@ -1,10 +1,12 @@
 import { choroplethColors } from './colors';
 
-const schema = {
+const views = {
   mhi: {
+    id: 1,
+    title: 'Median Household Income',
     domain: [0, 250000],
     format: '$,f',
-    choroplethFunc: function mhiChoropleth(value) {
+    choroplethFunc: (value) => {
       if (value <= 35000) {
         return choroplethColors[6];
       } if (value <= 50000) {
@@ -17,15 +19,16 @@ const schema = {
         return choroplethColors[2];
       } if (value <= 200000) {
         return choroplethColors[1];
-      } if (value <= 250000) {
-        return choroplethColors[0];
       }
+      return choroplethColors[0];
     },
   },
   ch_rhu_p: {
+    id: 2,
+    title: 'Change in % Rented Housing Units',
     domain: [-100, 650],
     format: 'f',
-    choroplethFunc: function mhiChoropleth(value) {
+    choroplethFunc: (value) => {
       if (value <= -100) {
         return choroplethColors[6];
       } if (value <= -25) {
@@ -38,11 +41,39 @@ const schema = {
         return choroplethColors[2];
       } if (value <= 200) {
         return choroplethColors[1];
-      } if (value <= 650) {
-        return choroplethColors[0];
       }
+      return choroplethColors[0];
     },
   },
 };
 
-export default schema;
+function vegaSchema(submarket, field, domain, format, selectedTract, color) {
+  return {
+    width: 700,
+    height: 55,
+    transform: [{ filter: `datum.class == ${submarket}` }],
+    title: `Submarket ${submarket}`,
+    data: { name: 'data' },
+    mark: { type: 'tick' },
+    encoding: {
+      color: { value: color },
+      x: {
+        field,
+        type: 'quantitative',
+        scale: { type: 'linear', domain },
+        title: null,
+        axis: { format },
+      },
+      size: {
+        condition: {
+          test: `datum['ct10_id'] == ${selectedTract}`,
+          value: 40,
+        },
+        value: 15,
+      },
+    },
+    config: { tick: { thickness: 2, color } },
+  };
+}
+
+export { views, vegaSchema };

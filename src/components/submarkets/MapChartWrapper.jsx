@@ -1,7 +1,8 @@
 import React, { useReducer, useEffect } from 'react';
 import SubmarketChoropleth from './SubmarketChoropleth';
 import StripPlots from './StripPlots';
-import schema from '../../utils/stripPlotsSchema';
+import ViewSelector from './ViewSelector';
+import { views } from '../../utils/submarketViews';
 
 const MapChartWrapper = ({ data }) => {
   const initialState = {
@@ -35,9 +36,9 @@ const MapChartWrapper = ({ data }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
-    let tempChoropleth = ['match', ['get', 'ct10_id']];
+    const tempChoropleth = ['match', ['get', 'ct10_id']];
     data.forEach((row) => {
-      tempChoropleth.push(row.ct10_id, row[state.chartView] ? schema[state.chartView].choroplethFunc(+row[state.chartView]) : 'rgba(0, 0, 0, 0)');
+      tempChoropleth.push(row.ct10_id, row[state.chartView] ? views[state.chartView].choroplethFunc(+row[state.chartView]) : 'rgba(0, 0, 0, 0)');
     });
     tempChoropleth.push('rgb(255, 255, 255)');
     dispatch({ type: 'setMapChoropleth', choropleth: tempChoropleth });
@@ -45,10 +46,7 @@ const MapChartWrapper = ({ data }) => {
 
   return (
     <>
-      <select onChange={(e) => dispatch({ type: 'setChartView', chartView: e.target.value })}>
-        <option value="mhi">Median Household Income</option>
-        <option value="ch_rhu_p">Change in % Rented Housing Units</option>
-      </select>
+      <ViewSelector dispatch={dispatch} />
       <div>
         <SubmarketChoropleth
           viewport={state.viewport}
@@ -59,8 +57,8 @@ const MapChartWrapper = ({ data }) => {
         <StripPlots
           data={data}
           field={state.chartView}
-          domain={schema[state.chartView].domain}
-          format={schema[state.chartView].format}
+          domain={views[state.chartView].domain}
+          format={views[state.chartView].format}
           selectedTract={state.selectedTract}
         />
       </div>

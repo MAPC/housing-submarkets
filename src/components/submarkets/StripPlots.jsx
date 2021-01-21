@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { VegaLite } from 'react-vega';
 import submarketColors from '../../utils/colors';
-import generateSchema from '../../utils/stripPlotSchema';
+import { vegaSchema, views } from '../../utils/submarketViews';
 
 const StripPlots = ({
   data, field, domain, format, selectedTract,
@@ -12,13 +12,13 @@ const StripPlots = ({
     setSpec({
       $schema: 'https://vega.github.io/schema/vega-lite/v4.json',
       vconcat: [
-        generateSchema(1, field, domain, format, selectedTract, submarketColors[0]),
-        generateSchema(2, field, domain, format, selectedTract, submarketColors[1]),
-        generateSchema(3, field, domain, format, selectedTract, submarketColors[2]),
-        generateSchema(4, field, domain, format, selectedTract, submarketColors[3]),
-        generateSchema(5, field, domain, format, selectedTract, submarketColors[4]),
-        generateSchema(6, field, domain, format, selectedTract, submarketColors[5]),
-        generateSchema(7, field, domain, format, selectedTract, submarketColors[6]),
+        vegaSchema(1, field, domain, format, selectedTract, submarketColors[0]),
+        vegaSchema(2, field, domain, format, selectedTract, submarketColors[1]),
+        vegaSchema(3, field, domain, format, selectedTract, submarketColors[2]),
+        vegaSchema(4, field, domain, format, selectedTract, submarketColors[3]),
+        vegaSchema(5, field, domain, format, selectedTract, submarketColors[4]),
+        vegaSchema(6, field, domain, format, selectedTract, submarketColors[5]),
+        vegaSchema(7, field, domain, format, selectedTract, submarketColors[6]),
       ],
     });
   }, [field, selectedTract]);
@@ -31,11 +31,15 @@ const StripPlots = ({
 };
 
 StripPlots.propTypes = {
-  data: PropTypes.object.isRequired,
-  field: PropTypes.oneOf(['mhi', 'ch_rhu_p']).isRequired,
+  data: PropTypes.array.isRequired,
+  field: PropTypes.oneOf(Object.keys(views)).isRequired,
   domain: PropTypes.arrayOf(PropTypes.number).isRequired,
   format: PropTypes.string.isRequired,
-  selectedTract: PropTypes.oneOfType([PropTypes.string, null]).isRequired,
+  selectedTract: PropTypes.string,
+};
+
+StripPlots.defaultProps = {
+  selectedTract: null,
 };
 
 export default StripPlots;

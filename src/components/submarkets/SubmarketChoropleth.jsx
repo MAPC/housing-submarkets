@@ -17,7 +17,7 @@ const SubmarketChoropleth = ({
     {...viewport}
     width="600px"
     height="550px"
-    onViewportChange={(updatedViewport) => dispatch({ type: 'setViewport', updatedViewport })}
+    onViewportChange={(viewport) => dispatch({ type: 'setViewport', viewport })}
     mapboxApiAccessToken="pk.eyJ1IjoiaWhpbGwiLCJhIjoiY2plZzUwMTRzMW45NjJxb2R2Z2thOWF1YiJ9.szIAeMS4c9YTgNsJeG36gg"
     mapStyle="mapbox://styles/ihill/ckjn5vkva2jbv19oxvi39hc66"
     onClick={(e) => dispatch({ type: 'setSelectedTract', tract: getClickedTractId(e) })}
