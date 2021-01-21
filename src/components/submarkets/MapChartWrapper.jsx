@@ -60,6 +60,7 @@ const MapChartWrapper = ({ data }) => {
           field={state.chartView}
           domain={schema[state.chartView].domain}
           format={schema[state.chartView].format}
+          selectedTract={state.selectedTract}
         />
       </div>
     </>
