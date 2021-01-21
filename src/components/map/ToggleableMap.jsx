@@ -1,5 +1,5 @@
 import React, { useReducer } from 'react';
-import ReactMapGL, { Source } from 'react-map-gl';
+import ReactMapGL, { Source, Layer } from 'react-map-gl';
 import SubmarketLayer from './SubmarketLayer';
 import Sidebar from '../sidebar/Sidebar';
 
@@ -52,6 +52,14 @@ const ToggleableMap = ({ data }) => {
           <SubmarketLayer id={5} data={data} isVisible={state.layerVisibility['5']} />
           <SubmarketLayer id={6} data={data} isVisible={state.layerVisibility['6']} />
           <SubmarketLayer id={7} data={data} isVisible={state.layerVisibility['7']} />
+        </Source>
+        <Source id="MAPC borders" type="vector" url="mapbox://ihill.763lks2o">
+          <Layer
+            type="line"
+            id="MAPC municipal borders"
+            source="MAPC borders"
+            source-layer="MAPC_borders-0im3ea"
+          />
         </Source>
       </ReactMapGL>
       <Sidebar layerVisibility={state.layerVisibility} dispatch={dispatch} />
