@@ -1,6 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { VegaLite } from 'react-vega';
-import submarketColors from '../utils/colors';
+import submarketColors from '../../utils/colors';
+
+// {
+//   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+//   "data": {"url": "data/seattle-weather.csv"},
+//   "mark": "tick",
+//   "encoding": {
+//     "x": {"field": "precipitation", "type": "quantitative"},
+//     "color": {
+//       "condition": {"test": "datum['weather'] === 'snow'", "value": "green"},
+//       "value": "pink"
+//     }
+//   }
+// }
+
 
 const StripPlots = ({ data, field, domain, format }) => {
   const [spec, setSpec] = useState();
@@ -134,9 +148,9 @@ const StripPlots = ({ data, field, domain, format }) => {
   }, [field]);
 
   return (
-    <>
+    <div>
      { spec ? <VegaLite spec={spec} data={{ data: data }} /> : '' }
-    </>
+    </div>
   );
 };
 
