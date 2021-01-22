@@ -6,7 +6,7 @@ import SEO from '../components/seo';
 import ToggleableMap from '../components/map/ToggleableMap';
 import '../styles/app.scss';
 
-const LandingPage = ({ data }) => (
+const TempIndex = ({ data }) => (
   <Layout>
     <SEO title="Home" />
     <Helmet>
@@ -17,7 +17,7 @@ const LandingPage = ({ data }) => (
   </Layout>
 );
 
-export default LandingPage;
+export default TempIndex;
 export const data = graphql`
   query {
     allDataCsv {

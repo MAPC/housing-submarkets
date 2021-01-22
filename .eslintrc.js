@@ -8,6 +8,9 @@ module.exports = {
     'jsx-a11y',
     'import',
   ],
+  rules: {
+    "react/jsx-filename-extension": "off",
+  }
   env: {
     browser: true,
   },
