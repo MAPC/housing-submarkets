@@ -1,7 +1,7 @@
 import React, { useReducer } from 'react';
 import ReactMapGL, { Source, Layer } from 'react-map-gl';
 import SubmarketLayer from './SubmarketLayer';
-import Sidebar from '../sidebar/Sidebar';
+import Sidebar from './Sidebar';
 
 const ToggleableMap = ({ data }) => {
   const initialState = {

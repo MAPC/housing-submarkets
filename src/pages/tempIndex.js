@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 import { Helmet } from 'react-helmet';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
-import ToggleableMap from '../components/map/ToggleableMap';
+import ToggleableMap from '../components/home-map/ToggleableMap';
 import '../styles/app.scss';
 
 const TempIndex = ({ data }) => (
@@ -12,7 +12,6 @@ const TempIndex = ({ data }) => (
     <Helmet>
       <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v1.13.0/mapbox-gl.css" rel="stylesheet" />
     </Helmet>
-    <h1>MAPC Housing Submarkets</h1>
     <ToggleableMap data={data.allDataCsv.nodes} />
   </Layout>
 );

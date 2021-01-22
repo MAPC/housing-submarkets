@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Toggle from './Toggle';
 
 const Sidebar = ({ layerVisibility, dispatch }) => (
-  <form>
+  <aside className="sidebar">
     <Toggle id={1} layerVisibility={layerVisibility} dispatch={dispatch} />
     <Toggle id={2} layerVisibility={layerVisibility} dispatch={dispatch} />
     <Toggle id={3} layerVisibility={layerVisibility} dispatch={dispatch} />
@@ -11,7 +11,7 @@ const Sidebar = ({ layerVisibility, dispatch }) => (
     <Toggle id={5} layerVisibility={layerVisibility} dispatch={dispatch} />
     <Toggle id={6} layerVisibility={layerVisibility} dispatch={dispatch} />
     <Toggle id={7} layerVisibility={layerVisibility} dispatch={dispatch} />
-  </form>
+  </aside>
 );
 
 Sidebar.propTypes = {
