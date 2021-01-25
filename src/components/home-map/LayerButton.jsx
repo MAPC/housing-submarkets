@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
+import submarketColors from '../../utils/colors';
 
 function updateLayer(layer, activeLayer, dispatch) {
   if (layer === activeLayer) {
@@ -18,10 +19,29 @@ const ListItem = styled.li`
   justify-content: center;
 `;
 
+const Button = styled.button((props) => ({
+  '-webkit-transition': 'color .2s ease-out',
+  background: (props.layer === props.activeLayer ? '#FFFFFF':'#F0EFE7'),
+  border: 'none',
+  color: (props.layer === props.activeLayer ? submarketColors[props.layer - 1] : 'rgba(122, 122, 122, .5)'),
+  fontFamily: "'Calibre', sans-serif",
+  fontSize: '2.8rem',
+  height: '100%',
+  transition: 'color .2s ease-out',
+  width: '5rem',
+
+  '&:hover': {
+    '-webkit-transition': 'color .2s ease-out',
+    color: (props.layer === props.activeLayer ? submarketColors[props.layer - 1] : '#707070'),
+    transition: 'color .2s ease-out'
+  }
+}));
+
 const LayerButton = ({ layer, activeLayer, dispatch }) => (
   <ListItem>
-    <button
-      className="layer-menu__button"
+    <Button
+      layer={layer}
+      activeLayer={activeLayer}
       tabIndex={0}
       role="button"
       onClick={() => updateLayer(layer, activeLayer, dispatch)}
@@ -32,7 +52,7 @@ const LayerButton = ({ layer, activeLayer, dispatch }) => (
       }}
     >
       { layer }
-    </button>
+    </Button>
   </ListItem>
 );
 
