@@ -1,20 +1,38 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { css } from "@emotion/react"
+import { css } from "@emotion/react";
+import styled from '@emotion/styled';
 import CardFace from './CardFace';
 import LayerMenu from './LayerMenu';
-import submarketColors from '../../utils/colors';
+import submarketColors, { themeColors } from '../../utils/colors';
 
-const sidebarBorder = (activeLayer) => (css`border-left: 2rem solid ${submarketColors[activeLayer-1]};`);
+const sidebarBorder = (activeLayer) => (css`
+  background-color: ${themeColors.white};
+  border-left: 2rem solid ${submarketColors[activeLayer-1]};
+  display: flex;
+  flex-direction: row;
+  min-height: 47rem;
+  width: 43rem;
+`);
+
+const SidebarList = styled.ul`
+  list-style: none;
+  margin: 0 0 3rem 0;
+  padding: 0;
+`;
+
+const SidebarHighlight = styled.li`
+  margin: 1.2rem 0;
+`;
 
 const Sidebar = ({ layerVisibility, dispatch, activeLayer }) => (
-  <aside className="sidebar" css={sidebarBorder(activeLayer)}>
+  <aside css={sidebarBorder(activeLayer)}>
     <CardFace activeLayer={activeLayer} layerVisibility={layerVisibility} dispatch={dispatch}>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      <ul className="sidebar__list">
-        <li className="sidebar__highlight">Item one</li>
-        <li className="sidebar__highlight">Item two</li>
-      </ul>
+      <SidebarList>
+        <SidebarHighlight>Item one</SidebarHighlight>
+        <SidebarHighlight>Item two</SidebarHighlight>
+      </SidebarList>
     </CardFace>
     <LayerMenu activeLayer={activeLayer} dispatch={dispatch} layerVisibility={layerVisibility} />
   </aside>

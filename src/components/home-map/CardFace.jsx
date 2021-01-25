@@ -2,24 +2,52 @@ import React from 'react';
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import { css } from "@emotion/react";
+import styled from '@emotion/styled';
 import Toggle from './Toggle';
 import submarketColors from '../../utils/colors';
+import { fonts } from '../../utils/theme';
 
-const color = (activeLayer) => (css`color: ${submarketColors[activeLayer-1]};`);
+const SidebarContent = styled.div`
+  padding: 3rem 2rem 0 3rem;
+  width: 43rem;
+`;
+
+const TitleWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+const SidebarTitle = styled.h2((props) => ({
+  color: submarketColors[props.activeLayer-1],
+  fontFamily: fonts.calibre,
+  fontSize: '2.8rem',
+  margin: '0 3.6rem 0 0',
+}));
+
+const SidebarSubtitle = styled.h3`
+  font-family: ${fonts.calibre};
+  font-size: 2rem;
+  line-height: 1.8rem;
+`;
+
+const sidebarLink = (activeLayer) => (css`
+  color: ${submarketColors[activeLayer-1]};
+  text-decoration: underline;
+`);
 
 const CardFace = ({ layerVisibility, dispatch, activeLayer, children }) => (
-  <div className="sidebar__content">
-    <div className="sidebar__title-wrapper">
-      <h2 className="sidebar__title" css={color(activeLayer)}>
+  <SidebarContent>
+    <TitleWrapper>
+      <SidebarTitle activeLayer={activeLayer}>
         Submarket {activeLayer}
-      </h2>
+      </SidebarTitle>
       <Toggle activeLayer={activeLayer} layerVisibility={layerVisibility} dispatch={dispatch} />
-    </div>
+    </TitleWrapper>
     { children[0] }
-    <h3 className="sidebar__subtitle">Key Highlights</h3>
+    <SidebarSubtitle>Key Highlights</SidebarSubtitle>
     { children[1] }
-    <Link to={`/submarkets/${activeLayer}`} className="sidebar__link" css={color(activeLayer)}>View Full Profile &gt;&gt;</Link>
-  </div>
+    <Link to={`/submarkets/${activeLayer}`} css={sidebarLink(activeLayer)}>View Full Profile &gt;&gt;</Link>
+  </SidebarContent>
 );
 
 CardFace.propTypes = {
@@ -29,4 +57,3 @@ CardFace.propTypes = {
 };
 
 export default CardFace;
-export { color };
