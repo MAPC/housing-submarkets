@@ -1,6 +1,8 @@
 .sidebar {
-  height: 47rem;
-  width: 43rem;
+  background-color: $color_font-white;
+  display: flex;
+  flex-direction: row;
+  width: 45rem;
 
   &__title {
     font-family: $Calibre;
@@ -15,6 +17,7 @@
 
   &__content {
     padding: 3rem 2rem 0 3rem;
+    width: 43rem;
   }
 
   &__subtitle {

@@ -3,38 +3,38 @@ import ReactMapGL, { Source, Layer } from 'react-map-gl';
 import SubmarketLayer from './SubmarketLayer';
 import Sidebar from './Sidebar';
 
-const ToggleableMap = ({ data }) => {
-  const initialState = {
-    viewport: {
-      latitude: 42.37,
-      longitude: -70.944,
-      zoom: 8.4,
-    },
-    layerVisibility: {
-      1: true,
-      2: true,
-      3: true,
-      4: true,
-      5: true,
-      6: true,
-      7: true,
-    },
-    activeLayer: 1,
-  };
+const initialState = {
+  viewport: {
+    latitude: 42.37,
+    longitude: -70.944,
+    zoom: 8.4,
+  },
+  layerVisibility: {
+    1: true,
+    2: true,
+    3: true,
+    4: true,
+    5: true,
+    6: true,
+    7: true,
+  },
+  activeLayer: 1,
+};
 
-  function reducer(state, action) {
-    switch (action.type) {
-      case 'setViewport':
-        return { ...state, viewport: action.viewport };
-      case 'toggleLayer':
-        return { ...state, layerVisibility: action.layerVisibility };
-      case 'setActiveLayer':
-        return { ...state, activeLayer: action.layer };
-      default:
-        return { state };
-    }
+function reducer(state, action) {
+  switch (action.type) {
+    case 'setViewport':
+      return { ...state, viewport: action.viewport };
+    case 'toggleLayer':
+      return { ...state, layerVisibility: action.layerVisibility };
+    case 'setActiveLayer':
+      return { ...state, activeLayer: action.layer };
+    default:
+      return { state };
   }
+}
 
+const ToggleableMap = ({ data }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   return (

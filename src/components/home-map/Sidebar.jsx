@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { css } from "@emotion/react"
 import CardFace from './CardFace';
+import LayerMenu from './LayerMenu';
 import submarketColors from '../../utils/colors';
 
 const sidebarBorder = (activeLayer) => (css`border-left: 2rem solid ${submarketColors[activeLayer-1]};`);
@@ -15,6 +16,7 @@ const Sidebar = ({ layerVisibility, dispatch, activeLayer }) => (
         <li className="sidebar__highlight">Item two</li>
       </ul>
     </CardFace>
+    <LayerMenu activeLayer={activeLayer} dispatch={dispatch} layerVisibility={layerVisibility} />
   </aside>
 );
 
