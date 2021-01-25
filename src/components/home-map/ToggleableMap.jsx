@@ -19,6 +19,7 @@ const ToggleableMap = ({ data }) => {
       6: true,
       7: true,
     },
+    activeLayer: 1,
   };
 
   function reducer(state, action) {
@@ -27,6 +28,8 @@ const ToggleableMap = ({ data }) => {
         return { ...state, viewport: action.viewport };
       case 'toggleLayer':
         return { ...state, layerVisibility: action.layerVisibility };
+      case 'setActiveLayer':
+        return { ...state, activeLayer: action.layer };
       default:
         return { state };
     }
@@ -62,7 +65,7 @@ const ToggleableMap = ({ data }) => {
           />
         </Source>
       </ReactMapGL>
-      <Sidebar layerVisibility={state.layerVisibility} dispatch={dispatch} />
+      <Sidebar layerVisibility={state.layerVisibility} dispatch={dispatch} activeLayer={state.activeLayer} />
     </div>
   );
 };

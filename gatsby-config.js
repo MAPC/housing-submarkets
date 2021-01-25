@@ -9,6 +9,7 @@ module.exports = {
     author: '@mapcmetroboston',
   },
   plugins: [
+    'gatsby-plugin-emotion',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     {

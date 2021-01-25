@@ -1,24 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { css } from "@emotion/react";
+import submarketColors from '../../utils/colors';
 
-const Toggle = ({ id, layerVisibility, dispatch }) => (
-  <div className="toggle__wrapper">
-    <label className="toggle__switch">
-      <input
-        type="checkbox"
-        className="toggle__input toggle__input--point"
-        autoComplete="off"
-        defaultChecked
-        onClick={() => dispatch({ type: 'toggleLayer', layerVisibility: { ...layerVisibility, [id]: !layerVisibility[id] } })}
-      />
-      <span className="toggle__circle" />
-    </label>
-    <legend className="legend__subtitle">{`Submarket ${id}`}</legend>
-  </div>
+const toggleColor = (activeLayer) => (css`
+  &:checked + .toggle__circle {
+    background-color: ${submarketColors[activeLayer-1]};
+  }`);
+
+
+const Toggle = ({ activeLayer, layerVisibility, dispatch }) => (
+  <label className="toggle__switch">
+    <input
+      type="checkbox"
+      className="toggle__input toggle__input--point"
+      autoComplete="off"
+      checked={layerVisibility[activeLayer]}
+      onClick={() => dispatch({ type: 'toggleLayer', layerVisibility: { ...layerVisibility, [activeLayer]: !layerVisibility[activeLayer] } })}
+      css={toggleColor(activeLayer)}
+    />
+    <span className="toggle__circle" />
+  </label>
 );
 
 Toggle.propTypes = {
-  id: PropTypes.number.isRequired,
+  activeLayer: PropTypes.number.isRequired,
   layerVisibility: PropTypes.objectOf(PropTypes.bool).isRequired,
   dispatch: PropTypes.func.isRequired,
 };
