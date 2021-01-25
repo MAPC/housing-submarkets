@@ -20,7 +20,6 @@ const ListItem = styled.li`
 `;
 
 const Button = styled.button((props) => ({
-  '-webkit-transition': 'color .2s ease-out',
   background: (props.layer === props.activeLayer ? '#FFFFFF':'#F0EFE7'),
   border: 'none',
   color: (props.layer === props.activeLayer ? submarketColors[props.layer - 1] : 'rgba(122, 122, 122, .5)'),
@@ -28,12 +27,13 @@ const Button = styled.button((props) => ({
   fontSize: '2.8rem',
   height: '100%',
   transition: 'color .2s ease-out',
+  WebkitTransition: 'color .2s ease-out',
   width: '5rem',
 
   '&:hover': {
-    '-webkit-transition': 'color .2s ease-out',
     color: (props.layer === props.activeLayer ? submarketColors[props.layer - 1] : '#707070'),
-    transition: 'color .2s ease-out'
+    transition: 'color .2s ease-out',
+    WebkitTransition: 'color .2s ease-out',
   }
 }));
 

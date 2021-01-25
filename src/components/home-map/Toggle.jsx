@@ -16,7 +16,7 @@ const Toggle = ({ activeLayer, layerVisibility, dispatch }) => (
       className="toggle__input toggle__input--point"
       autoComplete="off"
       checked={layerVisibility[activeLayer]}
-      onClick={() => dispatch({ type: 'toggleLayer', layerVisibility: { ...layerVisibility, [activeLayer]: !layerVisibility[activeLayer] } })}
+      onChange={() => dispatch({ type: 'toggleLayer', layerVisibility: { ...layerVisibility, [activeLayer]: !layerVisibility[activeLayer] } })}
       css={toggleColor(activeLayer)}
     />
     <span className="toggle__circle" />
