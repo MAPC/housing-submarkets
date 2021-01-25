@@ -12,6 +12,11 @@ const LayerMenu = ({ activeLayer, dispatch }) => (
       list-style: none;
       margin: 0;
       padding: 0;
+
+      @media (max-width: 500px) {
+        grid-template-rows: 1fr;
+        grid-template-columns: repeat(7, 1fr);
+      }
     `}
   >
     <LayerButton layer={1} activeLayer={activeLayer} dispatch={dispatch} />

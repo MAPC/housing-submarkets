@@ -10,6 +10,15 @@ import { fonts } from '../../utils/theme';
 const SidebarContent = styled.div`
   padding: 3rem 2rem 0 3rem;
   width: 43rem;
+
+  @media (max-width: 1024px) {
+    width: 35rem;
+  }
+
+  @media (max-width: 500px) {
+    padding: 2rem;
+    width: 32rem;
+  }
 `;
 
 const TitleWrapper = styled.div`

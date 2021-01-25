@@ -16,6 +16,30 @@ const sidebarWrapper = (activeLayer) => (css`
   right: 10rem;
   top: 10rem;
   width: 43rem;
+
+  @media (max-width: 1280px) {
+    right: 5rem;
+  }
+
+  @media (max-width: 1024px) {
+    top: 5rem;
+    width: 40rem;
+  }
+
+  @media (max-width: 768px) {
+    border-left: 0;
+    border-top: 2rem solid ${submarketColors[activeLayer-1]};
+    right: 2rem;
+    top: 2rem;
+  }
+
+  @media (max-width: 500px) {
+    align-items: flex-reverse;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 36rem;
+  }
 `);
 
 const SidebarList = styled.ul`

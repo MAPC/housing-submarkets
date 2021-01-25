@@ -27,14 +27,20 @@ const Button = styled.button((props) => ({
   fontFamily: fonts.calibre,
   fontSize: '2.8rem',
   height: '100%',
+  minWidth: '5rem',
+  padding: '.8rem',
   transition: 'color .2s ease-out',
   WebkitTransition: 'color .2s ease-out',
-  width: '5rem',
+  width: '100%',
 
   '&:hover': {
     color: (props.layer === props.activeLayer ? submarketColors[props.layer - 1] : themeColors.fontGray),
     transition: 'color .2s ease-out',
     WebkitTransition: 'color .2s ease-out',
+  },
+
+  '@media (max-width: 500px)': {
+    minWidth: 0,
   }
 }));
 
