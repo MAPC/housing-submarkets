@@ -6,12 +6,15 @@ import CardFace from './CardFace';
 import LayerMenu from './LayerMenu';
 import submarketColors, { themeColors } from '../../utils/colors';
 
-const sidebarBorder = (activeLayer) => (css`
+const sidebarWrapper = (activeLayer) => (css`
   background-color: ${themeColors.white};
   border-left: 2rem solid ${submarketColors[activeLayer-1]};
   display: flex;
   flex-direction: row;
   min-height: 47rem;
+  position: absolute;
+  right: 10rem;
+  top: 10rem;
   width: 43rem;
 `);
 
@@ -26,7 +29,7 @@ const SidebarHighlight = styled.li`
 `;
 
 const Sidebar = ({ layerVisibility, dispatch, activeLayer }) => (
-  <aside css={sidebarBorder(activeLayer)}>
+  <aside css={sidebarWrapper(activeLayer)}>
     <CardFace activeLayer={activeLayer} layerVisibility={layerVisibility} dispatch={dispatch}>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
       <SidebarList>

@@ -1,12 +1,26 @@
 html {
   font-size: 10px;
+  height: 100%;
 }
 
 body {
-  background-color: $color_bg-gray;
   color: $color_font-gray;
   font-family: $SwiftNeueLTPro;
   font-size: 1.6rem;
+  height: 100%;
   line-height: 2.4rem;
   margin: 0;
+}
+
+main {
+  height: 100%;
+}
+
+#___gatsby, #gatsby-focus-wrapper {
+  height: 100%;
+}
+
+#gatsby-focus-wrapper {
+  display: flex;
+  flex-direction: column;
 }

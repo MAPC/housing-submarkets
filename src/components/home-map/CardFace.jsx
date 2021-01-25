@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { css } from "@emotion/react";
 import styled from '@emotion/styled';
 import Toggle from './Toggle';
-import submarketColors from '../../utils/colors';
+import submarketColors, { themeColors } from '../../utils/colors';
 import { fonts } from '../../utils/theme';
 
 const SidebarContent = styled.div`
@@ -33,6 +33,10 @@ const SidebarSubtitle = styled.h3`
 const sidebarLink = (activeLayer) => (css`
   color: ${submarketColors[activeLayer-1]};
   text-decoration: underline;
+
+  &:focus {
+    border: 1px solid ${themeColors.highlightPurple};
+  }
 `);
 
 const CardFace = ({ layerVisibility, dispatch, activeLayer, children }) => (
@@ -46,7 +50,7 @@ const CardFace = ({ layerVisibility, dispatch, activeLayer, children }) => (
     { children[0] }
     <SidebarSubtitle>Key Highlights</SidebarSubtitle>
     { children[1] }
-    <Link to={`/submarkets/${activeLayer}`} css={sidebarLink(activeLayer)}>View Full Profile &gt;&gt;</Link>
+    <Link to={`/submarkets/${activeLayer}`} css={sidebarLink(activeLayer)} tabIndex={0}>View Full Profile &gt;&gt;</Link>
   </SidebarContent>
 );
 
