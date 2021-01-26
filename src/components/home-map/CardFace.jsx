@@ -15,7 +15,7 @@ const SidebarContent = styled.div`
     width: 35rem;
   }
 
-  @media (max-width: 500px) {
+  @media (max-width: 768px) {
     padding: 2rem;
     width: 32rem;
   }

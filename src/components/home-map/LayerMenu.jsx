@@ -13,7 +13,7 @@ const LayerMenu = ({ activeLayer, dispatch }) => (
       margin: 0;
       padding: 0;
 
-      @media (max-width: 500px) {
+      @media (max-width: 768px) {
         grid-template-rows: 1fr;
         grid-template-columns: repeat(7, 1fr);
       }

@@ -39,7 +39,7 @@ const Button = styled.button((props) => ({
     WebkitTransition: 'color .2s ease-out',
   },
 
-  '@media (max-width: 500px)': {
+  '@media (max-width: 768px)': {
     minWidth: 0,
   }
 }));

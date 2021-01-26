@@ -1,7 +1,8 @@
 import React, { useReducer } from 'react';
+import { css } from "@emotion/react";
 import Map from './Map';
 import Sidebar from './Sidebar';
-import { css } from "@emotion/react";
+import MobileSidebar from './MobileSidebar';
 
 const initialState = {
   viewport: {
@@ -19,6 +20,7 @@ const initialState = {
     7: true,
   },
   activeLayer: 1,
+  sidebarOpen: false,
 };
 
 function reducer(state, action) {
@@ -29,6 +31,8 @@ function reducer(state, action) {
       return { ...state, layerVisibility: action.layerVisibility };
     case 'setActiveLayer':
       return { ...state, activeLayer: action.layer };
+    case 'toggleMobileSidebar':
+      return { ...state, sidebarOpen: action.sidebarOpen };
     default:
       return { state };
   }
@@ -36,11 +40,15 @@ function reducer(state, action) {
 
 const ToggleableMap = ({ data }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
+  const width = typeof window !== 'undefined' ? window.innerWidth : '';
 
   return (
     <div css={css`position: relative;`}>
       <Map viewport={state.viewport} dispatch={dispatch} data={data} layerVisibility={state.layerVisibility} />
-      <Sidebar layerVisibility={state.layerVisibility} dispatch={dispatch} activeLayer={state.activeLayer} />
+      { width <= 768 ?
+        <MobileSidebar layerVisibility={state.layerVisibility} dispatch={dispatch} activeLayer={state.activeLayer} sidebarOpen={state.sidebarOpen} />
+        : <Sidebar layerVisibility={state.layerVisibility} dispatch={dispatch} activeLayer={state.activeLayer} />
+      }
     </div>
   );
 };

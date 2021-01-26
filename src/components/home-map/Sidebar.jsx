@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { css } from "@emotion/react";
 import styled from '@emotion/styled';
+import Highlight from './Highlight';
 import CardFace from './CardFace';
 import LayerMenu from './LayerMenu';
-import submarketColors, { themeColors } from '../../utils/colors';
+import { themeColors } from '../../utils/colors';
 
-const sidebarWrapper = (activeLayer) => (css`
+const sidebarWrapper = css`
   background-color: ${themeColors.white};
-  border-left: 2rem solid ${submarketColors[activeLayer-1]};
   display: flex;
   flex-direction: row;
   min-height: 47rem;
@@ -27,20 +27,16 @@ const sidebarWrapper = (activeLayer) => (css`
   }
 
   @media (max-width: 768px) {
-    border-left: 0;
-    border-top: 2rem solid ${submarketColors[activeLayer-1]};
-    right: 2rem;
-    top: 2rem;
-  }
-
-  @media (max-width: 500px) {
     align-items: flex-reverse;
+    border-left: 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    right: 1rem;
+    top: 1rem;
     width: 36rem;
   }
-`);
+`;
 
 const SidebarList = styled.ul`
   list-style: none;
@@ -48,17 +44,19 @@ const SidebarList = styled.ul`
   padding: 0;
 `;
 
-const SidebarHighlight = styled.li`
+const SidebarListItem = styled.li`
   margin: 1.2rem 0;
 `;
 
-const Sidebar = ({ layerVisibility, dispatch, activeLayer }) => (
-  <aside css={sidebarWrapper(activeLayer)}>
+
+const Sidebar = ({ layerVisibility, dispatch, activeLayer, sidebarOpen }) => (
+  <aside css={sidebarWrapper}>
+    <Highlight activeLayer={activeLayer} dispatch={dispatch} sidebarOpen={sidebarOpen} />
     <CardFace activeLayer={activeLayer} layerVisibility={layerVisibility} dispatch={dispatch}>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
       <SidebarList>
-        <SidebarHighlight>Item one</SidebarHighlight>
-        <SidebarHighlight>Item two</SidebarHighlight>
+        <SidebarListItem>Item one</SidebarListItem>
+        <SidebarListItem>Item two</SidebarListItem>
       </SidebarList>
     </CardFace>
     <LayerMenu activeLayer={activeLayer} dispatch={dispatch} layerVisibility={layerVisibility} />
@@ -69,6 +67,11 @@ Sidebar.propTypes = {
   layerVisibility: PropTypes.objectOf(PropTypes.bool).isRequired,
   dispatch: PropTypes.func.isRequired,
   activeLayer: PropTypes.number.isRequired,
+  sidebarOpen: PropTypes.bool,
+};
+
+Sidebar.defaultProps = {
+  sidebarOpen: false,
 };
 
 export default Sidebar;
