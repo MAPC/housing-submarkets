@@ -8,8 +8,15 @@ import { themeColors } from '../../utils/colors';
 
 const MobileSidebar = ({ layerVisibility, dispatch, activeLayer, sidebarOpen }) => (
   <>
-    <Stack
-      size={36}
+    <button
+      tabIndex={0}
+      role="button"
+      onClick={() => dispatch({ type: 'toggleMobileSidebar', sidebarOpen: true })}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter') {
+          dispatch({ type: 'toggleMobileSidebar', sidebarOpen: true });
+        }
+      }}
       css={css`
         background: ${themeColors.white};
         display: ${sidebarOpen ? 'none' : 'inline'};
@@ -21,8 +28,11 @@ const MobileSidebar = ({ layerVisibility, dispatch, activeLayer, sidebarOpen }) 
         top: .8rem;
         right: .8rem;
       `}
-      onClick={() => dispatch({ type: 'toggleMobileSidebar', sidebarOpen: true })}
-    />
+    >
+      <Stack
+        size={36}
+      />
+    </button>
     { sidebarOpen ? <Sidebar layerVisibility={layerVisibility} dispatch={dispatch} activeLayer={activeLayer} sidebarOpen={sidebarOpen} /> : ''}
   </>
 );

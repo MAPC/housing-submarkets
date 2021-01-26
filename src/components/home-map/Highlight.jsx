@@ -32,6 +32,11 @@ const Highlight = ({ activeLayer, sidebarOpen, dispatch }) => (
       css={MenuCloseButton}
       role="button"
       onClick={() => dispatch({ type: 'toggleMobileSidebar', sidebarOpen: false })}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter') {
+          dispatch({ type: 'toggleMobileSidebar', sidebarOpen: false });
+        }
+      }}
     >
       <X
         size={20}
