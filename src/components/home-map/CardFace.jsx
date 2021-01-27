@@ -30,6 +30,7 @@ const SidebarTitle = styled.h2((props) => ({
   color: submarketColors[props.activeLayer-1],
   fontFamily: fonts.calibre,
   fontSize: '2.8rem',
+  fontWeight: '600',
   margin: '0 3.6rem 0 0',
 }));
 
