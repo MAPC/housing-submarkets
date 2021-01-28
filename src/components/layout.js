@@ -1,5 +1,7 @@
 import React from "react"
 import Header from "./header"
+import { Footer} from 'mapc-design-system/src';
+import { themeColors } from './../utils/colors';
 
 const Layout = ({ children }) => (
   <>
@@ -7,9 +9,7 @@ const Layout = ({ children }) => (
     <main>
       {children}
     </main>
-    <footer>
-      Footer
-    </footer>
+    <Footer backgroundColor={themeColors.bgPurple} />
   </>
 );
 
