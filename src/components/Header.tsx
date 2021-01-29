@@ -40,6 +40,17 @@ const titleStyle = css`
   font-weight: 400;
   margin: 0 1.6rem 1px -1px;
   padding: 0 5rem 1rem 1rem;
+
+  @media (max-width: 670px) {
+    font-size: 3rem;
+    line-height: 3rem;
+  }
+
+  @media (max-width: 500px) {
+    border-bottom: 0;
+    margin: 0;
+    padding: 0 0 0 1rem;
+  }
 `;
 
 const Header = () => {
