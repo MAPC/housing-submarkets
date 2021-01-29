@@ -45,7 +45,7 @@ const MapChartWrapper = ({ data }) => {
   }, [state.chartView]);
 
   return (
-    <>
+    <div>
       <ViewSelector dispatch={dispatch} />
       <div>
         <SubmarketChoropleth
@@ -62,7 +62,7 @@ const MapChartWrapper = ({ data }) => {
           selectedTract={state.selectedTract}
         />
       </div>
-    </>
+    </div>
   );
 };
 

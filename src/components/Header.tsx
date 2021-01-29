@@ -13,7 +13,7 @@ const headerStyle = css`
   background-color: ${themeColors.bgPurple};
   display: flex;
   flex-direction: row;
-  height: 14rem;
+  height: 11.5rem;
 `;
 
 const headerWrapperStyle = css`

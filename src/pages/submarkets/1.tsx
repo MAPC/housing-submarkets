@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import { Helmet } from 'react-helmet';
 import Layout from '../../components/layout';
+import SubmarketHeader from '../../components/submarkets/SubmarketHeader';
 import MapChartWrapper from '../../components/submarkets/MapChartWrapper';
 import '../../styles/app.scss';
 
@@ -10,7 +11,7 @@ const SubmarketOne = ({ data }) => (
     <Helmet>
       <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v1.13.0/mapbox-gl.css" rel="stylesheet" />
     </Helmet>
-    <h1>MAPC Housing Submarkets</h1>
+    <SubmarketHeader />
     <MapChartWrapper data={data.allDataCsv.nodes} />
   </Layout>
 );
