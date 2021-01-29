@@ -31,7 +31,7 @@ function isCurrentPage(urlPath: string, pageName: string) {
   if (urlPath.includes(pageName)) {
     return true;
   }
-  if (urlPath === '/' && pageName === 'home') {
+  if (urlPath === '/tempIndex' && pageName === 'home') {
     return true;
   }
   return false;
@@ -47,7 +47,7 @@ const MainNav = () => {
     <nav>
       <ul css={navListStyle}>
         <li css={navItemStyle}>
-          <Link to="/" css={ isCurrentPage(urlPath, 'home') ? activeLinkStyle : linkStyle }>
+          <Link to="/tempIndex" css={ isCurrentPage(urlPath, 'home') ? activeLinkStyle : linkStyle }>
             Home
           </Link>
         </li>
@@ -71,7 +71,7 @@ const MainNav = () => {
           |
         </li>
         <li css={navItemStyle}>
-          <Link to="/" css={ isCurrentPage(urlPath, 'about') ? activeLinkStyle : linkStyle }>
+          <Link to="/about" css={ isCurrentPage(urlPath, 'about') ? activeLinkStyle : linkStyle }>
             About
           </Link>
         </li>

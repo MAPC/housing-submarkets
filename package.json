@@ -43,6 +43,7 @@
     "vega-lite": "^4.17.0"
   },
   "devDependencies": {
+    "@types/react-helmet": "^6.1.0",
     "prettier": "2.2.1"
   },
   "keywords": [
