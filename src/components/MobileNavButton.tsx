@@ -1,11 +1,15 @@
 /** @jsx jsx */
 
-import React from 'react';
+import React, { Dispatch, SetStateAction } from 'react';
 import { css, jsx } from "@emotion/react";
 import { themeColors } from '../utils/theme';
 import { List } from 'phosphor-react';
 
-const MobileNavButton = () => (
+interface MobileNavButtonProps {
+  toggleMobileNav: Dispatch<SetStateAction<boolean>>,
+}
+
+const MobileNavButton: React.FC<MobileNavButtonProps> = ({ toggleMobileNav }) => (
   <button
     css={css`
       background: none;
@@ -14,7 +18,7 @@ const MobileNavButton = () => (
       padding-bottom: 1rem;
     `}
     role="button"
-    onClick={() => console.log("Selected")}
+    onClick={() => toggleMobileNav(true)}
   >
     <List size={36} />
   </button>

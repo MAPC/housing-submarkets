@@ -6,7 +6,6 @@ import { css, jsx } from "@emotion/react";
 import { fonts, themeColors } from '../utils/theme';
 import logo from './../images/submarkets_logo.png';
 import MainNav from './MainNav';
-import MobileNavButton from './MobileNavButton';
 import MobileNav from './MobileNav';
 
 const headerStyle = css`
@@ -57,13 +56,7 @@ const Header = () => {
           <img src={logo} alt="Decorative logo of two houses" />
           <h1 css={titleStyle}>Housing Submarkets</h1>
         </Link>
-        { pageWidth >= 1200 ?
-          <MainNav />
-          : (<React.Fragment>
-              <MobileNavButton />
-              <MobileNav />
-            </React.Fragment>)
-          }
+        { pageWidth >= 1200 ? <MainNav /> : <MobileNav /> }
       </div>
     </header>
   );
