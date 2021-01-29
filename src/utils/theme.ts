@@ -12,6 +12,7 @@ const themeColors = {
   fontGray: '#707070',
   white: '#FFFFFF',
   warmGray: '#F0EFE7',
+  shadowBlack: '#1a1a1a',
 }
 
 export { fonts, submarketColors, choroplethColors, themeColors };

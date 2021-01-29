@@ -1,17 +1,20 @@
 /** @jsx jsx */
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'gatsby';
 import { css, jsx } from "@emotion/react";
 import { fonts, themeColors } from '../utils/theme';
 import logo from './../images/submarkets_logo.png';
 import MainNav from './MainNav';
+import MobileNavButton from './MobileNavButton';
+import MobileNav from './MobileNav';
 
 const headerStyle = css`
   align-items: center;
   background-color: ${themeColors.bgPurple};
   display: flex;
   flex-direction: row;
-  height: 13rem;
+  height: 14rem;
 `;
 
 const headerWrapperStyle = css`
@@ -40,16 +43,30 @@ const titleStyle = css`
   padding: 0 5rem 1rem 1rem;
 `;
 
-const Header = () => (
-  <header css={headerStyle}>
-    <div css={headerWrapperStyle}>
-      <div css={logoTitleWrapperStyle}>
-        <img src={logo} alt="Decorative logo of two houses" />
-        <h1 css={titleStyle}>Housing Submarkets</h1>
+const Header = () => {
+  const [pageWidth, updatePageWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 0);
+  useEffect(() => {
+    const handleResize = () => updatePageWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+  return (
+    <header css={headerStyle}>
+      <div css={headerWrapperStyle}>
+        <Link to="/tempIndex" css={logoTitleWrapperStyle}>
+          <img src={logo} alt="Decorative logo of two houses" />
+          <h1 css={titleStyle}>Housing Submarkets</h1>
+        </Link>
+        { pageWidth >= 1200 ?
+          <MainNav />
+          : (<React.Fragment>
+              <MobileNavButton />
+              <MobileNav />
+            </React.Fragment>)
+          }
       </div>
-      <MainNav />
-    </div>
-  </header>
-)
+    </header>
+  );
+}
 
 export default Header;

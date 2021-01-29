@@ -81,3 +81,4 @@ const MainNav = () => {
 };
 
 export default MainNav;
+export { isCurrentPage, navListStyle, navItemStyle, linkStyle };
