@@ -30,6 +30,7 @@ const logoTitleWrapperStyle = css`
   align-items: flex-end;
   display: flex;
   flex-direction: row;
+  text-decoration: none;
 `;
 
 const titleStyle = css`
