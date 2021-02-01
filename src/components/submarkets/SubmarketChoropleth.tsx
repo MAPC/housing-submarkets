@@ -16,7 +16,7 @@ const SubmarketChoropleth = ({
   <ReactMapGL
     {...viewport}
     width="600px"
-    height="550px"
+    height="592px"
     onViewportChange={(viewport) => dispatch({ type: 'setViewport', viewport })}
     mapboxApiAccessToken="pk.eyJ1IjoiaWhpbGwiLCJhIjoiY2plZzUwMTRzMW45NjJxb2R2Z2thOWF1YiJ9.szIAeMS4c9YTgNsJeG36gg"
     mapStyle="mapbox://styles/ihill/ckjn5vkva2jbv19oxvi39hc66"

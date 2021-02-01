@@ -1,8 +1,12 @@
+/** @jsx jsx */
+
 import React, { useReducer, useEffect } from 'react';
+import { css, jsx } from "@emotion/react";
 import SubmarketChoropleth from './SubmarketChoropleth';
 import StripPlots from './StripPlots';
 import ViewSelector from './ViewSelector';
 import { views } from '../../utils/submarketViews';
+import { themeColors } from '../../utils/theme';
 
 const MapChartWrapper = ({ data }) => {
   const initialState = {
@@ -45,9 +49,22 @@ const MapChartWrapper = ({ data }) => {
   }, [state.chartView]);
 
   return (
-    <div>
+    <div
+      css={css`
+        background-color: ${themeColors.accentPurple};
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 2.5rem 0 3.6rem;
+      `}
+    >
       <ViewSelector dispatch={dispatch} />
-      <div>
+      <div css={css`
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding: 0 5rem;
+      `}>
         <SubmarketChoropleth
           viewport={state.viewport}
           dispatch={dispatch}

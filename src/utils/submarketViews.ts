@@ -49,8 +49,8 @@ const views = {
 
 function vegaSchema(submarket, field, domain, format, selectedTract, color) {
   return {
-    width: 700,
-    height: 55,
+    width: 562,
+    height: 30,
     transform: [{ filter: `datum.class == ${submarket}` }],
     title: `Submarket ${submarket}`,
     data: { name: 'data' },
@@ -67,9 +67,9 @@ function vegaSchema(submarket, field, domain, format, selectedTract, color) {
       size: {
         condition: {
           test: `datum['ct10_id'] == ${selectedTract}`,
-          value: 40,
+          value: 25,
         },
-        value: 15,
+        value: 10,
       },
     },
     config: { tick: { thickness: 2, color } },
