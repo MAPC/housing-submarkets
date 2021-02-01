@@ -3,6 +3,7 @@
 import React from 'react';
 import { css, jsx } from "@emotion/react";
 import { graphql } from 'gatsby';
+import { SubmarketDataQuery } from '../../../types/gatsby-graphql';
 import { Helmet } from 'react-helmet';
 import Layout from '../../components/layout';
 import SubmarketHeader from '../../components/submarkets/SubmarketHeader';
@@ -20,7 +21,7 @@ const introParagraphStyle = css`
 `;
 
 
-const SubmarketOne = ({ data }) => (
+const SubmarketOne = ({ data }: { data: SubmarketDataQuery }) => (
   <Layout>
     <Helmet>
       <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v1.13.0/mapbox-gl.css" rel="stylesheet" />
@@ -34,16 +35,18 @@ const SubmarketOne = ({ data }) => (
   </Layout>
 );
 
-export default SubmarketOne;
-export const data = graphql`
-  query {
+export const SubmarketData = graphql`
+  query SubmarketData {
     allDataCsv {
       nodes {
         ct10_id
         class
         mhi
         ch_rhu_p
+        rhu_p
       }
     }
   }
 `;
+
+export default SubmarketOne;

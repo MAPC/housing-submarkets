@@ -1,6 +1,7 @@
 /** @jsx jsx */
 
 import React, { useReducer, useEffect } from 'react';
+import { DataCsv } from '../../../types/gatsby-graphql';
 import { css, jsx } from "@emotion/react";
 import SubmarketChoropleth from './SubmarketChoropleth';
 import StripPlots from './StripPlots';
@@ -8,7 +9,7 @@ import ViewSelector from './ViewSelector';
 import { viewData } from '../../utils/submarketViews';
 import { themeColors } from '../../utils/theme';
 
-const MapChartWrapper = ({ data }) => {
+const MapChartWrapper = ({ data }: { data: Array<Pick<DataCsv, 'ct10_id' | 'class' | 'mhi' | 'ch_rhu_p' | 'rhu_p'>> }) => {
   const initialState = {
     viewport: {
       latitude: 42.3653,

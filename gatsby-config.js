@@ -9,6 +9,12 @@ module.exports = {
     author: '@mapcmetroboston',
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-graphql-codegen`,
+      options: {
+        fileName: `./types/gatsby-graphql.ts`,
+      }
+    },
     'gatsby-plugin-emotion',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
