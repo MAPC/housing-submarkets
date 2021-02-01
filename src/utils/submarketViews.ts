@@ -1,7 +1,16 @@
-import { choroplethColors } from './colors';
+import { choroplethColors } from './theme';
 
-const views = {
-  mhi: {
+type View = 'mhi' | 'ch_rhu_p';
+type ChoroplethFunc = (value: number) => string;
+
+const viewData: {[Key in View]: {
+  id: number,
+  title: string,
+  domain: Array<number>,
+  format: string,
+  choroplethFunc: ChoroplethFunc,
+}} = {
+  'mhi': {
     id: 1,
     title: 'Median Household Income',
     domain: [0, 250000],
@@ -21,10 +30,10 @@ const views = {
         return choroplethColors[1];
       }
       return choroplethColors[0];
-    },
+    }
   },
-  ch_rhu_p: {
-    id: 2,
+  'ch_rhu_p': {
+        id: 2,
     title: 'Change in % Rented Housing Units',
     domain: [-100, 650],
     format: 'f',
@@ -44,12 +53,12 @@ const views = {
       }
       return choroplethColors[0];
     },
-  },
+  }
 };
 
-function vegaSchema(submarket, field, domain, format, selectedTract, color) {
+function vegaSchema(submarket, field, domain, format, selectedTract, color, width) {
   return {
-    width: 562,
+    width: width,
     height: 30,
     transform: [{ filter: `datum.class == ${submarket}` }],
     title: `Submarket ${submarket}`,
@@ -76,4 +85,4 @@ function vegaSchema(submarket, field, domain, format, selectedTract, color) {
   };
 }
 
-export { views, vegaSchema };
+export { View, viewData, vegaSchema };

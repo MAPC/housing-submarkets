@@ -5,7 +5,7 @@ import { css, jsx } from "@emotion/react";
 import SubmarketChoropleth from './SubmarketChoropleth';
 import StripPlots from './StripPlots';
 import ViewSelector from './ViewSelector';
-import { views } from '../../utils/submarketViews';
+import { viewData } from '../../utils/submarketViews';
 import { themeColors } from '../../utils/theme';
 
 const MapChartWrapper = ({ data }) => {
@@ -42,7 +42,7 @@ const MapChartWrapper = ({ data }) => {
   useEffect(() => {
     const tempChoropleth = ['match', ['get', 'ct10_id']];
     data.forEach((row) => {
-      tempChoropleth.push(row.ct10_id, row[state.chartView] ? views[state.chartView].choroplethFunc(+row[state.chartView]) : 'rgba(0, 0, 0, 0)');
+      tempChoropleth.push(row.ct10_id, row[state.chartView] ? viewData[state.chartView].choroplethFunc(+row[state.chartView]) : 'rgba(0, 0, 0, 0)');
     });
     tempChoropleth.push('rgb(255, 255, 255)');
     dispatch({ type: 'setMapChoropleth', choropleth: tempChoropleth });
@@ -74,8 +74,8 @@ const MapChartWrapper = ({ data }) => {
         <StripPlots
           data={data}
           field={state.chartView}
-          domain={views[state.chartView].domain}
-          format={views[state.chartView].format}
+          domain={viewData[state.chartView].domain}
+          format={viewData[state.chartView].format}
           selectedTract={state.selectedTract}
         />
       </div>

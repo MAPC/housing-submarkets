@@ -2,8 +2,15 @@ const fonts = {
   calibre: "'Calibre', sans-serif",
   swiftNeueLtPro: "'SwiftNeueLTPro', serif",
 };
-
-const submarketColors = ['#C7024E', '#043C30', '#80CDC1', '#F37B74', '#BF812D', '#8C510A', '#6EA1C9'];
+const submarketColors = {
+  1: '#C7024E',
+  2: '#043C30',
+  3: '#80CDC1',
+  4: '#F37B74',
+  5: '#BF812D',
+  6: '#8C510A',
+  7: '#6EA1C9',
+};
 const choroplethColors = ['#f2f0f7', '#dadaeb', '#bcbddc', '#9e9ac8', '#807dba', '#6a51a3', '#4a1486'];
 const themeColors = {
   bgPurple: '#482C78',

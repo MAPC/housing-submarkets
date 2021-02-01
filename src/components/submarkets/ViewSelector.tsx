@@ -2,14 +2,13 @@
 
 import React from 'react';
 import { css, jsx } from "@emotion/react";
-import PropTypes from 'prop-types';
-import { views } from '../../utils/submarketViews';
+import { viewData } from '../../utils/submarketViews';
 import { fonts, themeColors } from '../../utils/theme';
 import caret from '../../images/caret-down.svg'
 
 const ViewSelector = ({ dispatch }) => {
-  const options = Object.keys(views)
-    .map((option) => <option value={option} key={views[option].id}>{views[option].title}</option>);
+  const options = Object.keys(viewData)
+    .map((option) => <option value={option} key={viewData[option].id}>{viewData[option].title}</option>);
   return (
     <select
       css={css`
@@ -31,10 +30,6 @@ const ViewSelector = ({ dispatch }) => {
       { options }
     </select>
   );
-};
-
-ViewSelector.propTypes = {
-  dispatch: PropTypes.func.isRequired,
 };
 
 export default ViewSelector;

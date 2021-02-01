@@ -5,7 +5,7 @@ import { css, jsx } from "@emotion/react";
 import { fonts, themeColors, submarketColors } from '../../utils/theme';
 
 const articleStyle = css`
-  background-color: ${submarketColors[0]};
+  background-color: ${submarketColors[1]};
   color: ${themeColors.white};
   height: auto;
   margin-top: 3.5rem;

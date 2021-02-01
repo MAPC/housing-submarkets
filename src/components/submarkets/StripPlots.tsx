@@ -1,24 +1,43 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
 import { VegaLite } from 'react-vega';
-import submarketColors from '../../utils/colors';
-import { vegaSchema, views } from '../../utils/submarketViews';
+import { submarketColors } from '../../utils/theme';
+import { vegaSchema, View } from '../../utils/submarketViews';
 
-const StripPlots = ({
+interface StripPlotsProps {
+  data: Array<any>,
+  field: View,
+  domain: Array<number>
+  format: string,
+  selectedTract?: string,
+}
+
+const StripPlots: React.FC<StripPlotsProps> = ({
   data, field, domain, format, selectedTract,
 }) => {
-  const [spec, setSpec] = useState();
+  const [spec, setSpec] = useState({
+    $schema: 'https://vega.github.io/schema/vega-lite/v4.json',
+    vconcat: [
+      vegaSchema(1, field, domain, format, selectedTract, submarketColors[1], 562),
+      vegaSchema(2, field, domain, format, selectedTract, submarketColors[2], 562),
+      vegaSchema(3, field, domain, format, selectedTract, submarketColors[3], 562),
+      vegaSchema(4, field, domain, format, selectedTract, submarketColors[4], 562),
+      vegaSchema(5, field, domain, format, selectedTract, submarketColors[5], 562),
+      vegaSchema(6, field, domain, format, selectedTract, submarketColors[6], 562),
+      vegaSchema(7, field, domain, format, selectedTract, submarketColors[7], 562),
+    ]
+  });
+
   useEffect(() => {
     setSpec({
       $schema: 'https://vega.github.io/schema/vega-lite/v4.json',
       vconcat: [
-        vegaSchema(1, field, domain, format, selectedTract, submarketColors[0]),
-        vegaSchema(2, field, domain, format, selectedTract, submarketColors[1]),
-        vegaSchema(3, field, domain, format, selectedTract, submarketColors[2]),
-        vegaSchema(4, field, domain, format, selectedTract, submarketColors[3]),
-        vegaSchema(5, field, domain, format, selectedTract, submarketColors[4]),
-        vegaSchema(6, field, domain, format, selectedTract, submarketColors[5]),
-        vegaSchema(7, field, domain, format, selectedTract, submarketColors[6]),
+        vegaSchema(1, field, domain, format, selectedTract, submarketColors[1], 562),
+        vegaSchema(2, field, domain, format, selectedTract, submarketColors[2], 562),
+        vegaSchema(3, field, domain, format, selectedTract, submarketColors[3], 562),
+        vegaSchema(4, field, domain, format, selectedTract, submarketColors[4], 562),
+        vegaSchema(5, field, domain, format, selectedTract, submarketColors[5], 562),
+        vegaSchema(6, field, domain, format, selectedTract, submarketColors[6], 562),
+        vegaSchema(7, field, domain, format, selectedTract, submarketColors[7], 562),
       ],
     });
   }, [field, selectedTract]);
@@ -28,18 +47,6 @@ const StripPlots = ({
       { spec ? <VegaLite spec={spec} data={{ data }} /> : '' }
     </div>
   );
-};
-
-StripPlots.propTypes = {
-  data: PropTypes.array.isRequired,
-  field: PropTypes.oneOf(Object.keys(views)).isRequired,
-  domain: PropTypes.arrayOf(PropTypes.number).isRequired,
-  format: PropTypes.string.isRequired,
-  selectedTract: PropTypes.string,
-};
-
-StripPlots.defaultProps = {
-  selectedTract: null,
 };
 
 export default StripPlots;
