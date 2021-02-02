@@ -4,6 +4,7 @@ import React from 'react';
 import { css, jsx } from "@emotion/react";
 import { fonts, themeColors } from '../utils/theme';
 import Layout from '../components/layout';
+import SubmarketGrid from '../components/landing-page/SubmarketGrid';
 
 const submarketsBackground = css`
   background-color: ${themeColors.bgPurple};
@@ -41,9 +42,7 @@ const Submarkets = () => (
             Pri posse graeco definitiones cu, id eam populo quaestio adipiscing, usu quod malorum te. Vivendum intellegat et qui, ei denique consequuntur vix. Qui gloriatur scribentur et, id velit verear mel, cum no porro debet. Scripta periculis ei eam, te pro movet reformidans. Vivendum intellegat et qui, ei denique consequuntur vix. Sit fugit nostrum et. Offendit eleifend moderatius ex vix, quem odio mazim et qui, purto expetendis cotidieque quo cu, veri persius vituperata ei nec. Vivendum intellegat et qui, ei denique consequuntur vix. Vivendum intellegat et qui, ei denique consequuntur vix.
         </p>
       </article>
-      <section>
-        Grid
-      </section>
+      <SubmarketGrid />
     </div>
   </Layout>
 );
