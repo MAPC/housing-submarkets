@@ -36,10 +36,10 @@ const Submarkets = () => (
       <article css={introArticle}>
         <h2 css={h2Style}>What is a submarket?</h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Scripta periculis ei eam, te pro movet reformidans. Vivendum intellegat et qui, ei denique consequuntur vix. Pri posse graeco definitiones cu, id eam populo quaestio adipiscing, usu quod malorum te. Quas scaevola postulant id vis, tincidunt assueverit et pro, quo et alii scripta accommodare.
+          A housing submarket is a collection of neighborhoods—some contiguous, some not—that share similarities in housing stock and housing market characteristics. These characteristics determine who can find, afford, and remain in suitable housing in that neighborhood.
         </p>
         <p>
-            Pri posse graeco definitiones cu, id eam populo quaestio adipiscing, usu quod malorum te. Vivendum intellegat et qui, ei denique consequuntur vix. Qui gloriatur scribentur et, id velit verear mel, cum no porro debet. Scripta periculis ei eam, te pro movet reformidans. Vivendum intellegat et qui, ei denique consequuntur vix. Sit fugit nostrum et. Offendit eleifend moderatius ex vix, quem odio mazim et qui, purto expetendis cotidieque quo cu, veri persius vituperata ei nec. Vivendum intellegat et qui, ei denique consequuntur vix. Vivendum intellegat et qui, ei denique consequuntur vix.
+          MAPC’s regional study identified communities with similar characteristics across Greater Boston—the study revealed seven distinct housing submarkets across the region that share common issues regardless of physical proximity. We looked at four main key factors to identify each submarket in our region, specially macaroni cheese cauliflower cheese. When the cheese comes out everybody’s happy who moved my cheese bavarian bergkase swiss cheesecake pecorino pepper jack taleggio.
         </p>
       </article>
       <SubmarketGrid />
