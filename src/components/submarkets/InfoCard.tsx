@@ -5,7 +5,6 @@ import { css, jsx } from "@emotion/react";
 import { fonts, themeColors, submarketColors } from '../../utils/theme';
 
 const articleStyle = css`
-  background-color: ${submarketColors[1]};
   color: ${themeColors.white};
   height: auto;
   margin-top: 3.5rem;
@@ -54,9 +53,12 @@ const boldItemStyle = css`
   font-weight: 600;
 `;
 
-const InfoCard = () => (
-  <article css={articleStyle}>
-    <h2 css={h2Style}>Submarket 1</h2>
+const InfoCard = ({ submarket }: { submarket: number }) => (
+  <article css={css`
+    ${articleStyle}
+    background-color: ${submarketColors[submarket]};
+  `}>
+    <h2 css={h2Style}>{`Submarket ${submarket}`}</h2>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
     <h3 css={h3Style}>Key Policies</h3>
     <ul css={listStyle}>

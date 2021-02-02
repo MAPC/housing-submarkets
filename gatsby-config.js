@@ -13,6 +13,11 @@ module.exports = {
       resolve: `gatsby-plugin-graphql-codegen`,
       options: {
         fileName: `./types/gatsby-graphql.ts`,
+        documentPaths: [
+          './src/**/*.{ts,tsx}',
+          './node_modules/gatsby-*/**/*.js',
+          './gatsby-node.js',
+        ],
       }
     },
     'gatsby-plugin-emotion',

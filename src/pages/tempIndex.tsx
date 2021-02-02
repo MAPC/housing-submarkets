@@ -1,4 +1,5 @@
 import React from 'react';
+import { HomepageMapQuery } from '../../types/gatsby-graphql';
 import { graphql } from 'gatsby';
 import { Helmet } from 'react-helmet';
 import Layout from '../components/layout';
@@ -6,7 +7,7 @@ import SEO from '../components/seo';
 import ToggleableMap from '../components/home-map/ToggleableMap';
 import '../styles/app.scss';
 
-const TempIndex = ({ data }) => (
+const TempIndex = ({ data }: { data: HomepageMapQuery }) => (
   <Layout>
     <SEO title="Home" />
     <Helmet>
@@ -18,7 +19,7 @@ const TempIndex = ({ data }) => (
 
 export default TempIndex;
 export const data = graphql`
-  query {
+  query HomepageMap {
     allDataCsv {
       nodes {
         ct10_id

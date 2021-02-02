@@ -2052,6 +2052,7 @@ export type QuerySitePageArgs = {
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
   isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>;
+  context?: Maybe<SitePageContextFilterInput>;
   pluginCreator?: Maybe<SitePluginFilterInput>;
   pluginCreatorId?: Maybe<StringQueryOperatorInput>;
   componentPath?: Maybe<StringQueryOperatorInput>;
@@ -2507,6 +2508,7 @@ export type SitePage = Node & {
   children: Array<Node>;
   internal: Internal;
   isCreatedByStatefulCreatePages?: Maybe<Scalars['Boolean']>;
+  context?: Maybe<SitePageContext>;
   pluginCreator?: Maybe<SitePlugin>;
   pluginCreatorId?: Maybe<Scalars['String']>;
   componentPath?: Maybe<Scalars['String']>;
@@ -2531,6 +2533,62 @@ export type SitePageConnectionGroupArgs = {
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
   field: SitePageFieldsEnum;
+};
+
+export type SitePageContext = {
+  pagePath?: Maybe<Scalars['String']>;
+  data?: Maybe<SitePageContextData>;
+  submarket?: Maybe<Scalars['Int']>;
+};
+
+export type SitePageContextData = {
+  data?: Maybe<SitePageContextDataData>;
+};
+
+export type SitePageContextDataData = {
+  allDataCsv?: Maybe<SitePageContextDataDataAllDataCsv>;
+};
+
+export type SitePageContextDataDataAllDataCsv = {
+  nodes?: Maybe<Array<Maybe<SitePageContextDataDataAllDataCsvNodes>>>;
+};
+
+export type SitePageContextDataDataAllDataCsvFilterInput = {
+  nodes?: Maybe<SitePageContextDataDataAllDataCsvNodesFilterListInput>;
+};
+
+export type SitePageContextDataDataAllDataCsvNodes = {
+  ct10_id?: Maybe<Scalars['String']>;
+  class?: Maybe<Scalars['String']>;
+  mhi?: Maybe<Scalars['String']>;
+  ch_rhu_p?: Maybe<Scalars['String']>;
+  rhu_p?: Maybe<Scalars['String']>;
+};
+
+export type SitePageContextDataDataAllDataCsvNodesFilterInput = {
+  ct10_id?: Maybe<StringQueryOperatorInput>;
+  class?: Maybe<StringQueryOperatorInput>;
+  mhi?: Maybe<StringQueryOperatorInput>;
+  ch_rhu_p?: Maybe<StringQueryOperatorInput>;
+  rhu_p?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePageContextDataDataAllDataCsvNodesFilterListInput = {
+  elemMatch?: Maybe<SitePageContextDataDataAllDataCsvNodesFilterInput>;
+};
+
+export type SitePageContextDataDataFilterInput = {
+  allDataCsv?: Maybe<SitePageContextDataDataAllDataCsvFilterInput>;
+};
+
+export type SitePageContextDataFilterInput = {
+  data?: Maybe<SitePageContextDataDataFilterInput>;
+};
+
+export type SitePageContextFilterInput = {
+  pagePath?: Maybe<StringQueryOperatorInput>;
+  data?: Maybe<SitePageContextDataFilterInput>;
+  submarket?: Maybe<IntQueryOperatorInput>;
 };
 
 export type SitePageEdge = {
@@ -2632,6 +2690,8 @@ export type SitePageFieldsEnum =
   | 'internal___owner'
   | 'internal___type'
   | 'isCreatedByStatefulCreatePages'
+  | 'context___pagePath'
+  | 'context___submarket'
   | 'pluginCreator___id'
   | 'pluginCreator___parent___id'
   | 'pluginCreator___parent___parent___id'
@@ -2674,6 +2734,7 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___name'
   | 'pluginCreator___version'
   | 'pluginCreator___pluginOptions___fileName'
+  | 'pluginCreator___pluginOptions___documentPaths'
   | 'pluginCreator___pluginOptions___sourceMap'
   | 'pluginCreator___pluginOptions___autoLabel'
   | 'pluginCreator___pluginOptions___labelFormat'
@@ -2732,6 +2793,7 @@ export type SitePageFilterInput = {
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
   isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>;
+  context?: Maybe<SitePageContextFilterInput>;
   pluginCreator?: Maybe<SitePluginFilterInput>;
   pluginCreatorId?: Maybe<StringQueryOperatorInput>;
   componentPath?: Maybe<StringQueryOperatorInput>;
@@ -2885,6 +2947,7 @@ export type SitePluginFieldsEnum =
   | 'name'
   | 'version'
   | 'pluginOptions___fileName'
+  | 'pluginOptions___documentPaths'
   | 'pluginOptions___sourceMap'
   | 'pluginOptions___autoLabel'
   | 'pluginOptions___labelFormat'
@@ -3025,6 +3088,7 @@ export type SitePluginPackageJsonPeerDependenciesFilterListInput = {
 
 export type SitePluginPluginOptions = {
   fileName?: Maybe<Scalars['String']>;
+  documentPaths?: Maybe<Array<Maybe<Scalars['String']>>>;
   sourceMap?: Maybe<Scalars['Boolean']>;
   autoLabel?: Maybe<Scalars['String']>;
   labelFormat?: Maybe<Scalars['String']>;
@@ -3053,6 +3117,7 @@ export type SitePluginPluginOptions = {
 
 export type SitePluginPluginOptionsFilterInput = {
   fileName?: Maybe<StringQueryOperatorInput>;
+  documentPaths?: Maybe<StringQueryOperatorInput>;
   sourceMap?: Maybe<BooleanQueryOperatorInput>;
   autoLabel?: Maybe<StringQueryOperatorInput>;
   labelFormat?: Maybe<StringQueryOperatorInput>;
@@ -3127,10 +3192,10 @@ export type WebPOptions = {
   quality?: Maybe<Scalars['Int']>;
 };
 
-export type SubmarketDataQueryVariables = Exact<{ [key: string]: never; }>;
+export type HomepageMapQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type SubmarketDataQuery = { allDataCsv: { nodes: Array<Pick<DataCsv, 'ct10_id' | 'class' | 'mhi' | 'ch_rhu_p' | 'rhu_p'>> } };
+export type HomepageMapQuery = { allDataCsv: { nodes: Array<Pick<DataCsv, 'ct10_id' | 'class'>> } };
 
 export type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 
@@ -3181,3 +3246,8 @@ export type GatsbyImageSharpSizes_WithWebp_TracedSvgFragment = Pick<ImageSharpSi
 export type GatsbyImageSharpSizes_NoBase64Fragment = Pick<ImageSharpSizes, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
 
 export type GatsbyImageSharpSizes_WithWebp_NoBase64Fragment = Pick<ImageSharpSizes, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+export type SubmarketPageCreateQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type SubmarketPageCreateQuery = { allDataCsv: { nodes: Array<Pick<DataCsv, 'ct10_id' | 'class' | 'mhi' | 'ch_rhu_p' | 'rhu_p'>> } };

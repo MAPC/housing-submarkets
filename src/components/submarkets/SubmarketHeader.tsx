@@ -58,11 +58,11 @@ const imageStyle = css`
   }
 `;
 
-const SubmarketHeader = () => (
+const SubmarketHeader = ({ submarket }: { submarket: number }) => (
   <div css={submarketHeaderWrapper}>
     <div css={purpleExtension} />
     <div css={articleImageWrapper}>
-      <InfoCard />
+      <InfoCard submarket={submarket} />
       <img src={submarketImage} css={imageStyle} />
     </div>
   </div>
