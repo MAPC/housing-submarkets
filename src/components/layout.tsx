@@ -1,12 +1,20 @@
+/** @jsx jsx */
+/// <reference types="@emotion/react/types/css-prop" />
+
 import React, { Component } from "react";
+import { css, jsx } from "@emotion/react";
 import Header from "./Header"
 import { Footer } from 'mapc-design-system/src';
 import { themeColors } from '../utils/theme';
 
-const Layout = ({ children }: { children: React.ReactNode }) => (
+type LayoutProps = {
+  children: React.ReactNode,
+}
+
+const Layout: React.FC<LayoutProps> = ({ children, ...props }) => (
   <React.Fragment>
     <Header />
-    <main>
+    <main {...props}>
       {children}
     </main>
     <Footer
