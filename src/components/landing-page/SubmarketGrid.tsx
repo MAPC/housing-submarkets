@@ -10,6 +10,7 @@ import SM4 from '../../images/SM4.png';
 import SM5 from '../../images/SM5.png';
 import SM6 from '../../images/SM6.png';
 import SM7 from '../../images/SM7.png';
+import { themeColors } from '../../utils/theme';
 
 const gridStyle = css`
   column-gap: 1.6rem;
@@ -22,6 +23,12 @@ const gridStyle = css`
   row-gap: 2rem;
 `;
 
+const activeLinkStyle = css`
+  &:focus {
+    border: 1px dashed ${themeColors.accentPurple};
+  }
+`;
+
 const SubmarketGrid = () => {
   return (
     <section css={gridStyle}>
@@ -29,6 +36,7 @@ const SubmarketGrid = () => {
         submarket={1}
         image={SM1}
         css={css`
+          ${activeLinkStyle}
           grid-column: 1 / 2;
           grid-row: 1;
           position: relative;
@@ -37,6 +45,7 @@ const SubmarketGrid = () => {
         submarket={2}
         image={SM2}
         css={css`
+          ${activeLinkStyle}
           grid-column: 2 / 4;
           grid-row: 1;
           position: relative;
@@ -46,6 +55,7 @@ const SubmarketGrid = () => {
         submarket={3}
         image={SM3}
         css={css`
+          ${activeLinkStyle}
           grid-column: 1 / 3;
           grid-row: 2;
           position: relative;
@@ -55,6 +65,7 @@ const SubmarketGrid = () => {
         submarket={4}
         image={SM4}
         css={css`
+          ${activeLinkStyle}
           grid-column: 3 / 4;
           grid-row: 2;
           position: relative;
@@ -64,6 +75,7 @@ const SubmarketGrid = () => {
         submarket={5}
         image={SM5}
         css={css`
+          ${activeLinkStyle}
           grid-column: 1 / 2;
           grid-row: 3;
           position: relative;
@@ -73,6 +85,7 @@ const SubmarketGrid = () => {
         submarket={6}
         image={SM6}
         css={css`
+          ${activeLinkStyle}
           grid-column: 2 / 4;
           grid-row: 3;
           position: relative;
@@ -82,6 +95,7 @@ const SubmarketGrid = () => {
         submarket={7}
         image={SM7}
         css={css`
+          ${activeLinkStyle}
           grid-column: 1 / 3;
           grid-row: 4;
           position: relative;
