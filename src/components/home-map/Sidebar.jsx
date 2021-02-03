@@ -1,4 +1,5 @@
 import React from 'react';
+import { StaticQuery, graphql } from "gatsby";
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import { css } from "@emotion/react";
@@ -68,20 +69,33 @@ const reportLinkStyle = css`
 `;
 
 const Sidebar = ({ layerVisibility, dispatch, activeLayer, sidebarOpen }) => (
-  <div css={sidebarWrapper}>
-    <aside css={panelStyle}>
-      <Highlight activeLayer={activeLayer} dispatch={dispatch} sidebarOpen={sidebarOpen} />
-      <CardFace activeLayer={activeLayer} layerVisibility={layerVisibility} dispatch={dispatch}>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        <SidebarList>
-          <SidebarListItem>Item one</SidebarListItem>
-          <SidebarListItem>Item two</SidebarListItem>
-        </SidebarList>
-      </CardFace>
-      <LayerMenu activeLayer={activeLayer} dispatch={dispatch} layerVisibility={layerVisibility} />
-    </aside>
-    <Link to="/policy-strategy" css={reportLinkStyle}>Read Report &gt;&gt;</Link>
-  </div>
+  <StaticQuery query={graphql`{
+    allMarkdownRemark(filter: {frontmatter: {folder: {in: "definitions"}}}, sort: {fields: frontmatter___submarket, order: ASC}) {
+      nodes {
+        internal {
+          content
+            }
+          }
+        }
+    }`}
+    render={data => (
+      <div css={sidebarWrapper}>
+        <aside css={panelStyle}>
+          <Highlight activeLayer={activeLayer} dispatch={dispatch} sidebarOpen={sidebarOpen} />
+          <CardFace activeLayer={activeLayer} layerVisibility={layerVisibility} dispatch={dispatch}>
+          <p>{data.allMarkdownRemark.nodes[activeLayer-1].internal.content}</p>
+            <SidebarList>
+              <SidebarListItem>Item one</SidebarListItem>
+              <SidebarListItem>Item two</SidebarListItem>
+            </SidebarList>
+          </CardFace>
+          <LayerMenu activeLayer={activeLayer} dispatch={dispatch} layerVisibility={layerVisibility} />
+        </aside>
+        <Link to="/policy-strategy" css={reportLinkStyle}>Read Report &gt;&gt;</Link>
+      </div>
+    )
+  }
+  />
 );
 
 Sidebar.propTypes = {

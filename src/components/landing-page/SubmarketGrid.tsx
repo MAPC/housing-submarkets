@@ -1,6 +1,7 @@
 /** @jsx jsx */
 
 import React from 'react';
+import { StaticQuery, graphql } from "gatsby";
 import { css, jsx } from "@emotion/react";
 import GridItem from './GridItem';
 import ReportCallout from './ReportCallout';
@@ -27,7 +28,7 @@ const gridStyle = css`
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 800px) {
     display: flex;
     flex-direction: column;
   }
@@ -51,94 +52,112 @@ const righthandMobile = css`
   }
 `;
 
-const SubmarketGrid = () => {
-  return (
-    <section css={gridStyle}>
-      <GridItem
-        submarket={1}
-        image={SM1}
-        css={css`
-          ${activeLinkStyle}
-          ${lefthandMobile}
-          grid-column: 1 / 2;
-          grid-row: 1;
-          position: relative;
-      `}/>
-      <GridItem
-        submarket={2}
-        image={SM2}
-        css={css`
-          ${activeLinkStyle}
-          ${righthandMobile}
-          grid-column: 2 / 4;
-          grid-row: 1;
-          position: relative;
-      `}
-      />
-      <GridItem
-        submarket={3}
-        image={SM3}
-        css={css`
-          ${activeLinkStyle}
-          ${lefthandMobile}
-          grid-column: 1 / 3;
-          grid-row: 2;
-          position: relative;
-      `}
-      />
-      <GridItem
-        submarket={4}
-        image={SM4}
-        css={css`
-          ${activeLinkStyle}
-          ${righthandMobile}
-          grid-column: 3 / 4;
-          grid-row: 2;
-          position: relative;
-      `}
-      />
-      <GridItem
-        submarket={5}
-        image={SM5}
-        css={css`
-          ${activeLinkStyle}
-          ${lefthandMobile}
-          grid-column: 1 / 2;
-          grid-row: 3;
-          position: relative;
-      `}
-      />
-      <GridItem
-        submarket={6}
-        image={SM6}
-        css={css`
-          ${activeLinkStyle}
-          ${righthandMobile}
-          grid-column: 2 / 4;
-          grid-row: 3;
-          position: relative;
-      `}
-      />
-      <GridItem
-        submarket={7}
-        image={SM7}
-        css={css`
-          ${activeLinkStyle}
-          ${lefthandMobile}
-          grid-column: 1 / 3;
-          grid-row: 4;
-          position: relative;
-      `}
-      />
-      <ReportCallout
-        css={css`
-          ${righthandMobile}
-          grid-column: 3 / 4;
-          grid-row: 4;
-        `}
-      />
-    </section>
-  )
-};
+const SubmarketGrid = () => (
+  <StaticQuery query={graphql`{
+    allMarkdownRemark(filter: {frontmatter: {folder: {in: "definitions"}}}, sort: {fields: frontmatter___submarket, order: ASC}) {
+      nodes {
+        internal {
+          content
+            }
+          }
+        }
+    }`}
+    render={data =>
+      <section css={gridStyle}>
+        <GridItem
+          submarket={1}
+          image={SM1}
+          css={css`
+            ${activeLinkStyle}
+            ${lefthandMobile}
+            grid-column: 1 / 2;
+            grid-row: 1;
+            position: relative;
+        `}>
+          {data.allMarkdownRemark.nodes[0].internal.content}
+        </GridItem>
+        <GridItem
+          submarket={2}
+          image={SM2}
+          css={css`
+            ${activeLinkStyle}
+            ${righthandMobile}
+            grid-column: 2 / 4;
+            grid-row: 1;
+            position: relative;
+        `}>
+          {data.allMarkdownRemark.nodes[1].internal.content}
+        </GridItem>
+        <GridItem
+          submarket={3}
+          image={SM3}
+          css={css`
+            ${activeLinkStyle}
+            ${lefthandMobile}
+            grid-column: 1 / 3;
+            grid-row: 2;
+            position: relative;
+        `}>
+          {data.allMarkdownRemark.nodes[2].internal.content}
+        </GridItem>
+        <GridItem
+          submarket={4}
+          image={SM4}
+          css={css`
+            ${activeLinkStyle}
+            ${righthandMobile}
+            grid-column: 3 / 4;
+            grid-row: 2;
+            position: relative;
+        `}>
+          {data.allMarkdownRemark.nodes[3].internal.content}
+        </GridItem>
+        <GridItem
+          submarket={5}
+          image={SM5}
+          css={css`
+            ${activeLinkStyle}
+            ${lefthandMobile}
+            grid-column: 1 / 2;
+            grid-row: 3;
+            position: relative;
+        `}>
+          {data.allMarkdownRemark.nodes[4].internal.content}
+        </GridItem>
+        <GridItem
+          submarket={6}
+          image={SM6}
+          css={css`
+            ${activeLinkStyle}
+            ${righthandMobile}
+            grid-column: 2 / 4;
+            grid-row: 3;
+            position: relative;
+        `}>
+          {data.allMarkdownRemark.nodes[5].internal.content}
+        </GridItem>
+        <GridItem
+          submarket={7}
+          image={SM7}
+          css={css`
+            ${activeLinkStyle}
+            ${lefthandMobile}
+            grid-column: 1 / 3;
+            grid-row: 4;
+            position: relative;
+        `}>
+          {data.allMarkdownRemark.nodes[6].internal.content}
+        </GridItem>
+        <ReportCallout
+          css={css`
+            ${righthandMobile}
+            grid-column: 3 / 4;
+            grid-row: 4;
+          `}
+        />
+      </section>
+    }
+  />
+);
 
 export default SubmarketGrid;

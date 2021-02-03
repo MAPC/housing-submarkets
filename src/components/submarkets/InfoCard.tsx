@@ -1,6 +1,7 @@
 /** @jsx jsx */
 
 import React from 'react';
+import { StaticQuery, graphql } from "gatsby";
 import { css, jsx } from "@emotion/react";
 import { fonts, themeColors, submarketColors } from '../../utils/theme';
 
@@ -54,25 +55,37 @@ const boldItemStyle = css`
 `;
 
 const InfoCard = ({ submarket }: { submarket: number }) => (
-  <article css={css`
-    ${articleStyle}
-    background-color: ${submarketColors[submarket]};
-  `}>
-    <h2 css={h2Style}>{`Submarket ${submarket}`}</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-    <h3 css={h3Style}>Key Policies</h3>
-    <ul css={listStyle}>
-      <li css={listItemStyle}>
-        <span css={boldItemStyle}>Key Policy One</span>: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      </li>
-      <li css={listItemStyle}>
-        <span css={boldItemStyle}>Key Policy Two</span>: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      </li>
-      <li css={listItemStyle}>
-        <span css={boldItemStyle}>Key Policy Three</span>:Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      </li>
-    </ul>
-  </article>
-);
+  <StaticQuery query={graphql`{
+    allMarkdownRemark(filter: {frontmatter: {folder: {in: "definitions"}}}, sort: {fields: frontmatter___submarket, order: ASC}) {
+      nodes {
+        internal {
+          content
+            }
+          }
+        }
+    }`}
+    render={data => (
+      <article css={css`
+        ${articleStyle}
+        background-color: ${submarketColors[submarket]};
+      `}>
+        <h2 css={h2Style}>{`Submarket ${submarket}`}</h2>
+        <p>{data.allMarkdownRemark.nodes[submarket-1].internal.content}</p>
+        <h3 css={h3Style}>Key Policies</h3>
+        <ul css={listStyle}>
+          <li css={listItemStyle}>
+            <span css={boldItemStyle}>Key Policy One</span>: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </li>
+          <li css={listItemStyle}>
+            <span css={boldItemStyle}>Key Policy Two</span>: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </li>
+          <li css={listItemStyle}>
+            <span css={boldItemStyle}>Key Policy Three</span>:Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </li>
+        </ul>
+      </article>
+    )}
+  />
+)
 
 export default InfoCard;

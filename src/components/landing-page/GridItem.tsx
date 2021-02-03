@@ -28,7 +28,7 @@ const h3Style = css`
   z-index: 10;
 `;
 
-const GridItem: React.FC<GridItemProps> = ({ submarket, image, ...props }) => {
+const GridItem: React.FC<GridItemProps> = ({ submarket, image, children, ...props }) => {
   const [isActive, toggleActive] = useState(false);
   const overlayStyle = css`
     background-color: rgba(255, 255, 255, 0.15);
@@ -80,7 +80,7 @@ const GridItem: React.FC<GridItemProps> = ({ submarket, image, ...props }) => {
           ${summaryStyle}
           background-color: ${submarketColors[submarket]};
       `}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        {children}
       </p>
     </Link>
 )};
