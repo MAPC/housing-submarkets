@@ -1,6 +1,9 @@
+/** @jsx jsx */
+
 import React from 'react';
+import { css, jsx } from "@emotion/react";
 import PropTypes from 'prop-types';
-import ReactMapGL, { Source, Layer } from 'react-map-gl';
+import ReactMapGL, { Source, Layer, NavigationControl } from 'react-map-gl';
 
 function getClickedTractId(clickData) {
   try {
@@ -9,6 +12,12 @@ function getClickedTractId(clickData) {
     return null;
   }
 }
+
+const navigationStyle = css`
+  bottom: 4.2rem;
+  position: absolute;
+  right: 1rem;
+`;
 
 const SubmarketChoropleth = ({
   viewport, dispatch, choropleth, selectedTract,
@@ -21,6 +30,7 @@ const SubmarketChoropleth = ({
     mapboxApiAccessToken="pk.eyJ1IjoiaWhpbGwiLCJhIjoiY2plZzUwMTRzMW45NjJxb2R2Z2thOWF1YiJ9.szIAeMS4c9YTgNsJeG36gg"
     mapStyle="mapbox://styles/ihill/ckjn5vkva2jbv19oxvi39hc66"
     onClick={(e) => dispatch({ type: 'setSelectedTract', tract: getClickedTractId(e) })}
+    scrollZoom={false}
   >
     <Source id="2010 Census Tracts" type="vector" url="mapbox://ihill.aw7gvvhk">
       <Layer
@@ -50,6 +60,9 @@ const SubmarketChoropleth = ({
         'line-opacity': selectedTract ? ['match', ['get', 'ct10_id'], selectedTract, 1, 0] : 0,
       }}
     />
+    <div css={navigationStyle}>
+      <NavigationControl />
+    </div>
   </ReactMapGL>
 );
 

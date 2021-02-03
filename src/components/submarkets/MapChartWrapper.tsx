@@ -65,6 +65,11 @@ const MapChartWrapper = ({ data }: { data: Array<Pick<DataCsv, 'ct10_id' | 'clas
         flex-direction: row;
         justify-content: center;
         padding: 0 5rem;
+
+        @media(max-width: 1200px) {
+          align-items: center;
+          flex-direction: column;
+        }
       `}>
         <SubmarketChoropleth
           viewport={state.viewport}
