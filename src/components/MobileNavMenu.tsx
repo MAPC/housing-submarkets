@@ -5,7 +5,7 @@ import { Link } from 'gatsby';
 import { X } from 'phosphor-react';
 import { css, jsx } from "@emotion/react";
 import { themeColors } from '../utils/theme';
-import { isCurrentPage, navItemStyle, linkStyle } from './MainNav';
+import { navItemStyle, linkStyle } from './MainNav';
 
 const mobileNavStyle = css`
   background-color: ${themeColors.bgPurple};
@@ -40,14 +40,9 @@ interface MobileNavMenuProps {
 }
 
 const MobileNavMenu: React.FC<MobileNavMenuProps> = ({ toggleMobileNav }) => {
-  const urlPath = typeof window !== 'undefined' ? window.location.pathname : '';
   const mobileNavItemStyle = css`
     ${navItemStyle}
     margin: 1.5rem 1rem;
-  `;
-  const activeLinkStyle = css`
-    ${linkStyle}
-    color: ${themeColors.white};
   `;
   return (
     <nav css={mobileNavStyle}>
@@ -60,22 +55,22 @@ const MobileNavMenu: React.FC<MobileNavMenuProps> = ({ toggleMobileNav }) => {
       </button>
       <ul css={mobileNavListStyle}>
         <li css={mobileNavItemStyle}>
-          <Link to="/tempIndex" css={ isCurrentPage(urlPath, 'home') ? activeLinkStyle : linkStyle }>
+          <Link to="/tempIndex" css={linkStyle} activeStyle={{ color: themeColors.white }}>
             Home
           </Link>
         </li>
         <li css={mobileNavItemStyle}>
-          <Link to="/submarkets" css={ isCurrentPage(urlPath, 'submarkets') ? activeLinkStyle : linkStyle }>
+          <Link to="/submarkets" css={linkStyle} activeStyle={{ color: themeColors.white }} partiallyActive={true}>
             Submarkets
           </Link>
         </li>
         <li css={mobileNavItemStyle}>
-          <Link to="/policy-strategy" css={ isCurrentPage(urlPath, 'policy-strategy') ? activeLinkStyle : linkStyle } >
+          <Link to="/policy-strategy" css={linkStyle} activeStyle={{ color: themeColors.white }}>
             Policy Strategy
           </Link>
         </li>
         <li css={mobileNavItemStyle}>
-          <Link to="/about" css={ isCurrentPage(urlPath, 'about') ? activeLinkStyle : linkStyle }>
+          <Link to="/about" css={linkStyle} activeStyle={{ color: themeColors.white }}>
             About
           </Link>
         </li>

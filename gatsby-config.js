@@ -9,6 +9,7 @@ module.exports = {
     author: '@mapcmetroboston',
   },
   plugins: [
+    'gatsby-plugin-fontawesome-css',
     {
       resolve: `gatsby-plugin-graphql-codegen`,
       options: {

@@ -8599,6 +8599,11 @@ gatsby-plugin-emotion@^5.3.0:
     "@babel/runtime" "^7.11.2"
     "@emotion/babel-preset-css-prop" "^11.0.0"
 
+gatsby-plugin-fontawesome-css@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-fontawesome-css/-/gatsby-plugin-fontawesome-css-1.0.0.tgz#12b0d9e4eb45f9321556e83accfa93fc6627d608"
+  integrity sha512-jToy7WSlNjCtcFWjS7/W1U8jJggKBv2hZhatYyNXELfxvl3eFvuJGlDYYDDKtMzv57N5hbXwUvJ+iW21+FcDOA==
+
 gatsby-plugin-graphql-codegen@^2.7.1:
   version "2.7.1"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-graphql-codegen/-/gatsby-plugin-graphql-codegen-2.7.1.tgz#60683ef5508bc7e23c8e288f6d320b3f2b7f5d00"
@@ -12107,10 +12112,10 @@ mapbox-gl@^1.0.0:
     tinyqueue "^2.0.3"
     vt-pbf "^3.1.1"
 
-mapc-design-system@^0.1.5:
-  version "0.1.5"
-  resolved "https://registry.yarnpkg.com/mapc-design-system/-/mapc-design-system-0.1.5.tgz#3ad8ab135f7e102bd786e8af76d14dc05b321835"
-  integrity sha512-btByoGKNeAINAyGZyOT04YEeM5i32N2+XzUt9A295wsDIkBzos+dt8XkUiKMqFdV0fsx/tlxxYiRbatmbEm/5g==
+mapc-design-system@0.1.6:
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/mapc-design-system/-/mapc-design-system-0.1.6.tgz#7ebe54c3bd23f896a7083ad1fe81064421cb9057"
+  integrity sha512-MFSwuXqNMd0/GD0KWBC2aeCx6+pV7YDdcdImW32NodWsCE/+tSs9vCR3xRg5vdDUM6jlaU++2uxx/CC7lf+IwA==
   dependencies:
     "@emotion/react" "^11.1.4"
     "@fortawesome/fontawesome-svg-core" "^1.2.34"

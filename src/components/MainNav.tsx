@@ -27,58 +27,41 @@ const linkStyle = css`
   text-decoration: none;
 `;
 
-function isCurrentPage(urlPath: string, pageName: string) {
-  if (urlPath.includes(pageName)) {
-    return true;
-  }
-  if (urlPath === '/tempIndex' && pageName === 'home') {
-    return true;
-  }
-  return false;
-}
-
-const MainNav = () => {
-  const urlPath = typeof window !== 'undefined' ? window.location.pathname : '';
-  const activeLinkStyle = css`
-    ${linkStyle}
-    color: ${themeColors.white};
-  `;
-  return (
-    <nav>
-      <ul css={navListStyle}>
-        <li css={navItemStyle}>
-          <Link to="/tempIndex" css={ isCurrentPage(urlPath, 'home') ? activeLinkStyle : linkStyle }>
-            Home
-          </Link>
-        </li>
-        <li css={navItemStyle} aria-hidden={true}>
-          |
-        </li>
-        <li css={navItemStyle}>
-          <Link to="/submarkets" css={ isCurrentPage(urlPath, 'submarkets') ? activeLinkStyle : linkStyle }>
-            Submarkets
-          </Link>
-        </li>
-        <li css={navItemStyle} aria-hidden={true}>
-          |
-        </li>
-        <li css={navItemStyle}>
-          <Link to="/policy-strategy" css={ isCurrentPage(urlPath, 'policy-strategy') ? activeLinkStyle : linkStyle } >
-            Policy Strategy
-          </Link>
-        </li>
-        <li css={navItemStyle} aria-hidden={true}>
-          |
-        </li>
-        <li css={navItemStyle}>
-          <Link to="/about" css={ isCurrentPage(urlPath, 'about') ? activeLinkStyle : linkStyle }>
-            About
-          </Link>
-        </li>
-      </ul>
-    </nav>
-  )
-};
+const MainNav = () => (
+  <nav>
+    <ul css={navListStyle}>
+      <li css={navItemStyle}>
+        <Link to="/tempIndex" css={linkStyle} activeStyle={{ color: themeColors.white }}>
+          Home
+        </Link>
+      </li>
+      <li css={navItemStyle} aria-hidden={true}>
+        |
+      </li>
+      <li css={navItemStyle}>
+        <Link to="/submarkets" css={linkStyle} activeStyle={{ color: themeColors.white }} partiallyActive={true}>
+          Submarkets
+        </Link>
+      </li>
+      <li css={navItemStyle} aria-hidden={true}>
+        |
+      </li>
+      <li css={navItemStyle}>
+        <Link to="/policy-strategy" css={linkStyle} activeStyle={{ color: themeColors.white }}>
+          Policy Strategy
+        </Link>
+      </li>
+      <li css={navItemStyle} aria-hidden={true}>
+        |
+      </li>
+      <li css={navItemStyle}>
+        <Link to="/about" css={linkStyle} activeStyle={{ color: themeColors.white }}>
+          About
+        </Link>
+      </li>
+    </ul>
+  </nav>
+)
 
 export default MainNav;
-export { isCurrentPage, navListStyle, navItemStyle, linkStyle };
+export { navListStyle, navItemStyle, linkStyle };
