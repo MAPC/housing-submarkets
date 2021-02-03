@@ -21,11 +21,32 @@ const gridStyle = css`
   padding-bottom: 15rem;
   max-width: 126.6rem;
   row-gap: 2rem;
+
+  @media (max-width: 1000px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 const activeLinkStyle = css`
   &:focus {
     border: 1px dashed ${themeColors.accentPurple};
+  }
+`;
+
+const lefthandMobile = css`
+  @media (max-width: 1000px) {
+    grid-column: 1 / 2;
+  }
+`;
+
+const righthandMobile = css`
+  @media (max-width: 1000px) {
+    grid-column: 2 / 3;
   }
 `;
 
@@ -37,6 +58,7 @@ const SubmarketGrid = () => {
         image={SM1}
         css={css`
           ${activeLinkStyle}
+          ${lefthandMobile}
           grid-column: 1 / 2;
           grid-row: 1;
           position: relative;
@@ -46,6 +68,7 @@ const SubmarketGrid = () => {
         image={SM2}
         css={css`
           ${activeLinkStyle}
+          ${righthandMobile}
           grid-column: 2 / 4;
           grid-row: 1;
           position: relative;
@@ -56,6 +79,7 @@ const SubmarketGrid = () => {
         image={SM3}
         css={css`
           ${activeLinkStyle}
+          ${lefthandMobile}
           grid-column: 1 / 3;
           grid-row: 2;
           position: relative;
@@ -66,6 +90,7 @@ const SubmarketGrid = () => {
         image={SM4}
         css={css`
           ${activeLinkStyle}
+          ${righthandMobile}
           grid-column: 3 / 4;
           grid-row: 2;
           position: relative;
@@ -76,6 +101,7 @@ const SubmarketGrid = () => {
         image={SM5}
         css={css`
           ${activeLinkStyle}
+          ${lefthandMobile}
           grid-column: 1 / 2;
           grid-row: 3;
           position: relative;
@@ -86,6 +112,7 @@ const SubmarketGrid = () => {
         image={SM6}
         css={css`
           ${activeLinkStyle}
+          ${righthandMobile}
           grid-column: 2 / 4;
           grid-row: 3;
           position: relative;
@@ -96,6 +123,7 @@ const SubmarketGrid = () => {
         image={SM7}
         css={css`
           ${activeLinkStyle}
+          ${lefthandMobile}
           grid-column: 1 / 3;
           grid-row: 4;
           position: relative;
@@ -103,6 +131,7 @@ const SubmarketGrid = () => {
       />
       <div
         css={css`
+          ${righthandMobile}
           grid-column: 3 / 4;
           grid-row: 4;
         `}

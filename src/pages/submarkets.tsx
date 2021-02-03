@@ -1,6 +1,7 @@
 /** @jsx jsx */
 
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { css, jsx } from "@emotion/react";
 import { fonts, themeColors } from '../utils/theme';
 import Layout from '../components/layout';
@@ -20,6 +21,14 @@ const introArticle = css`
   color: ${themeColors.white};
   max-width: 78.6rem;
   padding: 7.6rem 18rem;
+
+  @media (max-width: 1000px) {
+    padding: 7rem 9rem;
+  }
+
+  @media (max-width: 670px) {
+    padding: 5rem 0;
+  }
 `;
 
 const h2Style = css`
@@ -32,6 +41,9 @@ const h2Style = css`
 
 const Submarkets = () => (
   <Layout css={submarketsBackground}>
+    <Helmet>
+      <title>Submarkets | MAPC Housing Submarkets</title>
+    </Helmet>
     <div css={contentWrapper}>
       <article css={introArticle}>
         <h2 css={h2Style}>What is a submarket?</h2>
