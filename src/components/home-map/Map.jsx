@@ -4,11 +4,20 @@ import ReactMapGL, { Source, Layer, NavigationControl} from 'react-map-gl';
 import { css } from "@emotion/react";
 import SubmarketLayer from './SubmarketLayer';
 
+const navigationStyle = css`
+  bottom: 3.2rem;
+  position: absolute;
+  right: 1.6rem;
+
+  @media (max-width: 640px) {
+    bottom: 4.2rem;
+    right: 1rem;
+  }
+`;
+
 const Map = ({ viewport, dispatch, data, layerVisibility }) => {
-  const [height, setHeight] = useState(500);
   const [width, setWidth] = useState(700);
   useEffect(() => {
-    setHeight(document.querySelector('main').offsetHeight);
     setWidth(document.querySelector('main').offsetWidth);
   }, []);
 
@@ -18,21 +27,18 @@ const Map = ({ viewport, dispatch, data, layerVisibility }) => {
     return () => window.removeEventListener('resize', handleWidthResize);
   }, []);
 
-  useEffect(() => {
-    const handleHeightResize = () => setHeight(document.querySelector('main').offsetHeight);
-    window.addEventListener('resize', handleHeightResize);
-    return () => window.removeEventListener('resize', handleHeightResize);
-  }, []);
-
   return (
   <ReactMapGL
     {...viewport}
     width={`${width}px`}
-    height={`${height}px`}
+    height={`calc(100vh - 115px)`}
     onViewportChange={(viewport) => dispatch({ type: 'setViewport', viewport })}
     mapboxApiAccessToken="pk.eyJ1IjoiaWhpbGwiLCJhIjoiY2plZzUwMTRzMW45NjJxb2R2Z2thOWF1YiJ9.szIAeMS4c9YTgNsJeG36gg"
     mapStyle="mapbox://styles/ihill/ckk4b7xz43i8a17mjm1u1r8xs"
     scrollZoom={false}
+    css={css`
+      height: calc(100vh - 115px);
+    `}
   >
     <Source id="2010 Census Tracts" type="vector" url="mapbox://ihill.aw7gvvhk">
       <SubmarketLayer id={1} data={data} isVisible={layerVisibility['1']} />
@@ -51,11 +57,7 @@ const Map = ({ viewport, dispatch, data, layerVisibility }) => {
         source-layer="MAPC_borders-0im3ea"
       />
     </Source>
-    <div css={css`
-      bottom: 3.2rem;
-      position: absolute;
-      right: 1.6rem;
-    `}>
+    <div css={navigationStyle}>
       <NavigationControl />
     </div>
   </ReactMapGL>

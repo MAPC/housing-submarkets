@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import { css } from "@emotion/react";
 import styled from '@emotion/styled';
@@ -8,21 +9,36 @@ import LayerMenu from './LayerMenu';
 import { themeColors } from '../../utils/colors';
 
 const sidebarWrapper = css`
-  background-color: ${themeColors.white};
+  align-items: flex-end;
   display: flex;
-  flex-direction: row;
-  min-height: 47rem;
+  flex-direction: column;
   position: absolute;
   right: 10rem;
-  top: 10rem;
-  width: 43rem;
+  top: 5rem;
 
   @media (max-width: 1280px) {
+    align-items: flex-start;
     right: 5rem;
   }
 
   @media (max-width: 1024px) {
     top: 5rem;
+  }
+
+  @media (max-width: 768px) {
+    right: 1rem;
+    top: 1rem;
+  }
+`;
+
+const panelStyle = css`
+  background-color: ${themeColors.white};
+  display: flex;
+  flex-direction: row;
+  min-height: 47rem;
+  width: 43rem;
+
+  @media (max-width: 1024px) {
     width: 40rem;
   }
 
@@ -32,8 +48,6 @@ const sidebarWrapper = css`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    right: 1rem;
-    top: 1rem;
     width: 36rem;
   }
 `;
@@ -48,19 +62,26 @@ const SidebarListItem = styled.li`
   margin: 1.2rem 0;
 `;
 
+const reportLinkStyle = css`
+  color: ${themeColors.fontGray};
+  margin-top: 2rem;
+`;
 
 const Sidebar = ({ layerVisibility, dispatch, activeLayer, sidebarOpen }) => (
-  <aside css={sidebarWrapper}>
-    <Highlight activeLayer={activeLayer} dispatch={dispatch} sidebarOpen={sidebarOpen} />
-    <CardFace activeLayer={activeLayer} layerVisibility={layerVisibility} dispatch={dispatch}>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      <SidebarList>
-        <SidebarListItem>Item one</SidebarListItem>
-        <SidebarListItem>Item two</SidebarListItem>
-      </SidebarList>
-    </CardFace>
-    <LayerMenu activeLayer={activeLayer} dispatch={dispatch} layerVisibility={layerVisibility} />
-  </aside>
+  <div css={sidebarWrapper}>
+    <aside css={panelStyle}>
+      <Highlight activeLayer={activeLayer} dispatch={dispatch} sidebarOpen={sidebarOpen} />
+      <CardFace activeLayer={activeLayer} layerVisibility={layerVisibility} dispatch={dispatch}>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <SidebarList>
+          <SidebarListItem>Item one</SidebarListItem>
+          <SidebarListItem>Item two</SidebarListItem>
+        </SidebarList>
+      </CardFace>
+      <LayerMenu activeLayer={activeLayer} dispatch={dispatch} layerVisibility={layerVisibility} />
+    </aside>
+    <Link to="/policy-strategy" css={reportLinkStyle}>Read Report &gt;&gt;</Link>
+  </div>
 );
 
 Sidebar.propTypes = {
