@@ -4,7 +4,13 @@ import React from 'react';
 import { css, jsx } from "@emotion/react";
 import InfoCard from './InfoCard';
 import { themeColors } from '../../utils/theme';
-import submarketImage from '../../images/submarket1.png';
+import SM1 from '../../images/SM1.png';
+import SM2 from '../../images/SM2.png';
+import SM3 from '../../images/SM3.png';
+import SM4 from '../../images/SM4.png';
+import SM5 from '../../images/SM5.png';
+import SM6 from '../../images/SM6.png';
+import SM7 from '../../images/SM7.png';
 
 const submarketHeaderWrapper = css`
   height: 60rem;
@@ -58,12 +64,22 @@ const imageStyle = css`
   }
 `;
 
+const submarketImage = {
+  1: SM1,
+  2: SM2,
+  3: SM3,
+  4: SM4,
+  5: SM5,
+  6: SM6,
+  7: SM7
+}
+
 const SubmarketHeader = ({ submarket }: { submarket: number }) => (
   <div css={submarketHeaderWrapper}>
     <div css={purpleExtension} />
     <div css={articleImageWrapper}>
       <InfoCard submarket={submarket} />
-      <img src={submarketImage} css={imageStyle} />
+      <img src={submarketImage[submarket]} css={imageStyle} />
     </div>
   </div>
 );
