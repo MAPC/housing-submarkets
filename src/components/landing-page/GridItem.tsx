@@ -1,7 +1,7 @@
 /** @jsx jsx */
 
 import React, { useState } from 'react';
-import { Link } from 'gatsby';
+import { Link, navigate } from 'gatsby';
 import { css, jsx } from "@emotion/react";
 import { fonts, themeColors, submarketColors } from '../../utils/theme';
 
@@ -51,10 +51,18 @@ const GridItem: React.FC<GridItemProps> = ({ submarket, image, ...props }) => {
     <Link
       {...props}
       to={`/submarkets/${submarket}`}
-      onFocus={(e) => toggleActive(true)}
-      onBlur={(e) => toggleActive(false)}
-      onMouseEnter={(e) => toggleActive(true)}
-      onMouseLeave={(e) => toggleActive(false)}
+      onFocus={() => toggleActive(true)}
+      onBlur={() => toggleActive(false)}
+      onMouseEnter={() => toggleActive(true)}
+      onMouseLeave={() => toggleActive(false)}
+      role="button"
+      tabIndex={0}
+      onClick={() => navigate(`/submarkets/${submarket}`)}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          navigate(`/submarkets/${submarket}`);
+        }
+      }}
     >
       <div css={css`
         ${imageStyle}

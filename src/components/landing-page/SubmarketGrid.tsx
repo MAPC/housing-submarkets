@@ -3,6 +3,7 @@
 import React from 'react';
 import { css, jsx } from "@emotion/react";
 import GridItem from './GridItem';
+import ReportCallout from './ReportCallout';
 import SM1 from '../../images/SM1.png';
 import SM2 from '../../images/SM2.png';
 import SM3 from '../../images/SM3.png';
@@ -16,7 +17,7 @@ const gridStyle = css`
   column-gap: 1.6rem;
   display: grid;
   grid-template-columns: 40% 1fr 40%;
-  grid-template-rows: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 35rem);
   margin: 0 auto;
   padding-bottom: 15rem;
   max-width: 126.6rem;
@@ -34,7 +35,7 @@ const gridStyle = css`
 
 const activeLinkStyle = css`
   &:focus {
-    border: 1px dashed ${themeColors.accentPurple};
+    border: 3px solid ${themeColors.buttonBorder};
   }
 `;
 
@@ -129,15 +130,13 @@ const SubmarketGrid = () => {
           position: relative;
       `}
       />
-      <div
+      <ReportCallout
         css={css`
           ${righthandMobile}
           grid-column: 3 / 4;
           grid-row: 4;
         `}
-      >
-        Click for report
-      </div>
+      />
     </section>
   )
 };
