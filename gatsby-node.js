@@ -17,9 +17,18 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           rhu_p
         }
       }
-    }
-    `
+    }`
   )
+
+  const submarketSummary = await graphql(`
+    query submarketSummaries {
+      allMarkdownRemark(filter: {frontmatter: {folder: {in: "summaries"}}}, sort: {fields: frontmatter___submarket, order: ASC}) {
+        nodes {
+          html
+        }
+      }
+    }
+  `);
 
   // Handle errors
   if (csvData.errors) {
@@ -41,6 +50,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         pagePath: `/submarkets/${submarket}`,
         data: csvData,
         submarket,
+        summary: submarketSummary.data.allMarkdownRemark.nodes[submarket-1].html
       },
     })
     submarket+=1;

@@ -2955,6 +2955,7 @@ export type SitePageContext = {
   pagePath?: Maybe<Scalars['String']>;
   data?: Maybe<SitePageContextData>;
   submarket?: Maybe<Scalars['Int']>;
+  summary?: Maybe<Scalars['String']>;
 };
 
 export type SitePageContextData = {
@@ -3005,6 +3006,7 @@ export type SitePageContextFilterInput = {
   pagePath?: Maybe<StringQueryOperatorInput>;
   data?: Maybe<SitePageContextDataFilterInput>;
   submarket?: Maybe<IntQueryOperatorInput>;
+  summary?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePageEdge = {
@@ -3108,6 +3110,7 @@ export type SitePageFieldsEnum =
   | 'isCreatedByStatefulCreatePages'
   | 'context___pagePath'
   | 'context___submarket'
+  | 'context___summary'
   | 'pluginCreator___id'
   | 'pluginCreator___parent___id'
   | 'pluginCreator___parent___parent___id'
@@ -3677,3 +3680,8 @@ export type SubmarketPageCreateQueryVariables = Exact<{ [key: string]: never; }>
 
 
 export type SubmarketPageCreateQuery = { allDataCsv: { nodes: Array<Pick<DataCsv, 'ct10_id' | 'class' | 'mhi' | 'ch_rhu_p' | 'rhu_p'>> } };
+
+export type SubmarketSummariesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type SubmarketSummariesQuery = { allMarkdownRemark: { nodes: Array<Pick<MarkdownRemark, 'html'>> } };
