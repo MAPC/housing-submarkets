@@ -4,8 +4,8 @@ const fonts = {
 };
 const submarketColors = {
   1: '#C7024E',
-  2: '#043C30',
-  3: '#80CDC1',
+  2: '#80CDC1',
+  3: '#06614d',
   4: '#F37B74',
   5: '#BF812D',
   6: '#8C510A',
