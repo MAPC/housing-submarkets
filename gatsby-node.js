@@ -15,6 +15,11 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           mhi
           ch_rhu_p
           rhu_p
+          medhv
+          rhu_p
+          yrblt59_p
+          cash17_p
+          ch_medhv_p
         }
       }
     }`

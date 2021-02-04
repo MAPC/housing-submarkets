@@ -4,6 +4,7 @@ import React from 'react';
 import { css, jsx } from "@emotion/react";
 import PropTypes from 'prop-types';
 import ReactMapGL, { Source, Layer, NavigationControl } from 'react-map-gl';
+import Legend from './Legend';
 
 function getClickedTractId(clickData) {
   try {
@@ -20,7 +21,7 @@ const navigationStyle = css`
 `;
 
 const SubmarketChoropleth = ({
-  viewport, dispatch, choropleth, selectedTract,
+  view, viewport, dispatch, choropleth, selectedTract,
 }) => (
   <ReactMapGL
     {...viewport}
@@ -63,6 +64,7 @@ const SubmarketChoropleth = ({
     <div css={navigationStyle}>
       <NavigationControl />
     </div>
+    <Legend view={view} />
   </ReactMapGL>
 );
 

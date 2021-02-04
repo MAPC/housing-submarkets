@@ -16,7 +16,7 @@ const MapChartWrapper = ({ data }: { data: Array<Pick<DataCsv, 'ct10_id' | 'clas
       longitude: -71.0834,
       zoom: 8.4,
     },
-    chartView: 'mhi',
+    chartView: 'medhv',
     choropleth: [],
     selectedTract: null,
   };
@@ -72,6 +72,7 @@ const MapChartWrapper = ({ data }: { data: Array<Pick<DataCsv, 'ct10_id' | 'clas
         }
       `}>
         <SubmarketChoropleth
+          view={state.chartView}
           viewport={state.viewport}
           dispatch={dispatch}
           choropleth={state.choropleth}

@@ -11,7 +11,7 @@ const submarketColors = {
   6: '#8C510A',
   7: '#6EA1C9',
 };
-const choroplethColors = ['#f2f0f7', '#dadaeb', '#bcbddc', '#9e9ac8', '#807dba', '#6a51a3', '#4a1486'];
+const choroplethColors = ['#F2F0F7', '#BCBDDC', '#807DBA', '#5e279a', '#2F0D56'];
 const themeColors = {
   bgPurple: '#482C78',
   highlightPurple: '#9F7BB7',
