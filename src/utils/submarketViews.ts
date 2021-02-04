@@ -1,4 +1,4 @@
-import { choroplethColors } from './theme';
+import { choroplethColors, submarketColors, themeColors } from './theme';
 
 type View = 'medhv' | 'ch_medhv_p' | 'rhu_p' | 'yrblt59_p' | 'cash17_p';
 type ChoroplethFunc = (value: number) => string;
@@ -113,27 +113,55 @@ function vegaSchema(submarket, field, domain, format, selectedTract, color, widt
     width: width,
     height: 30,
     transform: [{ filter: `datum.class == ${submarket}` }],
-    title: `Submarket ${submarket}`,
+    title: {text: `Submarket ${submarket}`, color: color},
     data: { name: 'data' },
-    mark: { type: 'tick' },
-    encoding: {
-      color: { value: color },
-      x: {
-        field,
-        type: 'quantitative',
-        scale: { type: 'linear', domain },
-        title: null,
-        axis: { format },
-      },
-      size: {
-        condition: {
-          test: `datum['ct10_id'] == ${selectedTract}`,
-          value: 25,
+    layer: [{
+      mark: { type: 'tick' },
+      encoding: {
+        color: {
+          condition: {
+            test: `datum['ct10_id'] == ${selectedTract}`,
+            value: '#FDB525'
+          },
+          value: `${themeColors.bgPurple}`
         },
-        value: 10,
+        x: {
+          field,
+          type: 'quantitative',
+          scale: { type: 'linear', domain },
+          title: null,
+          axis: { format },
+        },
+        size: {
+          condition: {
+            test: `datum['ct10_id'] == ${selectedTract}`,
+            value: 25,
+          },
+          value: 10,
+        },
       },
-    },
-    config: { tick: { thickness: 2, color } },
+      config: { tick: { thickness: 2, color } },
+    }, {
+      mark: { type: 'circle'},
+      encoding: {
+        color: {
+          condition: {
+            test: `datum['ct10_id'] == ${selectedTract}`,
+            value: '#FDB525'
+          },
+          value: 'rgba(0, 0, 0, 0)'
+        },
+        x: {
+          field,
+          type: 'quantitative',
+          scale: { type: 'linear', domain },
+          title: null,
+          axis: { format },
+        },
+        y: { value: 15 }
+      },
+      config: { circle: { size: 2} },
+    }]
   };
 }
 
