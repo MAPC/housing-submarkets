@@ -1,11 +1,11 @@
 import React from 'react';
 import { Layer } from 'react-map-gl';
-import submarketColors from '../../utils/colors';
+import { submarketColors } from '../../utils/theme'
 
 const SubmarketLayer = ({ id, data, isVisible }) => {
   const choropleth = ['match', ['get', 'ct10_id']];
   data.forEach((row) => {
-    choropleth.push(row.ct10_id, +row.class === id ? submarketColors[id - 1] : 'rgba(0, 0, 0, 0)');
+    choropleth.push(row.ct10_id, +row.class === id ? submarketColors[id] : 'rgba(0, 0, 0, 0)');
   });
   choropleth.push('rgb(255, 255, 255)');
 

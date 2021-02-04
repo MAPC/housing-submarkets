@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { css } from "@emotion/react";
 import styled from '@emotion/styled';
 import Toggle from './Toggle';
-import submarketColors, { themeColors } from '../../utils/colors';
+import { submarketColors, themeColors } from '../../utils/theme';
 import { fonts } from '../../utils/theme';
 
 const SidebarContent = styled.div`
@@ -27,7 +27,7 @@ const TitleWrapper = styled.div`
 `;
 
 const SidebarTitle = styled.h2((props) => ({
-  color: submarketColors[props.activeLayer-1],
+  color: submarketColors[props.activeLayer],
   fontFamily: fonts.calibre,
   fontSize: '2.8rem',
   fontWeight: '600',
@@ -41,7 +41,7 @@ const SidebarSubtitle = styled.h3`
 `;
 
 const sidebarLink = (activeLayer) => (css`
-  color: ${submarketColors[activeLayer-1]};
+  color: ${submarketColors[activeLayer]};
   text-decoration: underline;
 
   &:focus {

@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import submarketColors, { themeColors } from '../../utils/colors';
-import { fonts } from '../../utils/theme';
+import { fonts, themeColors, submarketColors } from '../../utils/theme';
 
 function updateLayer(layer, activeLayer, dispatch) {
   if (layer === activeLayer) {
@@ -23,7 +22,7 @@ const ListItem = styled.li`
 const Button = styled.button((props) => ({
   background: (props.layer === props.activeLayer ? themeColors.white : themeColors.warmGray),
   border: 'none',
-  color: (props.layer === props.activeLayer ? submarketColors[props.layer - 1] : 'rgba(122, 122, 122, .5)'),
+  color: (props.layer === props.activeLayer ? submarketColors[props.layer] : 'rgba(122, 122, 122, .5)'),
   fontFamily: fonts.calibre,
   fontSize: '2.8rem',
   height: '100%',
@@ -34,7 +33,7 @@ const Button = styled.button((props) => ({
   width: '100%',
 
   '&:hover': {
-    color: (props.layer === props.activeLayer ? submarketColors[props.layer - 1] : themeColors.fontGray),
+    color: (props.layer === props.activeLayer ? submarketColors[props.layer] : themeColors.fontGray),
     transition: 'color .2s ease-out',
     WebkitTransition: 'color .2s ease-out',
   },

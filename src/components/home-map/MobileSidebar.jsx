@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { css } from "@emotion/react";
 import { Stack } from 'phosphor-react';
 import Sidebar from './Sidebar';
-import { themeColors } from '../../utils/colors';
+import { themeColors } from '../../utils/theme';
 
 
 const MobileSidebar = ({ layerVisibility, dispatch, activeLayer, sidebarOpen }) => (

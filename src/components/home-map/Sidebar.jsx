@@ -7,7 +7,7 @@ import styled from '@emotion/styled';
 import Highlight from './Highlight';
 import CardFace from './CardFace';
 import LayerMenu from './LayerMenu';
-import { themeColors } from '../../utils/colors';
+import { themeColors } from '../../utils/theme';
 
 const sidebarWrapper = css`
   align-items: flex-end;

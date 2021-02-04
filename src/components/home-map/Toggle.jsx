@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { css } from "@emotion/react";
-import submarketColors, { themeColors } from '../../utils/colors';
+import { submarketColors, themeColors } from '../../utils/theme';
 
 const toggleColor = (activeLayer) => (css`
   &:checked + .toggle__circle {
-    background-color: ${submarketColors[activeLayer-1]};
+    background-color: ${submarketColors[activeLayer]};
   }
 
   &:focus {

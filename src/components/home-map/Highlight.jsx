@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { css } from "@emotion/react";
 import { X } from 'phosphor-react';
-import submarketColors, { themeColors } from '../../utils/colors';
+import { submarketColors, themeColors } from '../../utils/theme';
 
 const MenuCloseButton = css`
   display: none;
@@ -16,7 +16,7 @@ const MenuCloseButton = css`
 
 const Highlight = ({ activeLayer, sidebarOpen, dispatch }) => (
   <div css={css`
-    background-color: ${submarketColors[activeLayer-1]};
+    background-color: ${submarketColors[activeLayer]};
     height: inherit;
     width: 2rem;
 
