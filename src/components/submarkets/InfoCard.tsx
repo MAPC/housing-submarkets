@@ -4,6 +4,7 @@ import React from 'react';
 import { StaticQuery, graphql } from "gatsby";
 import { css, jsx } from "@emotion/react";
 import { fonts, themeColors, submarketColors } from '../../utils/theme';
+import { submarketHighlights } from '../../content/highlights';
 
 const articleStyle = css`
   color: ${themeColors.white};
@@ -54,38 +55,41 @@ const boldItemStyle = css`
   font-weight: 600;
 `;
 
-const InfoCard = ({ submarket }: { submarket: number }) => (
-  <StaticQuery query={graphql`{
-    allMarkdownRemark(filter: {frontmatter: {folder: {in: "definitions"}}}, sort: {fields: frontmatter___submarket, order: ASC}) {
-      nodes {
-        internal {
-          content
+const InfoCard = ({ submarket }: { submarket: number }) => {
+  const policyTitles = Object.keys(submarketHighlights[submarket].highlights)
+  const policies = Object.values(submarketHighlights[submarket].highlights)
+  const listItems = policyTitles.map((title, i) => {
+    return (
+      <li css={listItemStyle}>
+        <span css={boldItemStyle}>{title}</span>: {policies[i]}
+      </li>
+    )
+  });
+  return (
+    <StaticQuery query={graphql`{
+      allMarkdownRemark(filter: {frontmatter: {folder: {in: "definitions"}}}, sort: {fields: frontmatter___submarket, order: ASC}) {
+        nodes {
+          internal {
+            content
+              }
             }
           }
-        }
-    }`}
-    render={data => (
-      <article css={css`
-        ${articleStyle}
-        background-color: ${submarketColors[submarket]};
-      `}>
-        <h2 css={h2Style}>{`Submarket ${submarket}`}</h2>
-        <p>{data.allMarkdownRemark.nodes[submarket-1].internal.content}</p>
-        <h3 css={h3Style}>Key Policies</h3>
-        <ul css={listStyle}>
-          <li css={listItemStyle}>
-            <span css={boldItemStyle}>Key Policy One</span>: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </li>
-          <li css={listItemStyle}>
-            <span css={boldItemStyle}>Key Policy Two</span>: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </li>
-          <li css={listItemStyle}>
-            <span css={boldItemStyle}>Key Policy Three</span>:Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </li>
-        </ul>
-      </article>
-    )}
-  />
-)
+      }`}
+      render={data => (
+        <article css={css`
+          ${articleStyle}
+          background-color: ${submarketColors[submarket]};
+        `}>
+          <h2 css={h2Style}>{`Submarket ${submarket}`}</h2>
+          <p>{data.allMarkdownRemark.nodes[submarket-1].internal.content}</p>
+          <h3 css={h3Style}>Key Policies</h3>
+          <ul css={listStyle}>
+            {listItems}
+          </ul>
+        </article>
+      )}
+    />
+  )
+}
 
 export default InfoCard;

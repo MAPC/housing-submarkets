@@ -3,7 +3,6 @@
 import React, { Dispatch, SetStateAction } from 'react';
 import { css, jsx } from "@emotion/react";
 import PropTypes from 'prop-types';
-import styled from '@emotion/styled';
 import { fonts, themeColors, submarketColors } from '../../utils/theme';
 
 function updateLayer(layer: number, activeLayer: number, dispatch: Dispatch<SetStateAction<number>>) {

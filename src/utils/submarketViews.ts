@@ -1,4 +1,4 @@
-import { choroplethColors, submarketColors, themeColors } from './theme';
+import { choroplethColors, themeColors } from './theme';
 
 type View = 'medhv' | 'ch_medhv_p' | 'rhu_p' | 'yrblt59_p' | 'cash17_p';
 type ChoroplethFunc = (value: number) => string;
