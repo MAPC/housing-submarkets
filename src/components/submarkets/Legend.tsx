@@ -64,6 +64,19 @@ const Legend: React.FC<LegendProps> = ({ view, children }) => {
         <React.Fragment>
           <ul css={legendList}>
             {setLegend(view)}
+            <li key='dataNa'>
+              <svg width="10" height="10">
+                <circle cx="5" cy="5" r="5" fill="#B6B6B6" stroke="black" />
+              </svg>
+              <span css={css`
+                font-family: ${fonts.calibre};
+                font-weight: 300;
+                font-size: 1.4rem;
+                margin-left: 1rem;
+              `}>
+                Data unavailable
+              </span>
+            </li>
           </ul>
           {children}
         </React.Fragment>

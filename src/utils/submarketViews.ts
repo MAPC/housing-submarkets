@@ -108,7 +108,7 @@ const viewData: {[Key in View]: {
   },
 };
 
-function vegaSchema(submarket, field, domain, format, selectedTract, color, width) {
+function vegaSchema(submarket: number, field: View, domain: Array<number>, format: string, selectedTract: string|undefined, color: string, width: number) {
   return {
     width: width,
     height: 30,
@@ -116,15 +116,9 @@ function vegaSchema(submarket, field, domain, format, selectedTract, color, widt
     title: {text: `Submarket ${submarket}`, color: color},
     data: { name: 'data' },
     layer: [{
-      mark: { type: 'tick' },
+      mark: { type: 'tick', thickness: 2 },
       encoding: {
-        color: {
-          condition: {
-            test: `datum['ct10_id'] == ${selectedTract}`,
-            value: '#FDB525'
-          },
-          value: `${themeColors.bgPurple}`
-        },
+        color: { value: `${themeColors.accentPurple}` },
         x: {
           field,
           type: 'quantitative',
@@ -132,22 +126,15 @@ function vegaSchema(submarket, field, domain, format, selectedTract, color, widt
           title: null,
           axis: { format },
         },
-        size: {
-          condition: {
-            test: `datum['ct10_id'] == ${selectedTract}`,
-            value: 25,
-          },
-          value: 10,
-        },
+        size: { value: 25 },
       },
-      config: { tick: { thickness: 2, color } },
     }, {
-      mark: { type: 'circle'},
+      mark: { type: 'tick', thickness: 2 },
       encoding: {
         color: {
           condition: {
             test: `datum['ct10_id'] == ${selectedTract}`,
-            value: '#FDB525'
+            value: `${themeColors.bgPurple}`
           },
           value: 'rgba(0, 0, 0, 0)'
         },
@@ -158,10 +145,9 @@ function vegaSchema(submarket, field, domain, format, selectedTract, color, widt
           title: null,
           axis: { format },
         },
-        y: { value: 15 }
+        size: { value: 30 },
       },
-      config: { circle: { size: 2} },
-    }]
+    }],
   };
 }
 

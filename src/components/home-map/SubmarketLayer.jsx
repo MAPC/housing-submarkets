@@ -7,7 +7,7 @@ const SubmarketLayer = ({ id, data, isVisible }) => {
   data.forEach((row) => {
     choropleth.push(row.ct10_id, +row.class === id ? submarketColors[id] : 'rgba(0, 0, 0, 0)');
   });
-  choropleth.push('rgb(255, 255, 255)');
+  choropleth.push('#B6B6B6');
 
   return (
     <Layer

@@ -60,7 +60,7 @@ const InfoCard = ({ submarket }: { submarket: number }) => {
   const policies = Object.values(submarketHighlights[submarket].highlights)
   const listItems = policyTitles.map((title, i) => {
     return (
-      <li css={listItemStyle}>
+      <li css={listItemStyle} key={title}>
         <span css={boldItemStyle}>{title}</span>: {policies[i]}
       </li>
     )
@@ -75,7 +75,7 @@ const InfoCard = ({ submarket }: { submarket: number }) => {
             }
           }
       }`}
-      render={data => (
+      render={(data) => (
         <article css={css`
           ${articleStyle}
           background-color: ${submarketColors[submarket]};
