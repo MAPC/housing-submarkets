@@ -8,6 +8,7 @@ import Layout from '../../components/layout';
 import SubmarketHeader from '../../components/submarkets/SubmarketHeader';
 import MapChartWrapper from '../../components/submarkets/MapChartWrapper';
 import NarrativeVisualizationsWrapper from '../../components/submarkets/NarrativeVisualizationsWrapper';
+import SubmarketNavigation from '../../components/submarkets/SubmarketNavigation';
 
 const introParagraphStyle = css`
   margin: 0 auto;
@@ -41,6 +42,7 @@ const SubmarketPage: React.FC<SubmarketPageProps> = ({ pageContext }) => (
     <section css={introParagraphStyle} dangerouslySetInnerHTML={{ __html: pageContext.summary }} />
     <MapChartWrapper data={pageContext.data.data.allDataCsv.nodes} />
     <NarrativeVisualizationsWrapper />
+    <SubmarketNavigation submarket={pageContext.submarket} />
   </Layout>
 );
 

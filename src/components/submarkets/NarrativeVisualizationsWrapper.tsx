@@ -5,7 +5,7 @@ import { css, jsx } from "@emotion/react";
 import { themeColors, fonts } from './../../utils/theme';
 
 const wrapperStyle = css`
-  margin: 4rem auto 20rem auto;
+  margin: 4rem auto 10rem auto;
   max-width: 146.6rem;
 `;
 
