@@ -1,7 +1,7 @@
 /** @jsx jsx */
 
 import React from 'react';
-import { Helmet } from 'react-helmet';
+import SEO from '../components/seo';
 import { css, jsx } from "@emotion/react";
 import { fonts, themeColors } from '../utils/theme';
 import Layout from '../components/layout';
@@ -41,9 +41,7 @@ const h2Style = css`
 
 const Submarkets = () => (
   <Layout css={submarketsBackground}>
-    <Helmet>
-      <title>Submarkets | MAPC Housing Submarkets</title>
-    </Helmet>
+    <SEO title="Submarkets" />
     <div css={contentWrapper}>
       <article css={introArticle}>
         <h2 css={h2Style}>What is a submarket?</h2>

@@ -6,8 +6,8 @@ import MobileSidebar from './MobileSidebar';
 
 const initialState = {
   viewport: {
-    latitude: 42.337,
-    longitude: -70.815,
+    latitude: 42.366,
+    longitude: -70.816,
     zoom: 9.12,
   },
   layerVisibility: {

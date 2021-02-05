@@ -1,9 +1,9 @@
 /** @jsx jsx */
 
 import React from 'react';
+import SEO from '../seo';
 import { SubmarketPageCreateQuery } from '../../../types/gatsby-graphql';
 import { css, jsx } from "@emotion/react";
-import { Helmet } from 'react-helmet';
 import Layout from '../../components/layout';
 import SubmarketHeader from '../../components/submarkets/SubmarketHeader';
 import MapChartWrapper from '../../components/submarkets/MapChartWrapper';
@@ -34,10 +34,9 @@ type SubmarketPageProps = {
 
 const SubmarketPage: React.FC<SubmarketPageProps> = ({ pageContext }) => (
   <Layout>
-    <Helmet>
+    <SEO title={`Submarket ${pageContext.submarket}`}>
       <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v1.13.0/mapbox-gl.css" rel="stylesheet" />
-      <title>{`Submarket ${pageContext.submarket} | MAPC Housing Submarkets`}</title>
-    </Helmet>
+    </SEO>
     <SubmarketHeader submarket={pageContext.submarket} />
     <section css={introParagraphStyle} dangerouslySetInnerHTML={{ __html: pageContext.summary }} />
     <MapChartWrapper data={pageContext.data.data.allDataCsv.nodes} />
