@@ -7,7 +7,13 @@ import { css, jsx } from "@emotion/react";
 import Layout from '../../components/layout';
 import SubmarketHeader from '../../components/submarkets/SubmarketHeader';
 import MapChartWrapper from '../../components/submarkets/MapChartWrapper';
-import NarrativeVisualizationsWrapper from '../../components/submarkets/NarrativeVisualizationsWrapper';
+import SubmarketOneNarrative from './narratives/Submarket1';
+import SubmarketTwoNarrative from './narratives/Submarket2';
+import SubmarketThreeNarrative from './narratives/Submarket3';
+import SubmarketFourNarrative from './narratives/Submarket4';
+import SubmarketFiveNarrative from './narratives/Submarket5';
+import SubmarketSixNarrative from './narratives/Submarket6';
+import SubmarketSevenNarrative from './narratives/Submarket7';
 import SubmarketNavigation from '../../components/submarkets/SubmarketNavigation';
 
 const introParagraphStyle = css`
@@ -32,6 +38,16 @@ type SubmarketPageProps = {
   }
 }
 
+const narrativeComponent = {
+  1: <SubmarketOneNarrative />,
+  2: <SubmarketTwoNarrative />,
+  3: <SubmarketThreeNarrative />,
+  4: <SubmarketFourNarrative />,
+  5: <SubmarketFiveNarrative />,
+  6: <SubmarketSixNarrative />,
+  7: <SubmarketSevenNarrative />
+}
+
 const SubmarketPage: React.FC<SubmarketPageProps> = ({ pageContext }) => (
   <Layout>
     <SEO title={`Submarket ${pageContext.submarket}`}>
@@ -40,7 +56,12 @@ const SubmarketPage: React.FC<SubmarketPageProps> = ({ pageContext }) => (
     <SubmarketHeader submarket={pageContext.submarket} />
     <section css={introParagraphStyle} dangerouslySetInnerHTML={{ __html: pageContext.summary }} />
     <MapChartWrapper data={pageContext.data.data.allDataCsv.nodes} />
-    <NarrativeVisualizationsWrapper />
+    <div css={css`
+      margin: 4rem auto 10rem auto;
+      max-width: 146.6rem;
+    `}>
+      {narrativeComponent[pageContext.submarket]}
+    </div>
     <SubmarketNavigation submarket={pageContext.submarket} />
   </Layout>
 );
