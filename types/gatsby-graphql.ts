@@ -2977,8 +2977,6 @@ export type SitePageContextDataDataAllDataCsvFilterInput = {
 export type SitePageContextDataDataAllDataCsvNodes = {
   ct10_id?: Maybe<Scalars['String']>;
   class?: Maybe<Scalars['String']>;
-  mhi?: Maybe<Scalars['String']>;
-  ch_rhu_p?: Maybe<Scalars['String']>;
   rhu_p?: Maybe<Scalars['String']>;
   medhv?: Maybe<Scalars['String']>;
   yrblt59_p?: Maybe<Scalars['String']>;
@@ -2989,8 +2987,6 @@ export type SitePageContextDataDataAllDataCsvNodes = {
 export type SitePageContextDataDataAllDataCsvNodesFilterInput = {
   ct10_id?: Maybe<StringQueryOperatorInput>;
   class?: Maybe<StringQueryOperatorInput>;
-  mhi?: Maybe<StringQueryOperatorInput>;
-  ch_rhu_p?: Maybe<StringQueryOperatorInput>;
   rhu_p?: Maybe<StringQueryOperatorInput>;
   medhv?: Maybe<StringQueryOperatorInput>;
   yrblt59_p?: Maybe<StringQueryOperatorInput>;
@@ -3697,7 +3693,7 @@ export type GatsbyImageSharpSizes_WithWebp_NoBase64Fragment = Pick<ImageSharpSiz
 export type SubmarketPageCreateQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type SubmarketPageCreateQuery = { allDataCsv: { nodes: Array<Pick<DataCsv, 'ct10_id' | 'class' | 'mhi' | 'ch_rhu_p' | 'rhu_p' | 'medhv' | 'yrblt59_p' | 'cash17_p' | 'ch_medhv_p'>> } };
+export type SubmarketPageCreateQuery = { allDataCsv: { nodes: Array<Pick<DataCsv, 'ct10_id' | 'class' | 'rhu_p' | 'medhv' | 'yrblt59_p' | 'cash17_p' | 'ch_medhv_p'>> } };
 
 export type SubmarketSummariesQueryVariables = Exact<{ [key: string]: never; }>;
 

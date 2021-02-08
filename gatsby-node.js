@@ -12,8 +12,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         nodes {
           ct10_id
           class
-          mhi
-          ch_rhu_p
           rhu_p
           medhv
           rhu_p

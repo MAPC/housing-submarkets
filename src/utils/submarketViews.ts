@@ -32,7 +32,7 @@ const viewData: {[Key in View]: {
   },
   'ch_medhv_p': {
     id: 2,
-    title: 'Percent Change in Median Home Value (2000 – 2017)',
+    title: '% Change in Median Home Value',
     domain: [-50, 800],
     format: 'f',
     legendKeys: ['-50% – 0%', '0% – 25%', '25% – 50%', '50% – 75%', '75%+'],
@@ -51,7 +51,7 @@ const viewData: {[Key in View]: {
   },
   'rhu_p': {
     id: 3,
-    title: 'Percent Renter Households',
+    title: '% Renter Households',
     domain: [0, 100],
     format: 'f',
     legendKeys: ['0% – 20%', '20% – 40%', '40% – 60%', '60% – 80%', '80% – 100%'],
@@ -70,7 +70,7 @@ const viewData: {[Key in View]: {
   },
   'yrblt59_p': {
     id: 4,
-    title: 'Percent Built Prior to 1960',
+    title: '% Built Prior to 1960',
     domain: [0, 100],
     format: 'f',
     legendKeys: ['0% – 20%', '20% – 40%', '40% – 60%', '60% – 80%', '80% – 100%'],
@@ -89,7 +89,7 @@ const viewData: {[Key in View]: {
   },
   'cash17_p': {
     id: 5,
-    title: 'Percent Cash Sales',
+    title: '% Cash Sales',
     domain: [0, 100],
     format: 'f',
     legendKeys: ['0% – 10%', '10% – 20%', '20% – 30%', '30% – 40%', '40%+'],
@@ -124,7 +124,7 @@ function vegaSchema(submarket: number, field: View, domain: Array<number>, forma
           type: 'quantitative',
           scale: { type: 'linear', domain },
           title: null,
-          axis: { format },
+          axis: { format, tickCount: 10 },
         },
         size: { value: 25 },
       },
@@ -144,6 +144,7 @@ function vegaSchema(submarket: number, field: View, domain: Array<number>, forma
           scale: { type: 'linear', domain },
           title: null,
           axis: { format },
+          tick: { tickCount: 2 }
         },
         size: { value: 30 },
       },
