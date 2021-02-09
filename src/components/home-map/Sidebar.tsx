@@ -78,7 +78,7 @@ type SidebarProps = {
 
 const Sidebar: React.FC<SidebarProps> = ({ layerVisibility, dispatch, activeLayer, sidebarOpen }) => {
   const listItems = Object.keys(submarketHighlights[activeLayer].highlights).map((highlight) => {
-    return (<li css={sidebarListItem}>{highlight}</li>)
+    return (<li css={sidebarListItem} key={highlight.toString()}>{highlight}</li>)
   });
 
   return (

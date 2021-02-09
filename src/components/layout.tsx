@@ -13,24 +13,6 @@ type LayoutProps = {
 const Layout: React.FC<LayoutProps> = ({ children, ...props }) => (
   <React.Fragment>
     <Global styles={css`
-      html {
-        font-size: 10px;
-        height: 100%;
-      }
-
-      body {
-        color: ${themeColors.fontGray};
-        font-family: ${fonts.swiftNeueLtPro};
-        font-size: 1.6rem;
-        height: 100%;
-        line-height: 2.4rem;
-        margin: 0;
-      }
-
-      #___gatsby, #gatsby-focus-wrapper {
-        height: 100%;
-      }
-
       @import url("//hello.myfonts.net/count/37908e");
 
       @font-face {
@@ -223,6 +205,24 @@ const Layout: React.FC<LayoutProps> = ({ children, ...props }) => (
             url('./fonts/Calibre-ThinItalic.ttf') format('truetype');
         font-weight: 100;
         font-style: italic;
+      }
+
+      html {
+        font-size: 10px;
+        height: 100%;
+      }
+
+      body {
+        color: ${themeColors.fontGray};
+        font-family: ${fonts.swiftNeueLtPro};
+        font-size: 1.6rem;
+        height: 100%;
+        line-height: 2.4rem;
+        margin: 0;
+      }
+
+      #___gatsby, #gatsby-focus-wrapper {
+        height: 100%;
       }`}
     />
     <Header />

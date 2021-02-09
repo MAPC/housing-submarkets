@@ -27,45 +27,62 @@ const Map = ({ viewport, dispatch, data, layerVisibility }) => {
     return () => window.removeEventListener('resize', handleWidthResize);
   }, []);
 
+  const dataNaTracts = ['match', ['get', 'ct10_id']];
+  data.forEach((row) => {
+    dataNaTracts.push(row.ct10_id,
+      (+row.class === 1 || +row.class === 2 || +row.class === 3 || +row.class === 4 || +row.class === 5 || +row.class === 6 || +row.class === 7)
+      ? 'rgba(0, 0, 0, 0)'
+      : '#B6B6B6');
+  });
+  dataNaTracts.push('#B6B6B6');
+
   return (
-  <ReactMapGL
-    {...viewport}
-    width={`${width}px`}
-    height={`calc(100vh - 115px)`}
-    onViewportChange={(viewport) => dispatch({ type: 'setViewport', viewport })}
-    mapboxApiAccessToken="pk.eyJ1IjoiaWhpbGwiLCJhIjoiY2plZzUwMTRzMW45NjJxb2R2Z2thOWF1YiJ9.szIAeMS4c9YTgNsJeG36gg"
-    mapStyle="mapbox://styles/ihill/ckky67v9h2fsd17qvbh2mipkb"
-    scrollZoom={false}
-    css={css`
-      height: calc(100vh - 115px);
-    `}
-  >
-    <Source id="2010 Census Tracts" type="vector" url="mapbox://ihill.aw7gvvhk">
-      <SubmarketLayer id={1} data={data} isVisible={layerVisibility['1']} />
-      <SubmarketLayer id={2} data={data} isVisible={layerVisibility['2']} />
-      <SubmarketLayer id={3} data={data} isVisible={layerVisibility['3']} />
-      <SubmarketLayer id={4} data={data} isVisible={layerVisibility['4']} />
-      <SubmarketLayer id={5} data={data} isVisible={layerVisibility['5']} />
-      <SubmarketLayer id={6} data={data} isVisible={layerVisibility['6']} />
-      <SubmarketLayer id={7} data={data} isVisible={layerVisibility['7']} />
-    </Source>
-    <Source id="MAPC borders" type="vector" url="mapbox://ihill.763lks2o">
-      <Layer
-        type="line"
-        id="MAPC municipal borders"
-        source="MAPC borders"
-        source-layer="MAPC_borders-0im3ea"
-        paint={{ 'line-color': '#231F20' }}
-      />
-    </Source>
-    <Source id="MAPC outer border" type="vector" url="mapbox://ihill.74kb5x0f">
-      <Layer type="line" source-layer="Outline-6xc0m1" paint={{ 'line-width': 3, 'line-color': '#231F20' }} />
-    </Source>
-    <div css={navigationStyle}>
-      <NavigationControl />
-    </div>
-  </ReactMapGL>
-)};
+    <ReactMapGL
+      {...viewport}
+      width={`${width}px`}
+      height={`calc(100vh - 115px)`}
+      onViewportChange={(viewport) => dispatch({ type: 'setViewport', viewport })}
+      mapboxApiAccessToken="pk.eyJ1IjoiaWhpbGwiLCJhIjoiY2plZzUwMTRzMW45NjJxb2R2Z2thOWF1YiJ9.szIAeMS4c9YTgNsJeG36gg"
+      mapStyle="mapbox://styles/ihill/ckky67v9h2fsd17qvbh2mipkb"
+      scrollZoom={false}
+      css={css`
+        height: calc(100vh - 115px);
+      `}
+    >
+      <Source id="2010 Census Tracts" type="vector" url="mapbox://ihill.aw7gvvhk">
+        <SubmarketLayer id={1} data={data} isVisible={layerVisibility['1']} />
+        <SubmarketLayer id={2} data={data} isVisible={layerVisibility['2']} />
+        <SubmarketLayer id={3} data={data} isVisible={layerVisibility['3']} />
+        <SubmarketLayer id={4} data={data} isVisible={layerVisibility['4']} />
+        <SubmarketLayer id={5} data={data} isVisible={layerVisibility['5']} />
+        <SubmarketLayer id={6} data={data} isVisible={layerVisibility['6']} />
+        <SubmarketLayer id={7} data={data} isVisible={layerVisibility['7']} />
+        <Layer
+          type="fill"
+          id="Data NA"
+          source="2010 Census Tracts"
+          source-layer="Tracts-2jsl06"
+          paint={{ 'fill-color': dataNaTracts }}
+        />
+      </Source>
+      <Source id="MAPC borders" type="vector" url="mapbox://ihill.763lks2o">
+        <Layer
+          type="line"
+          id="MAPC municipal borders"
+          source="MAPC borders"
+          source-layer="MAPC_borders-0im3ea"
+          paint={{ 'line-color': '#231F20' }}
+        />
+      </Source>
+      <Source id="MAPC outer border" type="vector" url="mapbox://ihill.74kb5x0f">
+        <Layer type="line" source-layer="Outline-6xc0m1" paint={{ 'line-width': 3, 'line-color': '#231F20' }} />
+      </Source>
+      <div css={navigationStyle}>
+        <NavigationControl />
+      </div>
+    </ReactMapGL>
+  )
+};
 
 Map.propTypes = {
   viewport: PropTypes.shape({
