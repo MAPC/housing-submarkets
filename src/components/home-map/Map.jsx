@@ -34,7 +34,7 @@ const Map = ({ viewport, dispatch, data, layerVisibility }) => {
     height={`calc(100vh - 115px)`}
     onViewportChange={(viewport) => dispatch({ type: 'setViewport', viewport })}
     mapboxApiAccessToken="pk.eyJ1IjoiaWhpbGwiLCJhIjoiY2plZzUwMTRzMW45NjJxb2R2Z2thOWF1YiJ9.szIAeMS4c9YTgNsJeG36gg"
-    mapStyle="mapbox://styles/ihill/ckk4b7xz43i8a17mjm1u1r8xs"
+    mapStyle="mapbox://styles/ihill/ckky67v9h2fsd17qvbh2mipkb"
     scrollZoom={false}
     css={css`
       height: calc(100vh - 115px);
@@ -55,7 +55,11 @@ const Map = ({ viewport, dispatch, data, layerVisibility }) => {
         id="MAPC municipal borders"
         source="MAPC borders"
         source-layer="MAPC_borders-0im3ea"
+        paint={{ 'line-color': '#231F20' }}
       />
+    </Source>
+    <Source id="MAPC outer border" type="vector" url="mapbox://ihill.74kb5x0f">
+      <Layer type="line" source-layer="Outline-6xc0m1" paint={{ 'line-width': 3, 'line-color': '#231F20' }} />
     </Source>
     <div css={navigationStyle}>
       <NavigationControl />
