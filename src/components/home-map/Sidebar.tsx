@@ -36,7 +36,7 @@ const sidebarWrapper = css`
 const panelStyle = css`
   background-color: ${themeColors.white};
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
   min-height: 47rem;
   width: 43rem;
 

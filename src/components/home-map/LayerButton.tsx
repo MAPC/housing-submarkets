@@ -31,7 +31,7 @@ const LayerButton: React.FC<LayerButtonProps> = ({ layer, activeLayer, dispatch 
   const buttonStyles = css`
     background: ${layer === activeLayer ? themeColors.white : themeColors.warmGray};
     border: none;
-    border-left: ${layer === activeLayer ? `4px solid ${themeColors.white}` : `4px solid ${submarketColors[layer]}`};
+    border-right: ${layer === activeLayer ? `4px solid ${themeColors.white}` : `4px solid ${submarketColors[layer]}`};
     color: ${layer === activeLayer ?  submarketColors[layer] : 'rgba(122, 122, 122, .5)'};
     font-family: ${fonts.calibre};
     font-size: 2.8rem;
@@ -48,7 +48,7 @@ const LayerButton: React.FC<LayerButtonProps> = ({ layer, activeLayer, dispatch 
 
     @media (max-width: 768px) {
       border-bottom: ${layer === activeLayer ? `4px solid ${themeColors.white}` : `4px solid ${submarketColors[layer]}`};
-      border-left: none;
+      border-right: none;
       min-width: 0;
     }
   `;
