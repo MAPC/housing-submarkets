@@ -4,7 +4,6 @@ import { graphql } from 'gatsby';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import ToggleableMap from '../components/home-map/ToggleableMap';
-import '../styles/app.scss';
 
 const TempIndex = ({ data }: { data: HomepageMapQuery }) => (
   <Layout>
