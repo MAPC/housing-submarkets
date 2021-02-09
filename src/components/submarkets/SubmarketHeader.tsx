@@ -34,6 +34,7 @@ const articleImageWrapper = css`
   margin: 0 auto;
   max-width: 136.6rem;
   padding: 0 5rem;
+  position: relative;
 
   @media (max-width: 700px) {
     display: flex;
@@ -42,27 +43,6 @@ const articleImageWrapper = css`
   }
 `;
 
-const imageStyle = css`
-  height: 60rem;
-  margin-top: 3.5rem;
-  max-width: 100rem;
-  padding-right: 5rem;
-  position: absolute;
-  right: 0;
-  top: 0;
-
-  @media (max-width: 1100px) {
-    max-width: 60rem;
-  }
-
-  @media (max-width: 700px) {
-    height: auto;
-    margin: 0;
-    padding: 0;
-    position: unset;
-    width: 100%;
-  }
-`;
 
 const submarketImage = {
   1: SM1,
@@ -74,14 +54,39 @@ const submarketImage = {
   7: SM7
 }
 
-const SubmarketHeader = ({ submarket }: { submarket: number }) => (
-  <div css={submarketHeaderWrapper}>
-    <div css={purpleExtension} />
-    <div css={articleImageWrapper}>
-      <InfoCard submarket={submarket} />
-      <img src={submarketImage[submarket]} css={imageStyle} />
+const SubmarketHeader = ({ submarket }: { submarket: number }) => {
+  const imageStyle = css`
+    background-image: url(${submarketImage[submarket]});
+    background-position: center;
+    background-size: cover;
+    height: 60rem;
+    margin-top: 3.5rem;
+    margin-right: 5rem;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100rem;
+
+    @media (max-width: 1100px) {
+      max-width: 60rem;
+    }
+
+    @media (max-width: 700px) {
+      margin: 0;
+      padding: 0;
+      position: unset;
+      width: 100%;
+    }
+  `;
+  return (
+    <div css={submarketHeaderWrapper}>
+      <div css={articleImageWrapper}>
+        <InfoCard submarket={submarket} />
+        <div css={imageStyle} />
+      </div>
+      <div css={purpleExtension} />
     </div>
-  </div>
-);
+  )
+};
 
 export default SubmarketHeader;

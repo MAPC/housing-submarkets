@@ -9,7 +9,7 @@ import { submarketHighlights } from '../../content/highlights';
 const articleStyle = css`
   color: ${themeColors.white};
   height: auto;
-  margin-top: 3.5rem;
+  margin-top: 2rem;
   max-width: 52rem;
   padding: 3rem 4rem;
   position: absolute;
