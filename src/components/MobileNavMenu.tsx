@@ -65,6 +65,11 @@ const MobileNavMenu: React.FC<MobileNavMenuProps> = ({ toggleMobileNav }) => {
           </Link>
         </li>
         <li css={mobileNavItemStyle}>
+          <Link to="/municipalities" css={linkStyle} activeStyle={{ color: themeColors.white }}>
+            Municipalities
+          </Link>
+        </li>
+        <li css={mobileNavItemStyle}>
           <Link to="/policy-strategy" css={linkStyle} activeStyle={{ color: themeColors.white }}>
             Policy Strategy
           </Link>

@@ -3635,6 +3635,11 @@ export type Unnamed_4_QueryVariables = Exact<{ [key: string]: never; }>;
 
 export type Unnamed_4_Query = { allMarkdownRemark: { nodes: Array<{ internal: Pick<Internal, 'content'> }> } };
 
+export type MunicipalMapQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type MunicipalMapQuery = { allDataCsv: { nodes: Array<Pick<DataCsv, 'ct10_id' | 'class'>> } };
+
 export type HomepageMapQueryVariables = Exact<{ [key: string]: never; }>;
 
 

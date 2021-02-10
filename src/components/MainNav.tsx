@@ -47,6 +47,14 @@ const MainNav = () => (
         |
       </li>
       <li css={navItemStyle}>
+        <Link to="/municipalities" css={linkStyle} activeStyle={{ color: themeColors.white }}>
+          Municipalities
+        </Link>
+      </li>
+      <li css={navItemStyle} aria-hidden={true}>
+        |
+      </li>
+      <li css={navItemStyle}>
         <Link to="/policy-strategy" css={linkStyle} activeStyle={{ color: themeColors.white }}>
           Policy Strategy
         </Link>
