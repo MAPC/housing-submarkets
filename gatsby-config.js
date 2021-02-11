@@ -9,6 +9,14 @@ module.exports = {
     author: '@mapcmetroboston',
   },
   plugins: [
+    {
+      resolve: 'gatsby-source-pg',
+      options: {
+        connectionString: `postgres://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.HOST}/ds`,
+        schema: 'tabular',
+        refetchInterval: 60, // Refetch data every 60 seconds
+      },
+    },
     'gatsby-transformer-remark',
     {
       resolve: 'gatsby-source-filesystem',
