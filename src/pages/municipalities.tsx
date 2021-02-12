@@ -1,20 +1,27 @@
 /** @jsx jsx */
 
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { graphql } from 'gatsby';
-import { css, jsx } from '@emotion/react'
+import { css, jsx } from '@emotion/react';
+import { MunicipalMapQuery } from '../../types/gatsby-graphql';
 import SEO from '../components/seo';
 import Layout from '../components/layout';
 import SearchBar from '../components/municipalities/SearchBar';
 import SearchMap from '../components/municipalities/SearchMap';
+import SearchResults from '../components/municipalities/SearchResults';
+
+type MunicipalSearchProps = {
+  data: MunicipalMapQuery,
+};
 
 const MapResultsWrapperStyle = css`
   display: flex;
   flex-direction: row;
 `;
 
-const MunicipalSearch = ({ data }) => {
+const MunicipalSearch: React.FC<MunicipalSearchProps> = ({ data }) => {
   const containerRef = useRef<HTMLInputElement>(null);
+  const [selectedMuni, setMuni] = useState();
   return (
     <Layout>
       <SEO title="Municipalities">
@@ -22,8 +29,8 @@ const MunicipalSearch = ({ data }) => {
       </SEO>
       <SearchBar containerRef={containerRef} />
       <section css={MapResultsWrapperStyle}>
-        <SearchMap data={{test: "Test"}} containerRef={containerRef} />
-        <p>Chart section</p>
+        <SearchMap data={data.postgres.allHousSubmarketsCtsList} containerRef={containerRef} selectedMuni={selectedMuni} setMuni={setMuni} />
+        <SearchResults data={data.postgres.allHousSubmarketsCtsList} selectedMuni={selectedMuni} />
       </section>
     </Layout>
   )
@@ -34,6 +41,7 @@ export const data = graphql`
     postgres {
       allHousSubmarketsCtsList {
         ct10Id
+        muni
         submktId
       }
     }

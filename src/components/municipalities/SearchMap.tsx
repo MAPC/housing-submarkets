@@ -1,14 +1,17 @@
 import React, { useRef, useReducer } from 'react';
+import { Maybe, PostGraphile_HousSubmarketsCt } from './../../../types/gatsby-graphql';
 import ReactMapGL, { Source, Layer } from 'react-map-gl';
 import Geocoder from "react-map-gl-geocoder";
 import municipalities from '../../utils/municipalities';
 
 type SearchMapProps = {
-  data: unknown,
-  containerRef: React.MutableRefObject<HTMLInputElement>,
+  data: Maybe<Array<Pick<PostGraphile_HousSubmarketsCt, 'ct10Id' | 'muni' | 'submktId'>>>,
+  containerRef: React.RefObject<HTMLInputElement>
+  selectedMuni: string|undefined,
+  setMuni: React.Dispatch<React.SetStateAction<string|undefined>>,
 }
 
-const SearchMap: React.FC<SearchMapProps> = ({ data, containerRef }) => {
+const SearchMap: React.FC<SearchMapProps> = ({ data, containerRef, selectedMuni, setMuni }) => {
   const mapRef = useRef();
 
   const initialState = {
@@ -39,6 +42,7 @@ const SearchMap: React.FC<SearchMapProps> = ({ data, containerRef }) => {
       onViewportChange={(viewport) => dispatch({ type: 'setViewport', viewport })}
       mapboxApiAccessToken="pk.eyJ1IjoiaWhpbGwiLCJhIjoiY2plZzUwMTRzMW45NjJxb2R2Z2thOWF1YiJ9.szIAeMS4c9YTgNsJeG36gg"
       mapStyle="mapbox://styles/ihill/ckky67v9h2fsd17qvbh2mipkb"
+      scrollZoom={false}
     >
       <Geocoder
         containerRef={containerRef}
@@ -53,6 +57,7 @@ const SearchMap: React.FC<SearchMapProps> = ({ data, containerRef }) => {
           }
           return false;
         }}
+        onResult={(e) => setMuni(e.result.text)}
       />
         <Source id="MAPC borders" type="vector" url="mapbox://ihill.763lks2o">
         <Layer

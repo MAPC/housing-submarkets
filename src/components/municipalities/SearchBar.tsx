@@ -5,7 +5,7 @@ import { css, jsx } from '@emotion/react'
 import { themeColors, fonts } from '../../utils/theme';
 
 type SearchBarProps = {
-  containerRef: React.MutableRefObject<HTMLInputElement>,
+  containerRef: React.RefObject<HTMLInputElement>,
 }
 
 const SearchWrapperStyle = css`
