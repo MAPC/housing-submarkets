@@ -26,19 +26,18 @@ const MunicipalSearch = ({ data }) => {
         <p>Chart section</p>
       </section>
     </Layout>
-)
+  )
 };
 
-
-// export const data = graphql`
-//   query MunicipalMap {
-//     postgres {
-//       allHousSubmarketsCtsList {
-//         ct10Id
-//         submktId
-//       }
-//     }
-//   }
-// `;
+export const data = graphql`
+  query MunicipalMap {
+    postgres {
+      allHousSubmarketsCtsList {
+        ct10Id
+        submktId
+      }
+    }
+  }
+`;
 
 export default MunicipalSearch;

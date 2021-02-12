@@ -1,8 +1,5 @@
-/** @jsx jsx */
-
 import React, { useRef, useReducer } from 'react';
 import ReactMapGL, { Source, Layer } from 'react-map-gl';
-import { css, jsx } from '@emotion/react';
 import Geocoder from "react-map-gl-geocoder";
 import municipalities from '../../utils/municipalities';
 
