@@ -67,3 +67,7 @@ yarn-error.log
 .pnp.js
 # Yarn Integrity file
 .yarn-integrity
+
+# Test utils
+src/utils/mockSubmarketData.ts
+src/utils/mapOnClickData.ts

@@ -14,7 +14,6 @@ module.exports = {
       options: {
         connectionString: `postgres://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.HOST}/ds`,
         schema: 'tabular',
-        // refetchInterval: 600, // Refetch data every 60 seconds
       },
     },
     'gatsby-transformer-remark',

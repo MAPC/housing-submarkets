@@ -9,10 +9,22 @@ type SearchResultsProps = {
   selectedMuni: string|undefined,
 }
 
-const SearchResults: React.FC<SearchResultsProps> = ({ data, selectedMuni }) => (
-  <p>
-    {selectedMuni ? selectedMuni : 'Select a municipality'}
-  </p>
-);
+function submarketBreakdown(data: Maybe<Array<Pick<PostGraphile_HousSubmarketsCt, 'ct10Id' | 'muni' | 'submktId'>>>, selectedMuni: string|undefined,) {
+  if (selectedMuni && data) {
+    return data.filter(datum => datum.muni === selectedMuni);
+  } else {
+    return 'Data n/a';
+  }
+}
+
+const SearchResults: React.FC<SearchResultsProps> = ({ data, selectedMuni }) => {
+  console.log(submarketBreakdown(data, selectedMuni));
+  return (
+    <p>
+      {selectedMuni ? selectedMuni : 'Select a municipality'}
+    </p>
+  )
+};
 
 export default SearchResults;
+export { submarketBreakdown };
