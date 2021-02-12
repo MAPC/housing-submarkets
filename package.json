@@ -48,6 +48,7 @@
   },
   "devDependencies": {
     "@types/react-helmet": "^6.1.0",
+    "@types/react-map-gl": "^5.2.9",
     "prettier": "2.2.1"
   },
   "keywords": [
