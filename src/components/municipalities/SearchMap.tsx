@@ -1,6 +1,6 @@
 /** @jsx jsx */
 
-import React, { useRef, useReducer } from 'react';
+import React, { useRef, useReducer, useCallback, useMemo } from 'react';
 import { jsx, css } from '@emotion/react';
 import { Maybe, PostGraphile_HousSubmarketsCt } from './../../../types/gatsby-graphql';
 import ReactMapGL, { Source, Layer, NavigationControl } from 'react-map-gl';
@@ -20,7 +20,7 @@ const navigationStyle = css`
   right: 1rem;
 `;
 
-function handleClick(e) {
+function handleClick(e: Array<unknown>) {
   const muniPolygon = e.find(feature => feature.layer.id === 'mapc-borders-0im3ea');
   if (muniPolygon) {
     return muniPolygon.properties.municipal;
@@ -51,38 +51,48 @@ const SearchMap: React.FC<SearchMapProps> = ({ data, containerRef, selectedMuni,
 
   const [state, dispatch] = useReducer(reducer, initialState);
 
+  const handleViewportChange = useCallback(
+    (viewport) => dispatch({ type: 'setViewport', viewport }), []
+  );
+
+  const handleGeocoderViewportChange = useCallback((newViewport) => {
+    const geocoderDefaultOverrides = { transitionDuration: 1000, zoom: 11 };
+    return handleViewportChange({
+      ...newViewport,
+      ...geocoderDefaultOverrides
+    });
+  }, []);
+
   return (
     <ReactMapGL
       {...state.viewport}
       ref={mapRef}
       width="600px"
       height="600px"
-      onViewportChange={(viewport) => dispatch({ type: 'setViewport', viewport })}
+      onViewportChange={handleViewportChange}
       mapboxApiAccessToken="pk.eyJ1IjoiaWhpbGwiLCJhIjoiY2plZzUwMTRzMW45NjJxb2R2Z2thOWF1YiJ9.szIAeMS4c9YTgNsJeG36gg"
       mapStyle="mapbox://styles/ihill/ckky67v9h2fsd17qvbh2mipkb"
       scrollZoom={false}
       onClick={(e) => {
         setMuni(handleClick(e.features))
-        console.log(e)
-        dispatch({ type: 'setViewport', viewport: {...state.viewport, longitude: e.lngLat[0], latitude: e.lngLat[1], zoom: 11 } })
+        dispatch({ type: 'setViewport', viewport: {...state.viewport, longitude: e.lngLat[0], latitude: e.lngLat[1], zoom: 11, transitionDuration: 1000 } })
       }}
     >
       <Geocoder
         containerRef={containerRef}
         mapRef={mapRef}
-        onViewportChange={(viewport) => dispatch({ type: 'setViewport', viewport })}
+        onViewportChange={handleGeocoderViewportChange}
         mapboxApiAccessToken="pk.eyJ1IjoiaWhpbGwiLCJhIjoiY2plZzUwMTRzMW45NjJxb2R2Z2thOWF1YiJ9.szIAeMS4c9YTgNsJeG36gg"
         types="place"
-        bbox={[-71.66866501431952, 41.97523050594343, -70.53487628480008, 42.74357855916575]}
-        filter={(item) => {
+        bbox={useMemo(() => ([-71.66866501431952, 41.97523050594343, -70.53487628480008, 42.74357855916575]), [])}
+        filter={useCallback((item) => {
           if (municipalities.find(row => item.place_name.includes(`${row}, Massachusetts`))) {
             return true
           }
-          return false;
-        }}
-        onResult={(e) => {
-          setMuni(e.result.text)
-        }}
+           return false;
+        }, [])}
+        onResult={useCallback((e) => {setMuni(e.result.text)}, [])}
+        marker={false}
       />
         <Source id="MAPC borders" type="vector" url="mapbox://ihill.763lks2o">
         <Layer
