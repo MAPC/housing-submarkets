@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import { StaticQuery, graphql } from "gatsby";
+import * as d3 from 'd3-format';
 
 type SubmarketBreakdownProps = {
   total: number,
@@ -27,14 +28,15 @@ function findPercents(submarketData) {
           }
       }`}
       render={data => (
-        <li key={submarket}>
+        <li>
           <p>
-            {(count/submarketData.total) * 100}% in <Link to={`/submarkets/${submarket}`}>Submarket {submarket}</Link>
+            {d3.format('.0%')(count/submarketData.total)} in <Link to={`/submarkets/${submarket}`}>Submarket {submarket}</Link>
 
           </p>
           <p>{data.allMarkdownRemark.nodes[submarket-1].internal.content}</p>
         </li>
       )}
+      key={submarket}
       />
     )
   )

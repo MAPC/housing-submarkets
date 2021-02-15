@@ -1,6 +1,9 @@
+/** @jsx jsx */
+
 import React, { useRef, useReducer } from 'react';
+import { jsx, css } from '@emotion/react';
 import { Maybe, PostGraphile_HousSubmarketsCt } from './../../../types/gatsby-graphql';
-import ReactMapGL, { Source, Layer } from 'react-map-gl';
+import ReactMapGL, { Source, Layer, NavigationControl } from 'react-map-gl';
 import Geocoder from "react-map-gl-geocoder";
 import municipalities from '../../utils/municipalities';
 
@@ -9,6 +12,21 @@ type SearchMapProps = {
   containerRef: React.RefObject<HTMLInputElement>
   selectedMuni: string|undefined,
   setMuni: React.Dispatch<React.SetStateAction<string|undefined>>,
+}
+
+const navigationStyle = css`
+  bottom: 4.2rem;
+  position: absolute;
+  right: 1rem;
+`;
+
+function handleClick(e) {
+  const muniPolygon = e.find(feature => feature.layer.id === 'mapc-borders-0im3ea');
+  if (muniPolygon) {
+    return muniPolygon.properties.municipal;
+  } else {
+    return;
+  }
 }
 
 const SearchMap: React.FC<SearchMapProps> = ({ data, containerRef, selectedMuni, setMuni }) => {
@@ -43,6 +61,11 @@ const SearchMap: React.FC<SearchMapProps> = ({ data, containerRef, selectedMuni,
       mapboxApiAccessToken="pk.eyJ1IjoiaWhpbGwiLCJhIjoiY2plZzUwMTRzMW45NjJxb2R2Z2thOWF1YiJ9.szIAeMS4c9YTgNsJeG36gg"
       mapStyle="mapbox://styles/ihill/ckky67v9h2fsd17qvbh2mipkb"
       scrollZoom={false}
+      onClick={(e) => {
+        setMuni(handleClick(e.features))
+        console.log(e)
+        dispatch({ type: 'setViewport', viewport: {...state.viewport, longitude: e.lngLat[0], latitude: e.lngLat[1], zoom: 11 } })
+      }}
     >
       <Geocoder
         containerRef={containerRef}
@@ -57,7 +80,9 @@ const SearchMap: React.FC<SearchMapProps> = ({ data, containerRef, selectedMuni,
           }
           return false;
         }}
-        onResult={(e) => setMuni(e.result.text)}
+        onResult={(e) => {
+          setMuni(e.result.text)
+        }}
       />
         <Source id="MAPC borders" type="vector" url="mapbox://ihill.763lks2o">
         <Layer
@@ -71,6 +96,9 @@ const SearchMap: React.FC<SearchMapProps> = ({ data, containerRef, selectedMuni,
       <Source id="MAPC outer border" type="vector" url="mapbox://ihill.74kb5x0f">
         <Layer type="line" source-layer="Outline-6xc0m1" paint={{ 'line-width': 3, 'line-color': '#231F20' }} />
       </Source>
+      <div css={navigationStyle}>
+        <NavigationControl />
+      </div>
     </ReactMapGL>
   );
 }

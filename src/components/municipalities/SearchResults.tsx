@@ -32,7 +32,7 @@ function filterMunicipality(data: Maybe<Array<Pick<PostGraphile_HousSubmarketsCt
   }
 }
 
-function submarketBreakdown(filteredData) {
+function submarketBreakdown(filteredData: Array<{ muni: string, submktId: number, ct10Id: number }>) {
   return filteredData.reduce((breakdown, datum) => {
     if (!breakdown.submarkets[datum.submktId]) {
       breakdown.submarkets[datum.submktId] = 1;
