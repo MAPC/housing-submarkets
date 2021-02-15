@@ -8,6 +8,7 @@ module.exports = {
     description: 'Website for MAPC\'s research into housing submarkets in metropolitan Boston',
     author: '@mapcmetroboston',
   },
+  flags: { PRESERVE_WEBPACK_CACHE: true },
   plugins: [
     {
       resolve: 'gatsby-source-pg',
