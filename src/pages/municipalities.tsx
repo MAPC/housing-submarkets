@@ -17,6 +17,14 @@ type MunicipalSearchProps = {
 const MapResultsWrapperStyle = css`
   display: flex;
   flex-direction: row;
+  margin: 0 auto;
+  max-width: 146.6rem;
+  padding-bottom: 15rem;
+
+  @media (max-width: 1150px) {
+    align-items: center;
+    flex-direction: column-reverse;
+  }
 `;
 
 const MunicipalSearch: React.FC<MunicipalSearchProps> = ({ data }) => {

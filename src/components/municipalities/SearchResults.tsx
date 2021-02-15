@@ -15,13 +15,19 @@ type SearchResultsProps = {
 const searchResultWrapper = css`
   display: flex;
   flex-direction: column;
+  margin: 0 5rem;
 `;
 
 const h3Style = css`
   font-family: ${fonts.calibre};
   font-size: 2.8rem;
   font-weight: 600;
-  margin: 0;
+  margin: 0 auto 1.6rem auto;
+`;
+
+const vegaStyle = css`
+  margin: 0 auto 1.6rem auto;
+  width: 40rem;
 `;
 
 function filterMunicipality(data: Maybe<Array<Pick<PostGraphile_HousSubmarketsCt, 'ct10Id' | 'muni' | 'submktId'>>>, selectedMuni: string|undefined,) {
@@ -54,8 +60,8 @@ const SearchResults: React.FC<SearchResultsProps> = ({ data, selectedMuni }) => 
     setSpec({
       $schema: 'https://vega.github.io/schema/vega-lite/v4.json',
       data: { name: "muniData" },
-      mark: "bar",
-      height: 30,
+      mark: { type: "bar", tooltip: true },
+      height: 40,
       width: 350,
       encoding: {
         x: {
@@ -79,7 +85,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({ data, selectedMuni }) => 
             '#6EA1C9'],
             domain: [1,2,3,4,5,6,7]
           }
-        }
+        },
       }
     });
   }, [selectedMuni]);
@@ -89,8 +95,8 @@ const SearchResults: React.FC<SearchResultsProps> = ({ data, selectedMuni }) => 
   }, [muniData])
   return (
     <article css={searchResultWrapper}>
-      { selectedMuni ? <h3 css={h3Style}>{selectedMuni}</h3> : '' }
-      { spec && selectedMuni ? <VegaLite spec={spec} data={{ muniData }} /> : '' }
+      { selectedMuni ? <h3 css={h3Style}>{selectedMuni}</h3> : <h3 css={h3Style}>Search above or click into the map to begin</h3> }
+      { spec && selectedMuni ? <VegaLite spec={spec} data={{ muniData }} css={vegaStyle}/> : '' }
       { submarketData ? <SubmarketBreakdown submarketData={submarketData} /> : '' }
     </article>
   )

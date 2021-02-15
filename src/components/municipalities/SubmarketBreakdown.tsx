@@ -1,7 +1,11 @@
+/** @jsx jsx */
+
 import React from 'react';
+import { css, jsx } from '@emotion/react';
 import { Link } from 'gatsby';
 import { StaticQuery, graphql } from "gatsby";
 import * as d3 from 'd3-format';
+import { submarketColors, fonts } from '../../utils/theme';
 
 type SubmarketBreakdownProps = {
   total: number,
@@ -16,6 +20,19 @@ type SubmarketBreakdownProps = {
   }
 }
 
+const submarketListStyle = css`
+  list-style: none;
+  margin: 0 0 2.8rem 0;
+  padding: 0;
+`;
+
+const h4Style = css`
+  font-family: ${fonts.calibre};
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0;
+`;
+
 function findPercents(submarketData) {
   return Object.entries(submarketData.submarkets).map(([submarket, count]) => (
     <StaticQuery query={graphql`{
@@ -29,10 +46,12 @@ function findPercents(submarketData) {
       }`}
       render={data => (
         <li>
-          <p>
-            {d3.format('.0%')(count/submarketData.total)} in <Link to={`/submarkets/${submarket}`}>Submarket {submarket}</Link>
-
-          </p>
+          <h4 css={h4Style}>
+            {d3.format('.0%')(count/submarketData.total)} in{' '}
+            <Link to={`/submarkets/${submarket}`} css={css`color: ${submarketColors[submarket]};`}>
+              Submarket {submarket}
+            </Link>
+          </h4>
           <p>{data.allMarkdownRemark.nodes[submarket-1].internal.content}</p>
         </li>
       )}
@@ -44,7 +63,7 @@ function findPercents(submarketData) {
 
 const SubmarketBreakdown: React.FC<SubmarketBreakdownProps> = ({ submarketData }) => {
   return (
-    <ul>
+    <ul css={submarketListStyle}>
       {submarketData ? findPercents(submarketData) : ''}
     </ul>
   );

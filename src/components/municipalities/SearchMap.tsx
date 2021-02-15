@@ -20,6 +20,11 @@ const navigationStyle = css`
   right: 1rem;
 `;
 
+const mapStyle = css`
+  flex-shrink: 0;
+  padding-left: 5rem;
+`;
+
 function handleClick(e: Array<unknown>) {
   const muniPolygon = e.find(feature => feature.layer.id === 'mapc-borders-0im3ea');
   if (muniPolygon) {
@@ -64,52 +69,54 @@ const SearchMap: React.FC<SearchMapProps> = ({ data, containerRef, selectedMuni,
   }, []);
 
   return (
-    <ReactMapGL
-      {...state.viewport}
-      ref={mapRef}
-      width="600px"
-      height="600px"
-      onViewportChange={handleViewportChange}
-      mapboxApiAccessToken="pk.eyJ1IjoiaWhpbGwiLCJhIjoiY2plZzUwMTRzMW45NjJxb2R2Z2thOWF1YiJ9.szIAeMS4c9YTgNsJeG36gg"
-      mapStyle="mapbox://styles/ihill/ckky67v9h2fsd17qvbh2mipkb"
-      scrollZoom={false}
-      onClick={(e) => {
-        setMuni(handleClick(e.features))
-        dispatch({ type: 'setViewport', viewport: {...state.viewport, longitude: e.lngLat[0], latitude: e.lngLat[1], zoom: 11, transitionDuration: 1000 } })
-      }}
-    >
-      <Geocoder
-        containerRef={containerRef}
-        mapRef={mapRef}
-        onViewportChange={handleGeocoderViewportChange}
+    <div css={mapStyle}>
+      <ReactMapGL
+        {...state.viewport}
+        ref={mapRef}
+        width="600px"
+        height="600px"
+        onViewportChange={handleViewportChange}
         mapboxApiAccessToken="pk.eyJ1IjoiaWhpbGwiLCJhIjoiY2plZzUwMTRzMW45NjJxb2R2Z2thOWF1YiJ9.szIAeMS4c9YTgNsJeG36gg"
-        types="place"
-        bbox={useMemo(() => ([-71.66866501431952, 41.97523050594343, -70.53487628480008, 42.74357855916575]), [])}
-        filter={useCallback((item) => {
-          if (municipalities.find(row => item.place_name.includes(`${row}, Massachusetts`))) {
-            return true
-          }
-           return false;
-        }, [])}
-        onResult={useCallback((e) => {setMuni(e.result.text)}, [])}
-        marker={false}
-      />
-        <Source id="MAPC borders" type="vector" url="mapbox://ihill.763lks2o">
-        <Layer
-          type="line"
-          id="MAPC municipal borders"
-          source="MAPC borders"
-          source-layer="MAPC_borders-0im3ea"
-          paint={{ 'line-color': '#231F20' }}
+        mapStyle="mapbox://styles/ihill/ckky67v9h2fsd17qvbh2mipkb"
+        scrollZoom={false}
+        onClick={(e) => {
+          setMuni(handleClick(e.features))
+          dispatch({ type: 'setViewport', viewport: {...state.viewport, longitude: e.lngLat[0], latitude: e.lngLat[1], zoom: 11, transitionDuration: 1000 } })
+        }}
+      >
+        <Geocoder
+          containerRef={containerRef}
+          mapRef={mapRef}
+          onViewportChange={handleGeocoderViewportChange}
+          mapboxApiAccessToken="pk.eyJ1IjoiaWhpbGwiLCJhIjoiY2plZzUwMTRzMW45NjJxb2R2Z2thOWF1YiJ9.szIAeMS4c9YTgNsJeG36gg"
+          types="place"
+          bbox={useMemo(() => ([-71.66866501431952, 41.97523050594343, -70.53487628480008, 42.74357855916575]), [])}
+          filter={useCallback((item) => {
+            if (municipalities.find(row => item.place_name.includes(`${row}, Massachusetts`))) {
+              return true
+            }
+            return false;
+          }, [])}
+          onResult={useCallback((e) => {setMuni(e.result.text)}, [])}
+          marker={false}
         />
-      </Source>
-      <Source id="MAPC outer border" type="vector" url="mapbox://ihill.74kb5x0f">
-        <Layer type="line" source-layer="Outline-6xc0m1" paint={{ 'line-width': 3, 'line-color': '#231F20' }} />
-      </Source>
-      <div css={navigationStyle}>
-        <NavigationControl />
-      </div>
-    </ReactMapGL>
+          <Source id="MAPC borders" type="vector" url="mapbox://ihill.763lks2o">
+          <Layer
+            type="line"
+            id="MAPC municipal borders"
+            source="MAPC borders"
+            source-layer="MAPC_borders-0im3ea"
+            paint={{ 'line-color': '#231F20' }}
+          />
+        </Source>
+        <Source id="MAPC outer border" type="vector" url="mapbox://ihill.74kb5x0f">
+          <Layer type="line" source-layer="Outline-6xc0m1" paint={{ 'line-width': 3, 'line-color': '#231F20' }} />
+        </Source>
+        <div css={navigationStyle}>
+          <NavigationControl />
+        </div>
+      </ReactMapGL>
+    </div>
   );
 }
 

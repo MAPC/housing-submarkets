@@ -10,11 +10,11 @@ type SearchBarProps = {
 
 const SearchWrapperStyle = css`
   align-items: center;
-  background-color: ${themeColors.warmGray};
   display: flex;
   flex-direction: column;
   height: 15rem;
   justify-content: center;
+  padding: 7.6rem 0 3.6rem;
 `;
 
 const h2Style = css`
