@@ -4,35 +4,53 @@ import React, { useState, useEffect } from 'react';
 import { Maybe, PostGraphile_HousSubmarketsCt } from './../../../types/gatsby-graphql';
 import { css, jsx } from '@emotion/react';
 import { VegaLite } from 'react-vega';
-import { submarketColors } from '../../utils/theme';
+import { fonts } from '../../utils/theme';
+import SubmarketBreakdown from './SubmarketBreakdown';
 
 type SearchResultsProps = {
   data: Maybe<Array<Pick<PostGraphile_HousSubmarketsCt, 'ct10Id' | 'muni' | 'submktId'>>>,
   selectedMuni: string|undefined,
 }
 
-function submarketBreakdown(data: Maybe<Array<Pick<PostGraphile_HousSubmarketsCt, 'ct10Id' | 'muni' | 'submktId'>>>, selectedMuni: string|undefined,) {
+const searchResultWrapper = css`
+  display: flex;
+  flex-direction: column;
+`;
+
+const h3Style = css`
+  font-family: ${fonts.calibre};
+  font-size: 2.8rem;
+  font-weight: 600;
+  margin: 0;
+`;
+
+function filterMunicipality(data: Maybe<Array<Pick<PostGraphile_HousSubmarketsCt, 'ct10Id' | 'muni' | 'submktId'>>>, selectedMuni: string|undefined,) {
   if (selectedMuni && data) {
     return data.filter(datum => datum.muni === selectedMuni);
-    // return data.reduce((submarkets, datum) => {
-    //   if (datum.muni === selectedMuni) {
-    //     const temp = datum;
-    //     temp.color = submarketColors[datum.submktId];
-    //     submarkets.push({temp});
-    //   }
-    //   return submarkets;
-    // }, []);
   } else {
-    return 'Data n/a';
+    return [];
   }
+}
+
+function submarketBreakdown(filteredData) {
+  return filteredData.reduce((breakdown, datum) => {
+    if (!breakdown.submarkets[datum.submktId]) {
+      breakdown.submarkets[datum.submktId] = 1;
+    } else {
+      breakdown.submarkets[datum.submktId] += 1;
+    }
+    breakdown.total += 1;
+    return breakdown;
+  }, { total: 0, submarkets: {} });
 }
 
 const SearchResults: React.FC<SearchResultsProps> = ({ data, selectedMuni }) => {
   const [spec, setSpec] = useState({});
-  const [muniData, setData] = useState({});
+  const [muniData, setMuniData] = useState([]);
+  const [submarketData, setSubmarketData] = useState();
 
   useEffect(() => {
-    setData(submarketBreakdown(data, selectedMuni));
+    setMuniData(filterMunicipality(data, selectedMuni));
     setSpec({
       $schema: 'https://vega.github.io/schema/vega-lite/v4.json',
       data: { name: "muniData" },
@@ -65,13 +83,18 @@ const SearchResults: React.FC<SearchResultsProps> = ({ data, selectedMuni }) => 
       }
     });
   }, [selectedMuni]);
+
+  useEffect(() => {
+    setSubmarketData(submarketBreakdown(muniData));
+  }, [muniData])
   return (
-    <React.Fragment>
-      { selectedMuni ? <p>{selectedMuni}</p> : '' }
+    <article css={searchResultWrapper}>
+      { selectedMuni ? <h3 css={h3Style}>{selectedMuni}</h3> : '' }
       { spec && selectedMuni ? <VegaLite spec={spec} data={{ muniData }} /> : '' }
-    </React.Fragment>
+      { submarketData ? <SubmarketBreakdown submarketData={submarketData} /> : '' }
+    </article>
   )
 };
 
 export default SearchResults;
-export { submarketBreakdown };
+export { filterMunicipality };
