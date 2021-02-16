@@ -18,7 +18,6 @@ const navItemStyle = css`
   color: ${themeColors.accentPurple};
   font-family: ${fonts.calibre};
   font-size: 2.4rem;
-  font-weight: 600;
   margin: 0 1rem;
 `;
 

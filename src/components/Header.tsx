@@ -42,6 +42,10 @@ const titleStyle = css`
   margin: 0 1.6rem 1px -1px;
   padding: 0 5rem 1rem 1rem;
 
+  @media (max-width: 1366px) {
+    font-size: 3.6rem;
+  }
+
   @media (max-width: 670px) {
     font-size: 3rem;
     line-height: 3rem;
@@ -68,7 +72,7 @@ const Header = () => {
           <img src={logo} alt="Decorative logo of two houses" />
           <h1 css={titleStyle}>Housing Submarkets</h1>
         </Link>
-        { pageWidth >= 1200 ? <MainNav /> : <MobileNav /> }
+        { pageWidth >= 1300 ? <MainNav /> : <MobileNav /> }
       </div>
     </header>
   );

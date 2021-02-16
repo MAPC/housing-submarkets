@@ -63,7 +63,7 @@ module.exports = {
         short_name: 'Housing Submarkets',
         start_url: '/',
         display: 'minimal-ui',
-        icon: 'src/images/MAPC_logo.png', // This path is relative to the root of the site.
+        icon: 'src/images/favicon.png', // This path is relative to the root of the site.
       },
     },
   ],
