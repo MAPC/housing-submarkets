@@ -1,7 +1,8 @@
 import React from 'react';
 import SectionWithoutChart from '../SectionWithoutChart';
 import SectionWithChart from '../SectionWithChart';
-import HigherEducation from '../visualizations/HigherEducation'
+import HoverablePhrase from '../../HoverablePhrase';
+import HigherEducation from '../visualizations/HigherEducation';
 
 const SubmarketOneNarrative = () => (
   <section>
@@ -22,7 +23,14 @@ const SubmarketOneNarrative = () => (
           As a subregion situated entirely within the dense core of the region, Submarket 1 offers easy access for its residents to hundreds of thousands of jobs.
         </p>
         <p>
-          The rate of severe housing cost burden (paying more than half of household income on housing costs [this will be a hover-over explanation]) in Submarket 1 is 19 percent, slightly higher than the regional average of 16 percent.
+          The rate of severe
+          {' '}
+          <HoverablePhrase
+            phrase="housing cost burden"
+            definition="Paying more than half of household income on housing costs"
+          />
+          {' '}
+          in Submarket 1 is 19 percent, slightly higher than the regional average of 16 percent.
         </p>
         <p>
           About a fifth of the land area of Submarket 1 was, in the 1930s, deemed too risky for mortgage lenders and financial investment by the federal Home Owners Loan Corporation (HOLC) agency. The agency assigned a grade of “D” to 20 percent of what is now Submarket 1, and a grade of “C” to another 36 percent. Thirteen percent of land area in the subregion was graded “B” and none was graded “A.” For more details on the impacts of Redlining on the region, see [report section].
