@@ -60,7 +60,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({ data, selectedMuni }) => 
     setSpec({
       $schema: 'https://vega.github.io/schema/vega-lite/v4.json',
       data: { name: "muniData" },
-      mark: { type: "bar", tooltip: true },
+      mark: { type: "bar" },
       height: 40,
       width: 350,
       encoding: {
@@ -86,6 +86,10 @@ const SearchResults: React.FC<SearchResultsProps> = ({ data, selectedMuni }) => 
             domain: [1,2,3,4,5,6,7]
           }
         },
+        tooltip: [
+          { field: "submktId", type: "nominal", title: "Submarket" },
+          { field: "__count", type: "quantitative", title: "Tracts" }
+        ],
       }
     });
   }, [selectedMuni]);
@@ -96,7 +100,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({ data, selectedMuni }) => 
   return (
     <article css={searchResultWrapper}>
       { selectedMuni ? <h3 css={h3Style}>{selectedMuni}</h3> : <h3 css={h3Style}>Search above or click into the map to begin</h3> }
-      { spec && selectedMuni ? <VegaLite spec={spec} data={{ muniData }} css={vegaStyle}/> : '' }
+      { spec && selectedMuni ? <VegaLite spec={spec} data={{ muniData }} css={vegaStyle} /> : '' }
       { submarketData ? <SubmarketBreakdown submarketData={submarketData} /> : '' }
     </article>
   )
