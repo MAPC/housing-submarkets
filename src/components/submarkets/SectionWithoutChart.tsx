@@ -13,22 +13,14 @@ const sectionWithoutChart = css`
   max-width: 100rem;
 `;
 
-const h3Style = css`
-  color: ${themeColors.bgPurple};
-  font-family: ${fonts.calibre};
-  font-size: 2.8rem;
-  font-weight: 600;
-`;
-
 type SectionWithoutChartProps = {
-  title: string,
+  children: React.HTMLAttributes<HTMLParagraphElement>,
 }
 
-const SectionWithoutChart: React.FC<SectionWithoutChartProps> = ({ children, title }) => (
-  <section css={sectionWithoutChart}>
-    <h3 css={h3Style}>{title}</h3>
+const SectionWithoutChart: React.FC<SectionWithoutChartProps> = ({ children }) => (
+  <div css={sectionWithoutChart}>
     { children }
-  </section>
+  </div>
 );
 
 export default SectionWithoutChart;

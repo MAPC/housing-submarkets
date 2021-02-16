@@ -20,16 +20,8 @@ const sectionWithChart = css`
   }
 `;
 
-const h3Style = css`
-  color: ${themeColors.bgPurple};
-  font-family: ${fonts.calibre};
-  font-size: 2.8rem;
-  font-weight: 600;
-`;
-
 const chartPlaceholder = css`
   align-items: center;
-  background-color: ${themeColors.accentPurple};
   display: flex;
   flex-direction: row;
   flex-shrink: 0;
@@ -44,17 +36,18 @@ const chartPlaceholder = css`
 `;
 
 type SectionWithChartProps = {
-  title: string,
+  children: Array<JSX.Element>,
 }
 
-const SectionWithChart: React.FC<SectionWithChartProps> = ({ children, title }) => (
+const SectionWithChart: React.FC<SectionWithChartProps> = ({ children }) => (
   <section css={sectionStyle}>
-      <h3 css={h3Style}>{title}</h3>
       <div css={sectionWithChart}>
         <div>
-          { children }
+          { children[0] }
         </div>
-        <aside css={chartPlaceholder}>Chart</aside>
+        <aside css={chartPlaceholder}>
+          { children[1] }
+        </aside>
       </div>
     </section>
 );
