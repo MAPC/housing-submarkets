@@ -44,6 +44,7 @@ const municipalities: Array<string> = [
   'Lynnfield',
   'Malden',
   'Manchester',
+  'Manchester-by-the-Sea',
   'Marblehead',
   'Marlborough',
   'Marshfield',

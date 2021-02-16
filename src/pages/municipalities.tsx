@@ -37,7 +37,7 @@ const MunicipalSearch: React.FC<MunicipalSearchProps> = ({ data }) => {
       </SEO>
       <SearchBar containerRef={containerRef} />
       <section css={MapResultsWrapperStyle}>
-        <SearchMap data={data.postgres.allHousSubmarketsCtsList} containerRef={containerRef} selectedMuni={selectedMuni} setMuni={setMuni} />
+        <SearchMap data={data.allDataCsv.nodes} containerRef={containerRef} selectedMuni={selectedMuni} setMuni={setMuni} />
         <SearchResults data={data.postgres.allHousSubmarketsCtsList} selectedMuni={selectedMuni} />
       </section>
     </Layout>
@@ -51,6 +51,12 @@ export const data = graphql`
         ct10Id
         muni
         submktId
+      }
+    },
+    allDataCsv {
+      nodes {
+        ct10_id
+        class
       }
     }
   }

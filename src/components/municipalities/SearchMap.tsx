@@ -2,13 +2,14 @@
 
 import React, { useRef, useReducer, useCallback, useMemo } from 'react';
 import { jsx, css } from '@emotion/react';
-import { Maybe, PostGraphile_HousSubmarketsCt } from './../../../types/gatsby-graphql';
+import { DataCsv } from './../../../types/gatsby-graphql';
 import ReactMapGL, { Source, Layer, NavigationControl } from 'react-map-gl';
 import Geocoder from "react-map-gl-geocoder";
 import municipalities from '../../utils/municipalities';
+import { submarketColors } from '../../utils/theme';
 
 type SearchMapProps = {
-  data: Maybe<Array<Pick<PostGraphile_HousSubmarketsCt, 'ct10Id' | 'muni' | 'submktId'>>>,
+  data: Pick<DataCsv, "ct10_id" | "class">[],
   containerRef: React.RefObject<HTMLInputElement>
   selectedMuni: string|undefined,
   setMuni: React.Dispatch<React.SetStateAction<string|undefined>>,
@@ -49,8 +50,6 @@ const SearchMap: React.FC<SearchMapProps> = ({ data, containerRef, selectedMuni,
     switch (action.type) {
       case 'setViewport':
         return { ...state, viewport: action.viewport };
-      case 'setMunicipality':
-        return { ...state, municipality: action.municipality };
     }
   };
 
@@ -67,6 +66,12 @@ const SearchMap: React.FC<SearchMapProps> = ({ data, containerRef, selectedMuni,
       ...geocoderDefaultOverrides
     });
   }, []);
+
+  const choropleth = ['match', ['get', 'ct10_id']];
+  data.forEach((row) => {
+    choropleth.push(row.ct10_id, +row.class ? submarketColors[+row.class] : 'rgba(0, 0, 0, 0)');
+  });
+  choropleth.push('#B6B6B6');
 
   return (
     <div css={mapStyle}>
@@ -97,9 +102,31 @@ const SearchMap: React.FC<SearchMapProps> = ({ data, containerRef, selectedMuni,
             }
             return false;
           }, [])}
-          onResult={useCallback((e) => {setMuni(e.result.text)}, [])}
+          onResult={useCallback((e) => {
+            if (e.result.text === 'Manchester-by-the-Sea') {
+              setMuni('Manchester')
+            } else {
+              setMuni(e.result.text)
+            }
+          }, [])}
           marker={false}
         />
+        <Source id="2010 Census Tracts" type="vector" url="mapbox://ihill.aw7gvvhk">
+          <Layer
+          type="fill"
+          id="Submarket Choropleth"
+          source="2010 Census Tracts"
+          source-layer="Tracts-2jsl06"
+          paint={{ 'fill-color': choropleth }}
+        />
+        <Layer
+          type="line"
+          id="Submarket tract borders"
+          source="2010 Census Tracts"
+          source-layer="Tracts-2jsl06"
+          paint={{ 'line-color': "#707070", 'line-width': .25 }}
+        />
+        </Source>
           <Source id="MAPC borders" type="vector" url="mapbox://ihill.763lks2o">
           <Layer
             type="line"
@@ -107,6 +134,17 @@ const SearchMap: React.FC<SearchMapProps> = ({ data, containerRef, selectedMuni,
             source="MAPC borders"
             source-layer="MAPC_borders-0im3ea"
             paint={{ 'line-color': '#231F20' }}
+          />
+          <Layer
+            type="line"
+            id="Highlighted municipality"
+            source="MAPC borders"
+            source-layer="MAPC_borders-0im3ea"
+            paint={{
+              'line-color': '#FDB525',
+              'line-width': 3,
+              'line-opacity': selectedMuni ? ['match', ['get', 'municipal'], selectedMuni, 1, 0] : 0,
+            }}
           />
         </Source>
         <Source id="MAPC outer border" type="vector" url="mapbox://ihill.74kb5x0f">
