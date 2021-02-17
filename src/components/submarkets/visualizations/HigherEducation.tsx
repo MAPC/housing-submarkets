@@ -2,7 +2,7 @@ import React from 'react';
 import { VegaLite, VisualizationSpec } from 'react-vega';
 import { StaticQuery, graphql } from "gatsby";
 
-const SectionWithChart = () => {
+const HigherEducation = () => {
   const spec: VisualizationSpec = {
     $schema: 'https://vega.github.io/schema/vega-lite/v4.json',
     data: { name: "adjustedData" },
@@ -59,4 +59,4 @@ const SectionWithChart = () => {
   )
 };
 
-export default SectionWithChart;
+export default HigherEducation;
