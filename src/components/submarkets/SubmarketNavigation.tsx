@@ -30,7 +30,6 @@ const linkStyles = css`
   display: flex;
   font-family: ${fonts.calibre};
   font-size: 2.4rem;
-  font-weight: 600;
   line-height: 2.4rem;
   text-decoration: none;
 
