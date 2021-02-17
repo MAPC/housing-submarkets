@@ -55,7 +55,7 @@ const MobileNavMenu: React.FC<MobileNavMenuProps> = ({ toggleMobileNav }) => {
       </button>
       <ul css={mobileNavListStyle}>
         <li css={mobileNavItemStyle}>
-          <Link to="/tempIndex" css={linkStyle} activeStyle={{ color: themeColors.white }}>
+          <Link to="/" css={linkStyle} activeStyle={{ color: themeColors.white }}>
             Home
           </Link>
         </li>

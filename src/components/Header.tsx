@@ -68,7 +68,7 @@ const Header = () => {
   return (
     <header css={headerStyle}>
       <div css={headerWrapperStyle}>
-        <Link to="/tempIndex" css={logoTitleWrapperStyle}>
+        <Link to="/" css={logoTitleWrapperStyle}>
           <img src={logo} alt="Decorative logo of two houses" />
           <h1 css={titleStyle}>Housing Submarkets</h1>
         </Link>

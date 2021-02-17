@@ -30,7 +30,7 @@ const MainNav = () => (
   <nav>
     <ul css={navListStyle}>
       <li css={navItemStyle}>
-        <Link to="/tempIndex" css={linkStyle} activeStyle={{ color: themeColors.white }}>
+        <Link to="/" css={linkStyle} activeStyle={{ color: themeColors.white }}>
           Home
         </Link>
       </li>

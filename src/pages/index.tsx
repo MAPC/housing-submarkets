@@ -5,7 +5,7 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 import ToggleableMap from '../components/home-map/ToggleableMap';
 
-const TempIndex = ({ data }: { data: HomepageMapQuery }) => (
+const Index = ({ data }: { data: HomepageMapQuery }) => (
   <Layout>
     <SEO>
       <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v1.13.0/mapbox-gl.css" rel="stylesheet" />
@@ -14,7 +14,7 @@ const TempIndex = ({ data }: { data: HomepageMapQuery }) => (
   </Layout>
 );
 
-export default TempIndex;
+export default Index;
 export const data = graphql`
   query HomepageMap {
     allDataCsv {
