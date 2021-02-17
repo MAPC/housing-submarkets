@@ -56,7 +56,7 @@ const ReportCallout = ({...props}) => (
         }
       }}
     >
-      Read Report
+      Read Policy Strategy
     </Link>
   </div>
 );

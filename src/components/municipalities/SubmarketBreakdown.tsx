@@ -47,7 +47,7 @@ function findPercents(submarketData) {
       render={data => (
         <li>
           <h4 css={h4Style}>
-            {d3.format('.0%')(count/submarketData.total)} in{' '}
+            {d3.format('.0%')(count/submarketData.total)} of tracts are in{' '}
             <Link to={`/submarkets/${submarket}`} css={css`color: ${submarketColors[submarket]};`}>
               Submarket {submarket}
             </Link>

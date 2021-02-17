@@ -103,7 +103,7 @@ const Sidebar: React.FC<SidebarProps> = ({ layerVisibility, dispatch, activeLaye
             </CardFace>
             <LayerMenu activeLayer={activeLayer} dispatch={dispatch} layerVisibility={layerVisibility} />
           </aside>
-          <Link to="/policy-strategy" css={reportLinkStyle}>Read Report &gt;&gt;</Link>
+          <Link to="/policy-strategy" css={reportLinkStyle}>Read Policy Strategy &gt;&gt;</Link>
         </div>
       )
     }
