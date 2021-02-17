@@ -52,7 +52,6 @@ const listItemStyle = css`
 
 const boldItemStyle = css`
   font-family: ${fonts.calibre};
-  font-weight: 600;
 `;
 
 const InfoCard = ({ submarket }: { submarket: number }) => {

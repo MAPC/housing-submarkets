@@ -13,15 +13,12 @@ const SectionWithChart = () => {
     },
     height: 350,
     width: 400,
-    "transform": [
-      {"calculate": "2*datum.b", "as": "b2"},
-    ],
     encoding: {
-      y: {
+      x: {
         field: "Submarket",
         type: "nominal",
       },
-      x: {
+      y: {
         field: "baplP",
         type: "quantitative",
         title: "% Population with more than Bachelors Degree",
@@ -30,14 +27,8 @@ const SectionWithChart = () => {
         legend: null,
         field: "Submarket",
         type: 'nominal',
-        "scale": {
-          range: ['#C7024E',
-          '#80CDC1',
-          '#06614d',
-          '#F37B74',
-          '#BF812D',
-          '#8C510A',
-          '#6EA1C9'],
+        scale: {
+          range: ['#C7024E', '#80CDC1', '#06614d', '#F37B74', '#BF812D', '#8C510A', '#6EA1C9'],
           domain: [1,2,3,4,5,6,7]
         }
       },

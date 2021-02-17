@@ -23,10 +23,10 @@ const SubmarketOneNarrative = () => (
           As a subregion situated entirely within the dense core of the region, Submarket 1 offers easy access for its residents to hundreds of thousands of jobs.
         </p>
         <p>
-          The rate of severe
+          The rate of
           {' '}
           <HoverablePhrase
-            phrase="housing cost burden"
+            phrase="severe housing cost burden"
             definition="Paying more than half of household income on housing costs"
           />
           {' '}
