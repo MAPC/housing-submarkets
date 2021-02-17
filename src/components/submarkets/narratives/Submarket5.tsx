@@ -17,7 +17,7 @@ const SubmarketFiveNarrative = () => (
     <SectionWithChart>
       <div>
         <p>
-          Submarket 5 has the largest share of households with children of all the submarkets at 39 percent, which is ten points higher than the region overall. [BOX PLOT] It also has an outsized share of households with children compared to its size. However, because it is a relatively small submarket, the total number of households with children is just under 42,000, or only 11 percent of all households with children in the region.
+          Submarket 5 has the largest share of households with children of all the submarkets at 39 percent, which is ten points higher than the region overall. aIt also has an outsized share of households with children compared to its size. However, because it is a relatively small submarket, the total number of households with children is just under 42,000, or only 11 percent of all households with children in the region.
         </p>
         <p>
           It is no wonder that Submarket 5 has a high share of households with children, because it has the best public school performance of the seven submarkets. MCAS scores for both math and English and language arts are the highest, as are the measures of student improvement from third to eighth grade. Yet, only a small share of children in the region are able to access these high-performing school systems, and an even smaller share of Black and Latinx children.
@@ -28,7 +28,7 @@ const SubmarketFiveNarrative = () => (
     <SectionWithChart>
       <div>
         <p>
-          It is no wonder that the rate of college attainment is highest in Submarket 7, at 79 percent—27 points higher than the regional average. [BOX PLOT]
+          It is no wonder that the rate of college attainment is highest in Submarket 7, at 79 percent—27 points higher than the regional average.
         </p>
         <p>
           Workers in Submarket 5 have the lowest rate of unemployment of the submarkets, at 3.7 percent.

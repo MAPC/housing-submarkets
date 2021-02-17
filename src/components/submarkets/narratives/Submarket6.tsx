@@ -1,30 +1,35 @@
 import React from 'react';
 import SectionWithChart from '../SectionWithChart';
 import SectionWithoutChart from '../SectionWithoutChart';
+import PercentPopulationChangeEthnicity from '../visualizations/PercentPopulationChangeEthnicity';
 
 const SubmarketSixNarrative = () => (
   <React.Fragment>
-    <SectionWithoutChart title="Offendit eleifend moderatius">
+    <SectionWithChart>
+      <div>
+        <p>
+          Submarket 6 is relatively small, with only nine percent of the regional population. Racially and ethnically, Submarket 6 looks similar to the region overall—eight percent of residents in the submarket are Black, seven percent Latinx, 11 percent Asian, and 71 percent White. Submarket 6 has seen 15 percent growth in population since 2000, tied for fastest growth with Submarket 1. Unlike Submarket 1, all the growth in population has been among populations of color. Black, Latinx, and Asian populations in the submarket grew by 113 percent, 204 percent, and 120 percent, respectively—fastest growth for all three groups—while the White population shrank by two percent.
+        </p>
+      </div>
+      <PercentPopulationChangeEthnicity />
+    </SectionWithChart>
+    <SectionWithoutChart>
       <p>
-        Offendit eleifend moderatius ex vix, quem odio mazim et qui, purto expetendis cotidieque quo cu, veri persius vituperata ei nec. Scripta periculis ei eam, te pro movet reformidans. Commune platonem mel id, brute adipiscing duo an. Scripta periculis ei eam, te pro movet reformidans. Usu ut commune mentitum, putent facete vim id. Quas scaevola postulant id vis, tincidunt assueverit et pro, quo et alii scripta accommodare. Te cum aeque repudiandae delicatissimi, cu populo dictas ponderum vel, dolor consequat ut vix. Scripta periculis ei eam, te pro movet reformidans. Sit fugit nostrum et. Scripta periculis ei eam, te pro movet reformidans.
+        Households with children in Submarket 6 represent just under 30 percent of all households, similar to the regional average, and about ten percent of households with children in the region live in the submarket.
+      </p>
+      <p>
+        Test scores at public schools in Submarket 6 are average—their median MCAS scores fall in the middle (fourth) of the seven submarkets. However, when it comes to improving student test scores from third to eighth grade the submarket performs slightly higher, at third best of seven.
+      </p>
+      <p>
+        Rates of college attainment in Submarket 6 also fall in the middle of the submarkets, at 47 percent, five points below the regional average; but college attainment rates have grown by 27 percent, three points faster than the regional average.
+      </p>
+      <p>
+        At 5.0 percent, the rate of unemployment in Submarket 6 is the same as the regional average.
+      </p>
+      <p>
+        The rate of severe cost burden in Submarket 6 is also the same as the regional average at 16 percent.
       </p>
     </SectionWithoutChart>
-    <SectionWithChart title="Lorem ipsum">
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Soluta facilisi instructior eam in, ferri oratio ancillae te ius. Scripta periculis ei eam, te pro movet reformidans. Id doctus accommodare eam, pri an esse tota prodesset, te veniam oblique posidonium mel.
-      </p>
-      <p>
-        Offendit eleifend moderatius ex vix, quem odio mazim et qui, purto expetendis cotidieque quo cu, veri persius vituperata ei nec. Scripta periculis ei eam, te pro movet reformidans. Commune platonem mel id, brute adipiscing duo an. Scripta periculis ei eam, te pro movet reformidans. Usu ut commune mentitum, putent facete vim id. Quas scaevola postulant id vis, tincidunt assueverit et pro, quo et alii scripta accommodare. Te cum aeque repudiandae delicatissimi, cu populo dictas ponderum vel, dolor consequat ut vix. Scripta periculis ei eam, te pro movet reformidans. Sit fugit nostrum et. Scripta periculis ei eam, te pro movet reformidans.
-      </p>
-    </SectionWithChart>
-    <SectionWithChart title="Lorem ipsum">
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Soluta facilisi instructior eam in, ferri oratio ancillae te ius. Scripta periculis ei eam, te pro movet reformidans. Id doctus accommodare eam, pri an esse tota prodesset, te veniam oblique posidonium mel.
-      </p>
-      <p>
-        Offendit eleifend moderatius ex vix, quem odio mazim et qui, purto expetendis cotidieque quo cu, veri persius vituperata ei nec. Scripta periculis ei eam, te pro movet reformidans. Commune platonem mel id, brute adipiscing duo an. Scripta periculis ei eam, te pro movet reformidans. Usu ut commune mentitum, putent facete vim id. Quas scaevola postulant id vis, tincidunt assueverit et pro, quo et alii scripta accommodare. Te cum aeque repudiandae delicatissimi, cu populo dictas ponderum vel, dolor consequat ut vix. Scripta periculis ei eam, te pro movet reformidans. Sit fugit nostrum et. Scripta periculis ei eam, te pro movet reformidans.
-      </p>
-    </SectionWithChart>
   </React.Fragment>
 );
 
