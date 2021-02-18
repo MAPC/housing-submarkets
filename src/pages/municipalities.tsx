@@ -51,6 +51,7 @@ export const data = graphql`
         ct10Id
         muni
         submktId
+        hh
       }
     },
     allDataCsv {
