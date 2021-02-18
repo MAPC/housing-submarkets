@@ -22,8 +22,8 @@ const listItemStyles = css`
 `;
 
 type LayerButtonProps = {
-  layer: number,
-  activeLayer: number,
+  layer: 1 | 2 | 3 | 4 | 5 | 6 | 7,
+  activeLayer: 1 | 2 | 3 | 4 | 5 | 6 | 7,
   dispatch: Dispatch<SetStateAction<number>>,
 }
 
@@ -35,6 +35,7 @@ const LayerButton: React.FC<LayerButtonProps> = ({ layer, activeLayer, dispatch 
     color: ${layer === activeLayer ?  submarketColors[layer] : 'rgba(122, 122, 122, .5)'};
     font-family: ${fonts.calibre};
     font-size: 2.8rem;
+    font-weight: 600;
     height: 100%;
     min-width: 5rem;
     padding: .8rem;

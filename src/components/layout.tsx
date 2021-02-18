@@ -16,13 +16,13 @@ const Layout: React.FC<LayoutProps> = ({ children, ...props }) => (
       @import url("//hello.myfonts.net/count/37908e");
 
       @font-face {
-        font-family: 'SwiftNeueLTPro';
-        src: url('./fonts/SwiftNeueLTPro.eot') format('eot');
+        font-family: 'Swift Neue LT Pro';
+        src: url('fonts/SwiftNeueLTPro.eot') format('eot');
         src: local('Swift Neue LT Pro'),
-            url('./fonts/SwiftNeueLTPro.eot?#iefix') format('embedded-opentype'),
-            url('./fonts/SwiftNeueLTPro.woff2') format('woff2'),
-            url('./fonts/SwiftNeueLTPro.woff') format('woff'),
-            url('./fonts/SwiftNeueLTPro.ttf') format('truetype');
+            url('fonts/SwiftNeueLTPro.eot?#iefix') format('embedded-opentype'),
+            url('fonts/SwiftNeueLTPro.woff2') format('woff2'),
+            url('fonts/SwiftNeueLTPro.woff') format('woff'),
+            url('fonts/SwiftNeueLTPro.ttf') format('truetype');
         font-style: normal;
         font-weight: normal;
       }

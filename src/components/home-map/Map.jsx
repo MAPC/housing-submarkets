@@ -21,6 +21,7 @@ const navigationStyle = css`
 const municipalityStyle = css`
   font-family: ${fonts.calibre};
   font-size: 2rem;
+  font-weight: 600;
   line-height: 1.8rem;
   margin: 1rem 0 0 0;
 `;

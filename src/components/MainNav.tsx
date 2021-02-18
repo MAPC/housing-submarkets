@@ -2,9 +2,8 @@
 
 import React from 'react';
 import { Link } from 'gatsby';
-import { jsx, css } from "@emotion/react";
-import { themeColors } from '../utils/theme';
-import { fonts } from '../utils/theme';
+import { jsx, css } from '@emotion/react';
+import { themeColors, fonts } from '../utils/theme';
 
 const navListStyle = css`
   display: flex;
@@ -18,6 +17,7 @@ const navItemStyle = css`
   color: ${themeColors.accentPurple};
   font-family: ${fonts.calibre};
   font-size: 2.4rem;
+  font-weight: 700;
   margin: 0 1rem;
 `;
 
@@ -34,15 +34,15 @@ const MainNav = () => (
           Home
         </Link>
       </li>
-      <li css={navItemStyle} aria-hidden={true}>
+      <li css={navItemStyle} aria-hidden>
         |
       </li>
       <li css={navItemStyle}>
-        <Link to="/submarkets" css={linkStyle} activeStyle={{ color: themeColors.white }} partiallyActive={true}>
+        <Link to="/submarkets" css={linkStyle} activeStyle={{ color: themeColors.white }} partiallyActive>
           Submarkets
         </Link>
       </li>
-      <li css={navItemStyle} aria-hidden={true}>
+      <li css={navItemStyle} aria-hidden>
         |
       </li>
       <li css={navItemStyle}>
@@ -50,7 +50,7 @@ const MainNav = () => (
           Municipalities
         </Link>
       </li>
-      <li css={navItemStyle} aria-hidden={true}>
+      <li css={navItemStyle} aria-hidden>
         |
       </li>
       <li css={navItemStyle}>
@@ -58,7 +58,7 @@ const MainNav = () => (
           Policy Strategy
         </Link>
       </li>
-      <li css={navItemStyle} aria-hidden={true}>
+      <li css={navItemStyle} aria-hidden>
         |
       </li>
       <li css={navItemStyle}>
@@ -68,7 +68,7 @@ const MainNav = () => (
       </li>
     </ul>
   </nav>
-)
+);
 
 export default MainNav;
 export { navListStyle, navItemStyle, linkStyle };

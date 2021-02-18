@@ -13,7 +13,7 @@ const mobileNavStyle = css`
   display: flex;
   flex-direction: column;
   height: 100%;
-  position: absolute;
+  position: fixed;
   right: 0;
   top: 0;
   z-index: 100;
@@ -35,7 +35,7 @@ const mobileNavListStyle = css`
   list-style: none;
 `;
 
-interface MobileNavMenuProps {
+type MobileNavMenuProps = {
   toggleMobileNav: Dispatch<SetStateAction<boolean>>,
 }
 

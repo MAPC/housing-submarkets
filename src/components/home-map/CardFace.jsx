@@ -1,13 +1,11 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
-import { css } from "@emotion/react";
-import styled from '@emotion/styled';
+import { css } from '@emotion/react';
 import Toggle from './Toggle';
-import { submarketColors, themeColors } from '../../utils/theme';
-import { fonts } from '../../utils/theme';
+import { fonts, submarketColors, themeColors } from '../../utils/theme';
 
-const SidebarContent = styled.div`
+const sidebarContentStyle = css`
   padding: 3rem 2rem 0 3rem;
   width: 43rem;
 
@@ -21,48 +19,50 @@ const SidebarContent = styled.div`
   }
 `;
 
-const TitleWrapper = styled.div`
+const titleWrapperStyle = css`
   display: flex;
   flex-direction: row;
 `;
 
-const SidebarTitle = styled.h2((props) => ({
-  color: submarketColors[props.activeLayer],
-  fontFamily: fonts.calibre,
-  fontSize: '2.8rem',
-  fontWeight: '600',
-  margin: '0 3.6rem 0 0',
-}));
-
-const SidebarSubtitle = styled.h3`
+const sidebarSubtitleStyle = css`
   font-family: ${fonts.calibre};
   font-size: 2rem;
   line-height: 1.8rem;
 `;
 
-const sidebarLink = (activeLayer) => (css`
-  color: ${submarketColors[activeLayer]};
-  text-decoration: underline;
+const CardFace = ({ layerVisibility, dispatch, activeLayer, children }) => {
+  const sidebarTitleStyle = css`
+    color: ${submarketColors[activeLayer]};
+    font-family: ${fonts.calibre};
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin: 0 3.6rem 0 0;
+  `;
 
-  &:focus {
-    border: 1px solid ${themeColors.highlightPurple};
-  }
-`);
+  const sidebarLinkStyle = css`
+    color: ${submarketColors[activeLayer]};
+    text-decoration: underline;
 
-const CardFace = ({ layerVisibility, dispatch, activeLayer, children }) => (
-  <SidebarContent>
-    <TitleWrapper>
-      <SidebarTitle activeLayer={activeLayer}>
-        Submarket {activeLayer}
-      </SidebarTitle>
-      <Toggle activeLayer={activeLayer} layerVisibility={layerVisibility} dispatch={dispatch} />
-    </TitleWrapper>
-    { children[0] }
-    <SidebarSubtitle>Key Highlights</SidebarSubtitle>
-    { children[1] }
-    <Link to={`/submarkets/${activeLayer}`} css={sidebarLink(activeLayer)} tabIndex={0}>View Full Profile &gt;&gt;</Link>
-  </SidebarContent>
-);
+    &:focus {
+      border: 1px solid ${themeColors.highlightPurple};
+    }
+  `;
+
+  return (
+    <div css={sidebarContentStyle}>
+      <div css={titleWrapperStyle}>
+        <h2 css={sidebarTitleStyle}>
+          Submarket {activeLayer}
+        </h2>
+        <Toggle activeLayer={activeLayer} layerVisibility={layerVisibility} dispatch={dispatch} />
+      </div>
+      { children[0] }
+      <h3 css={sidebarSubtitleStyle}>Key Highlights</h3>
+      { children[1] }
+      <Link to={`/submarkets/${activeLayer}`} css={sidebarLinkStyle} tabIndex={0}>View Full Profile &gt;&gt;</Link>
+    </div>
+  );
+};
 
 CardFace.propTypes = {
   layerVisibility: PropTypes.objectOf(PropTypes.bool).isRequired,
