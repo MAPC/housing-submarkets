@@ -1,6 +1,6 @@
 const fonts = {
   calibre: "'Calibre', sans-serif",
-  swiftNeueLtPro: "'SwiftNeueLTPro', serif",
+  swiftNeueLtPro: "'Swift Neue LT Pro', serif",
 };
 const submarketColors = {
   1: '#C7024E',
@@ -21,6 +21,8 @@ const themeColors = {
   white: '#FFFFFF',
   warmGray: '#F0EFE7',
   shadowBlack: '#1a1a1a',
-}
+};
 
-export { fonts, submarketColors, choroplethColors, themeColors };
+export {
+  fonts, submarketColors, choroplethColors, themeColors,
+};
