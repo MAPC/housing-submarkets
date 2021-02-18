@@ -16,6 +16,7 @@ const themeColors = {
   bgPurple: '#482C78',
   highlightPurple: '#9F7BB7',
   accentPurple: '#D4C6EA',
+  darkPurple: '#2D0A3B',
   buttonBorder: '#9A3383',
   fontGray: '#707070',
   white: '#FFFFFF',

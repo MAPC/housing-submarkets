@@ -40,7 +40,7 @@ const h2Style = css`
 `;
 
 const Submarkets = () => (
-  <Layout css={submarketsBackground}>
+  <Layout cssProps={submarketsBackground}>
     <SEO title="Submarkets" />
     <div css={contentWrapper}>
       <article css={introArticle}>
@@ -49,7 +49,7 @@ const Submarkets = () => (
           A housing submarket is a collection of neighborhoods—some contiguous, some not—that share similarities in housing stock and housing market characteristics. These characteristics determine who can find, afford, and remain in suitable housing in that neighborhood.
         </p>
         <p>
-          MAPC’s regional study identified communities with similar characteristics across Greater Boston—the study revealed seven distinct housing submarkets across the region that share common issues regardless of physical proximity. We looked at four main key factors to identify each submarket in our region, specially macaroni cheese cauliflower cheese. When the cheese comes out everybody’s happy who moved my cheese bavarian bergkase swiss cheesecake pecorino pepper jack taleggio.
+          MAPC’s regional study identified communities with similar characteristics across Greater Boston—the study revealed seven distinct housing submarkets across the region that share common issues regardless of physical proximity.
         </p>
       </article>
       <SubmarketGrid />

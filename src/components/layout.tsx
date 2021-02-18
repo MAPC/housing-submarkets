@@ -1,16 +1,17 @@
 /** @jsx jsx */
 
-import React, { Component } from "react";
+import React from "react";
 import { css, jsx, Global } from "@emotion/react";
 import Header from "./Header"
 import { Footer } from 'mapc-design-system/src';
 import { themeColors, fonts } from '../utils/theme';
 
 type LayoutProps = {
-  children: React.ReactNode,
+  cssProps?: {},
+  children: {},
 }
 
-const Layout: React.FC<LayoutProps> = ({ children, ...props }) => (
+const Layout: React.FC<LayoutProps> = ({ children, cssProps }) => (
   <React.Fragment>
     <Global styles={css`
       @import url("//hello.myfonts.net/count/37908e");
@@ -58,7 +59,7 @@ const Layout: React.FC<LayoutProps> = ({ children, ...props }) => (
       }`}
     />
     <Header />
-      <main {...props}>
+      <main css={cssProps}>
         {children}
       </main>
       <Footer
