@@ -4,10 +4,32 @@ import React from 'react';
 import { StaticQuery, graphql } from "gatsby";
 import { css, jsx } from "@emotion/react";
 import { fonts, themeColors, submarketColors } from '../../utils/theme';
-import { submarketHighlights } from '../../content/highlights';
+import SM1 from '../../images/maps/Submarkets_2021_S1.png';
+import SM2 from '../../images/maps/Submarkets_2021_S2.png';
+import SM3 from '../../images/maps/Submarkets_2021_S3.png';
+import SM4 from '../../images/maps/Submarkets_2021_S4.png';
+import SM5 from '../../images/maps/Submarkets_2021_S5.png';
+import SM6 from '../../images/maps/Submarkets_2021_S6.png';
+import SM7 from '../../images/maps/Submarkets_2021_S7.png';
+
+type InfoCardProps = {
+  submarket: 1 | 2 | 3 | 4 | 5 | 6 | 7
+};
+
+const submarketMap = {
+  1: SM1,
+  2: SM2,
+  3: SM3,
+  4: SM4,
+  5: SM5,
+  6: SM6,
+  7: SM7
+}
 
 const articleStyle = css`
   color: ${themeColors.white};
+  display: flex;
+  flex-direction: column;
   height: auto;
   margin-top: 2rem;
   max-width: 52rem;
@@ -30,65 +52,27 @@ const h2Style = css`
   margin: 0;
 `;
 
-const h3Style = css`
-  color: ${themeColors.white};
-  font-family: ${fonts.calibre};
-  font-size: 2.8rem;
-  font-weight: 600;
-`;
-
-const listStyle = css`
-  padding: 0;
-  list-style: none;
-`;
-
-const listItemStyle = css`
-  font-family: ${fonts.swiftNeueLtPro};
-  font-size: 1.6rem;
-  font-weight: 400;
-  line-height: 2.2rem;
-  margin: 1rem 0;
-`;
-
-const boldItemStyle = css`
-  font-family: ${fonts.calibre};
-`;
-
-const InfoCard = ({ submarket }: { submarket: number }) => {
-  const policyTitles = Object.keys(submarketHighlights[submarket].highlights)
-  const policies = Object.values(submarketHighlights[submarket].highlights)
-  const listItems = policyTitles.map((title, i) => {
-    return (
-      <li css={listItemStyle} key={title}>
-        <span css={boldItemStyle}>{title}</span>: {policies[i]}
-      </li>
-    )
-  });
-  return (
-    <StaticQuery query={graphql`{
-      allMarkdownRemark(filter: {frontmatter: {folder: {in: "definitions"}}}, sort: {fields: frontmatter___submarket, order: ASC}) {
-        nodes {
-          internal {
-            content
-              }
+const InfoCard: React.FC<InfoCardProps> = ({ submarket }) => (
+  <StaticQuery query={graphql`{
+    allMarkdownRemark(filter: {frontmatter: {folder: {in: "definitions"}}}, sort: {fields: frontmatter___submarket, order: ASC}) {
+      nodes {
+        internal {
+          content
             }
           }
-      }`}
-      render={(data) => (
-        <article css={css`
-          ${articleStyle}
-          background-color: ${submarketColors[submarket]};
-        `}>
-          <h2 css={h2Style}>{`Submarket ${submarket}`}</h2>
-          <p>{data.allMarkdownRemark.nodes[submarket-1].internal.content}</p>
-          <h3 css={h3Style}>Key Policies</h3>
-          <ul css={listStyle}>
-            {listItems}
-          </ul>
-        </article>
-      )}
-    />
-  )
-}
+        }
+    }`}
+    render={(data) => (
+      <article css={css`
+        ${articleStyle}
+        background-color: ${submarketColors[submarket]};
+      `}>
+        <h2 css={h2Style}>{`Submarket ${submarket}`}</h2>
+        <p>{data.allMarkdownRemark.nodes[submarket-1].internal.content}</p>
+        <img src={submarketMap[submarket]} css={css`margin: 2rem auto 0; width: 35rem;`} />
+      </article>
+    )}
+  />
+);
 
 export default InfoCard;
