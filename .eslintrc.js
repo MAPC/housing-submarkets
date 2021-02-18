@@ -9,8 +9,8 @@ module.exports = {
     'import',
   ],
   rules: {
-    "react/jsx-filename-extension": "off",
-  }
+    'react/jsx-filename-extension': 'off',
+  },
   env: {
     browser: true,
   },

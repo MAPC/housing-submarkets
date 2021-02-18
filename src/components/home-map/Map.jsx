@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import ReactMapGL, { Source, Layer, NavigationControl} from 'react-map-gl';
-import { css } from "@emotion/react";
+import ReactMapGL, {
+  Source, Layer, NavigationControl, Popup,
+} from 'react-map-gl';
+import { css } from '@emotion/react';
 import SubmarketLayer from './SubmarketLayer';
+import { fonts } from '../../utils/theme';
 
 const navigationStyle = css`
   bottom: 3.2rem;
@@ -15,8 +18,22 @@ const navigationStyle = css`
   }
 `;
 
-const Map = ({ viewport, dispatch, data, layerVisibility }) => {
+const municipalityStyle = css`
+  font-family: ${fonts.calibre};
+  font-size: 2rem;
+  line-height: 1.8rem;
+  margin: 1rem 0 0 0;
+`;
+
+const Map = ({
+  viewport, dispatch, data, layerVisibility,
+}) => {
   const [width, setWidth] = useState(700);
+  const [showPopup, togglePopup] = useState(false);
+  const [tract, setTract] = useState('');
+  const [municipality, setMunicipality] = useState('');
+  const [lngLat, setLngLat] = useState();
+  const [submarket, setSubmarket] = useState();
   useEffect(() => {
     setWidth(document.querySelector('main').offsetWidth);
   }, []);
@@ -31,8 +48,8 @@ const Map = ({ viewport, dispatch, data, layerVisibility }) => {
   data.forEach((row) => {
     dataNaTracts.push(row.ct10_id,
       (+row.class === 1 || +row.class === 2 || +row.class === 3 || +row.class === 4 || +row.class === 5 || +row.class === 6 || +row.class === 7)
-      ? 'rgba(0, 0, 0, 0)'
-      : '#B6B6B6');
+        ? 'rgba(0, 0, 0, 0)'
+        : '#B6B6B6');
   });
   dataNaTracts.push('#B6B6B6');
 
@@ -40,14 +57,26 @@ const Map = ({ viewport, dispatch, data, layerVisibility }) => {
     <ReactMapGL
       {...viewport}
       width={`${width}px`}
-      height={`calc(100vh - 115px)`}
+      height="calc(100vh - 115px)"
       onViewportChange={(viewport) => dispatch({ type: 'setViewport', viewport })}
       mapboxApiAccessToken="pk.eyJ1IjoiaWhpbGwiLCJhIjoiY2plZzUwMTRzMW45NjJxb2R2Z2thOWF1YiJ9.szIAeMS4c9YTgNsJeG36gg"
       mapStyle="mapbox://styles/ihill/ckky67v9h2fsd17qvbh2mipkb"
       scrollZoom={false}
-      css={css`
-        height: calc(100vh - 115px);
-      `}
+      css={css`height: calc(100vh - 115px);`}
+      onHover={(e) => {
+        const hTract = e.features.find((row) => row.sourceLayer === 'Tracts-2jsl06');
+        const hMunicipality = e.features.find((row) => row.sourceLayer === 'MAPC_borders-0im3ea');
+        if (hTract && hMunicipality) {
+          setLngLat(e.lngLat);
+          setMunicipality(hMunicipality.properties.municipal);
+          setTract(hTract.properties.ct10_id);
+          const selectedSubmarket = data.find((row) => row.ct10_id === hTract.properties.ct10_id);
+          selectedSubmarket ? setSubmarket(`Submarket ${selectedSubmarket.class}`) : setSubmarket('No submarket');
+          togglePopup(true);
+        } else {
+          togglePopup(false);
+        }
+      }}
     >
       <Source id="2010 Census Tracts" type="vector" url="mapbox://ihill.aw7gvvhk">
         <SubmarketLayer id={1} data={data} isVisible={layerVisibility['1']} />
@@ -80,8 +109,21 @@ const Map = ({ viewport, dispatch, data, layerVisibility }) => {
       <div css={navigationStyle}>
         <NavigationControl />
       </div>
+      {showPopup && (
+      <Popup
+        latitude={lngLat[1]}
+        longitude={lngLat[0]}
+        closeButton={false}
+        onClose={() => togglePopup(false)}
+        anchor="top"
+      >
+        <p css={municipalityStyle}>{municipality}</p>
+        <p css={css`margin: 0;`}>Tract {tract}</p>
+        <p css={css`margin: 0;`}>{submarket}</p>
+      </Popup>
+      )}
     </ReactMapGL>
-  )
+  );
 };
 
 Map.propTypes = {
