@@ -51,7 +51,7 @@ const AppendixCallout = () => (
       <div css={paddingWrapperStyle}>
         <h3 css={h3Style}>Technical Appendix</h3>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          To learn more about how this data was collected and analyzed to produce the seven submarkets, you can read our technical appendix below.
         </p>
         <a href="https://hcdtk.gitbook.io/housing-submarket-technical-appendix/" css={buttonStyle}>Read Appendix</a>
       </div>

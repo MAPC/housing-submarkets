@@ -4,7 +4,6 @@ import React from 'react';
 import { css, jsx } from '@emotion/react';
 import SEO from '../components/seo';
 import Layout from '../components/layout';
-import DropdownSection from '../components/about/DropdownSection';
 import RelatedReports from '../components/about/RelatedReports';
 import AppendixCallout from '../components/about/AppendixCallout';
 import { themeColors, fonts } from '../utils/theme';
@@ -18,7 +17,7 @@ const contentWrapper = css`
 const introArticle = css`
   color: ${themeColors.white};
   max-width: 100rem;
-  padding: 7.6rem 13rem 0 13rem;
+  padding: 7.6rem 13rem 6.4rem 13rem;
 
   @media (max-width: 1000px) {
     padding: 7rem 9rem;
@@ -45,10 +44,25 @@ const About = () => (
         <article css={introArticle}>
           <h2 css={h2Style}>About Housing Submarkets</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Semper aeterno percipit ut his, sea ex utinam referrentur repudiandae. Offendit eleifend moderatius ex vix, quem odio mazim et qui, ei denique consequuntur vix. Commune platonem mel id, brute adipiscing duo an.
+            This Housing Submarkets research website is the result of the work of many MAPC staff and interns. Here they are listed in alphabetical order, by last name:
           </p>
+          <ul>
+            <li>Karen Adelman (Senior Communications Strategist)</li>
+            <li>Seleeke Flingai (Research Analyst, former)</li>
+            <li>Kasia Hart (Policy Analyst)</li>
+            <li>Guy Hydrick (GIS Administrator)</li>
+            <li>Ryan Kelly (Digital Services Manager)</li>
+            <li>Karina Oliver-Milchman (Chief of Housing and Neighborhood Development)</li>
+            <li>Jessie Partidge Guerrero (Research Manager)</li>
+            <li>Taylor Perez (Research Intern, former)</li>
+            <li>Sarah Philbrick (Senior Research Analyst)</li>
+            <li>Tim Reardon (Director of Data Services)</li>
+            <li>Caitlin Spence (GIS and Planning Analyst)</li>
+            <li>Annabelle Thomas Taylor (Front End Web Developer)</li>
+            <li>Kit Un (Visual Designer)</li>
+            <li>Lizzi Weyant (Director of Government Affairs)</li>
+          </ul>
         </article>
-        <DropdownSection />
       </div>
     </div>
     <RelatedReports />

@@ -57,8 +57,8 @@ const CardFace = ({ layerVisibility, dispatch, activeLayer, children }) => {
         <Toggle activeLayer={activeLayer} layerVisibility={layerVisibility} dispatch={dispatch} />
       </div>
       { children[0] }
-      <h3 css={sidebarSubtitleStyle}>Key Highlights</h3>
-      { children[1] }
+      {/* <h3 css={sidebarSubtitleStyle}>Key Highlights</h3>
+      { children[1] } */}
       <Link to={`/submarkets/${activeLayer}`} css={sidebarLinkStyle} tabIndex={0}>View Full Profile &gt;&gt;</Link>
     </div>
   );

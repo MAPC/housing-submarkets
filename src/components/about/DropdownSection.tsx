@@ -3,7 +3,7 @@
 import React from 'react';
 import { css, jsx } from '@emotion/react';
 import AccordionField from './AccordionField';
-import { themeColors, fonts } from '../../utils/theme';
+import { themeColors } from '../../utils/theme';
 
 const dropdownSectionStyle = css`
   color: ${themeColors.white};
@@ -15,7 +15,7 @@ const DropdownSection = () => (
   <div css={dropdownSectionStyle}>
     <AccordionField title="Contributors">
       <p>
-        This Housing Submarkets research website is the result of the work of many MAPC staff and interns. Here they are listed in alphabetical order, by last name:
+        This Housing Submarkets research website is the result of the work of many MAPC staff. Here they are listed in alphabetical order, by last name:
       </p>
       <ul>
         <li>Karen Adelman</li>

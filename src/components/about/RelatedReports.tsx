@@ -33,7 +33,7 @@ const reportsRowStyle = css`
 const RelatedReports = () => (
   <section css={relatedWrapperStyle}>
     <div css={css`padding: 0 13rem;`}>
-      <h3 css={h3Style}>Related Reports</h3>
+      <h3 css={h3Style}>Related Research</h3>
       <div css={reportsRowStyle}>
         <ReportButton
           url="https://www.regionalhousingsolutions.org/"

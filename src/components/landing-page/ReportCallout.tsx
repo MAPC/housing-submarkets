@@ -42,8 +42,8 @@ const ReportCallout = ({...props}) => (
     {...props}
     css={calloutStyle}
   >
-    <h3 css={h3Style}>Report Title</h3>
-    <p>Report Teaser Text. Pecorino port-salut cheesecake. Monterey jack rubber cheese goat airedale jarlsberg parmesan gouda roquefort. The big cheese mozzarella the big cheese feta queso stilton camembert de normandie ricotta.</p>
+    <h3 css={h3Style}>Policy Strategy</h3>
+    <p>Metropolitan Boston is not one housing market, but many, and different policy strategies are required to best meet their individual needs.</p>
     <Link
       to="/policy-strategy"
       css={buttonStyle}
