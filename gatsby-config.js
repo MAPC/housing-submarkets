@@ -26,17 +26,17 @@ module.exports = {
       },
     },
     'gatsby-plugin-fontawesome-css',
-    {
-      resolve: `gatsby-plugin-graphql-codegen`,
-      options: {
-        fileName: `./types/gatsby-graphql.ts`,
-        documentPaths: [
-          './src/**/*.{ts,tsx}',
-          './node_modules/gatsby-*/**/*.js',
-          './gatsby-node.js',
-        ],
-      }
-    },
+    // {
+    //   resolve: `gatsby-plugin-graphql-codegen`,
+    //   options: {
+    //     fileName: `./types/gatsby-graphql.ts`,
+    //     documentPaths: [
+    //       './src/**/*.{ts,tsx}',
+    //       './node_modules/gatsby-*/**/*.js',
+    //       './gatsby-node.js',
+    //     ],
+    //   }
+    // },
     'gatsby-plugin-emotion',
     'gatsby-plugin-react-helmet',
     {

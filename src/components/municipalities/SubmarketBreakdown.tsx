@@ -5,6 +5,7 @@ import { css, jsx } from '@emotion/react';
 import { Link } from 'gatsby';
 import { StaticQuery, graphql } from "gatsby";
 import * as d3 from 'd3-format';
+import Policies from './Policies';
 import { submarketColors, fonts } from '../../utils/theme';
 
 type SubmarketBreakdownProps = {
@@ -53,6 +54,7 @@ function findPercents(submarketData) {
             </Link>
           </h4>
           <p>{data.allMarkdownRemark.nodes[submarket-1].internal.content}</p>
+          <Policies submarket={submarket} />
         </li>
       )}
       key={submarket}
