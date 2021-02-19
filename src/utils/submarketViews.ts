@@ -1,6 +1,6 @@
 import { choroplethColors, themeColors } from './theme';
 
-type View = 'medhv' | 'ch_medhv_p' | 'rhu_p' | 'yrblt59_p' | 'cash17_p';
+type View = 'medhv' | 'chMedhvP' | 'rhuP' | 'yrblt59P' | 'cash17P';
 type ChoroplethFunc = (value: number) => string;
 
 const viewData: {[Key in View]: {
@@ -30,7 +30,7 @@ const viewData: {[Key in View]: {
       return choroplethColors[4];
     }
   },
-  'ch_medhv_p': {
+  'chMedhvP': {
     id: 2,
     title: '% Change in Median Home Value',
     domain: [-50, 800],
@@ -49,7 +49,7 @@ const viewData: {[Key in View]: {
       return choroplethColors[4];
     }
   },
-  'rhu_p': {
+  'rhuP': {
     id: 3,
     title: '% Renter Households',
     domain: [0, 100],
@@ -68,7 +68,7 @@ const viewData: {[Key in View]: {
       return choroplethColors[4];
     }
   },
-  'yrblt59_p': {
+  'yrblt59P': {
     id: 4,
     title: '% Built Prior to 1960',
     domain: [0, 100],
@@ -87,7 +87,7 @@ const viewData: {[Key in View]: {
       return choroplethColors[4];
     }
   },
-  'cash17_p': {
+  'cash17P': {
     id: 5,
     title: '% Cash Sales',
     domain: [0, 100],
@@ -112,7 +112,7 @@ function vegaSchema(submarket: number, field: View, domain: Array<number>, forma
   return {
     width: width,
     height: 30,
-    transform: [{ filter: `datum.class == ${submarket}` }],
+    transform: [{ filter: `datum.submktId == ${submarket}` }],
     title: {text: `Submarket ${submarket}`, color: color},
     data: { name: 'data' },
     layer: [{
@@ -133,7 +133,7 @@ function vegaSchema(submarket: number, field: View, domain: Array<number>, forma
       encoding: {
         color: {
           condition: {
-            test: `datum['ct10_id'] == ${selectedTract}`,
+            test: `datum['ct10Id'] == ${selectedTract}`,
             value: `${themeColors.bgPurple}`
           },
           value: 'rgba(0, 0, 0, 0)'

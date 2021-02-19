@@ -43,7 +43,7 @@ const MapChartWrapper = ({ data }: { data: Array<Pick<DataCsv, 'ct10_id' | 'clas
   useEffect(() => {
     const tempChoropleth = ['match', ['get', 'ct10_id']];
     data.forEach((row) => {
-      tempChoropleth.push(row.ct10_id, row[state.chartView] ? viewData[state.chartView].choroplethFunc(+row[state.chartView]) : 'rgba(0, 0, 0, 0)');
+      tempChoropleth.push(row.ct10Id, row[state.chartView] ? viewData[state.chartView].choroplethFunc(+row[state.chartView]) : 'rgba(0, 0, 0, 0)');
     });
     tempChoropleth.push('#B6B6B6');
     dispatch({ type: 'setMapChoropleth', choropleth: tempChoropleth });

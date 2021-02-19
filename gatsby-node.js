@@ -1,27 +1,25 @@
-const path = require("path")
+const path = require('path');
 
 // Implement the Gatsby API “createPages”. This is called once the
 // data layer is bootstrapped to let plugins create pages from data.
 exports.createPages = async ({ graphql, actions, reporter }) => {
-  const { createPage } = actions
+  const { createPage } = actions;
 
   // Query for markdown nodes to use in creating pages.
-  const csvData = await graphql(`
+  const postgresData = await graphql(`
     query submarketPageCreate {
-      allDataCsv {
-        nodes {
-          ct10_id
-          class
-          rhu_p
+      postgres {
+        allHousSubmarketsCtsList {
+          ct10Id
+          submktId
+          rhuP
           medhv
-          rhu_p
-          yrblt59_p
-          cash17_p
-          ch_medhv_p
+          yrblt59P
+          cash17P
+          chMedhvP
         }
       }
-    }`
-  )
+    }`);
 
   const submarketSummary = await graphql(`
     query submarketSummaries {
@@ -34,13 +32,13 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   `);
 
   // Handle errors
-  if (csvData.errors) {
-    reporter.panicOnBuild(`Error while running GraphQL query.`)
-    return
+  if (postgresData.errors) {
+    reporter.panicOnBuild('Error while running GraphQL query.');
+    return;
   }
 
   // Create pages for each markdown file.
-  const submarketPageTemplate = path.resolve(`./src/components/submarkets/SubmarketPage.tsx`)
+  const submarketPageTemplate = path.resolve('./src/components/submarkets/SubmarketPage.tsx');
 
   let submarket = 1;
   while (submarket < 8) {
@@ -51,11 +49,11 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       // as a GraphQL variable to query for data from the markdown file.
       context: {
         pagePath: `/submarkets/${submarket}`,
-        data: csvData,
+        data: postgresData,
         submarket,
-        summary: submarketSummary.data.allMarkdownRemark.nodes[submarket-1].html
+        summary: submarketSummary.data.allMarkdownRemark.nodes[submarket - 1].html,
       },
-    })
-    submarket+=1;
+    });
+    submarket += 1;
   }
-}
+};

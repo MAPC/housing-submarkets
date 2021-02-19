@@ -55,7 +55,7 @@ const SubmarketPage: React.FC<SubmarketPageProps> = ({ pageContext }) => (
     </SEO>
     <SubmarketHeader submarket={pageContext.submarket} />
     <section css={introParagraphStyle} dangerouslySetInnerHTML={{ __html: pageContext.summary }} />
-    <MapChartWrapper data={pageContext.data.data.allDataCsv.nodes} />
+    <MapChartWrapper data={pageContext.data.data.postgres.allHousSubmarketsCtsList} />
     <div css={css`
       margin: 4rem auto 10rem auto;
       max-width: 146.6rem;
