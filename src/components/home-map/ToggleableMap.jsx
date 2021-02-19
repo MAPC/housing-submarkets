@@ -1,5 +1,5 @@
 import React, { useReducer } from 'react';
-import { css } from "@emotion/react";
+import { css } from '@emotion/react';
 import Map from './Map';
 import Sidebar from './Sidebar';
 import MobileSidebar from './MobileSidebar';
@@ -45,10 +45,9 @@ const ToggleableMap = ({ data }) => {
   return (
     <div css={css`position: relative;`}>
       <Map viewport={state.viewport} dispatch={dispatch} data={data} layerVisibility={state.layerVisibility} />
-      { width <= 768 ?
-        <MobileSidebar layerVisibility={state.layerVisibility} dispatch={dispatch} activeLayer={state.activeLayer} sidebarOpen={state.sidebarOpen} />
-        : <Sidebar layerVisibility={state.layerVisibility} dispatch={dispatch} activeLayer={state.activeLayer} />
-      }
+      { width <= 768
+        ? <MobileSidebar layerVisibility={state.layerVisibility} dispatch={dispatch} activeLayer={state.activeLayer} sidebarOpen={state.sidebarOpen} />
+        : <Sidebar layerVisibility={state.layerVisibility} dispatch={dispatch} activeLayer={state.activeLayer} />}
     </div>
   );
 };

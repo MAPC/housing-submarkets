@@ -10,17 +10,17 @@ const Index = ({ data }: { data: HomepageMapQuery }) => (
     <SEO>
       <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v1.13.0/mapbox-gl.css" rel="stylesheet" />
     </SEO>
-    <ToggleableMap data={data.allDataCsv.nodes} />
+    <ToggleableMap data={data.postgres.allHousSubmarketsCtsList} />
   </Layout>
 );
 
 export default Index;
 export const data = graphql`
   query HomepageMap {
-    allDataCsv {
-      nodes {
-        ct10_id
-        class
+    postgres {
+      allHousSubmarketsCtsList {
+        ct10Id
+        submktId
       }
     }
   }

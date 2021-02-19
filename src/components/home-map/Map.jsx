@@ -47,8 +47,8 @@ const Map = ({
 
   const dataNaTracts = ['match', ['get', 'ct10_id']];
   data.forEach((row) => {
-    dataNaTracts.push(row.ct10_id,
-      (+row.class === 1 || +row.class === 2 || +row.class === 3 || +row.class === 4 || +row.class === 5 || +row.class === 6 || +row.class === 7)
+    dataNaTracts.push(row.ct10Id,
+      (row.submktId === 1 || row.submktId === 2 || row.submktId === 3 || row.submktId === 4 || row.submktId === 5 || row.submktId === 6 || row.submktId === 7)
         ? 'rgba(0, 0, 0, 0)'
         : '#B6B6B6');
   });
@@ -71,8 +71,8 @@ const Map = ({
           setLngLat(e.lngLat);
           setMunicipality(hMunicipality.properties.municipal);
           setTract(hTract.properties.ct10_id);
-          const selectedSubmarket = data.find((row) => row.ct10_id === hTract.properties.ct10_id);
-          selectedSubmarket ? setSubmarket(`Submarket ${selectedSubmarket.class}`) : setSubmarket('No submarket');
+          const selectedSubmarket = data.find((row) => row.ct10Id === hTract.properties.ct10_id);
+          selectedSubmarket ? setSubmarket(`Submarket ${selectedSubmarket.submktId}`) : setSubmarket('No submarket');
           togglePopup(true);
         } else {
           togglePopup(false);

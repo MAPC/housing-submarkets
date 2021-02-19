@@ -1,13 +1,19 @@
 import React from 'react';
 import { Layer } from 'react-map-gl';
-import { submarketColors } from '../../utils/theme'
+import { submarketColors } from '../../utils/theme';
 
-const SubmarketLayer = ({ id, data, isVisible }) => {
+type SubmarketLayerProps = {
+  id: 1 | 2 | 3 | 4 | 5 | 6 | 7,
+  data: {},
+  isVisible: Boolean,
+}
+
+const SubmarketLayer: React.FC<SubmarketLayerProps> = ({ id, data, isVisible }) => {
   const choropleth = ['match', ['get', 'ct10_id']];
   const choroplethBorders = ['match', ['get', 'ct10_id']];
   data.forEach((row) => {
-    choropleth.push(row.ct10_id, +row.class === id ? submarketColors[id] : 'rgba(0, 0, 0, 0)');
-    choroplethBorders.push(row.ct10_id, +row.class === id ? '#707070' : 'rgba(0, 0, 0, 0)');
+    choropleth.push(row.ct10Id, row.submktId === id ? submarketColors[id] : 'rgba(0, 0, 0, 0)');
+    choroplethBorders.push(row.ct10Id, row.submktId === id ? '#707070' : 'rgba(0, 0, 0, 0)');
   });
   choropleth.push('#B6B6B6');
   choroplethBorders.push('#707070');
