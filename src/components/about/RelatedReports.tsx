@@ -17,22 +17,35 @@ const h3Style = css`
   font-family: ${fonts.calibre};
   font-size: 3.6rem;
   font-weight: 600;
+  margin: 5rem 0 2rem;
+`;
+
+const reportsRowStyle = css`
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 6.4rem;
+
+  @media (max-width: 650px) {
+    flex-direction: column;
+  }
 `;
 
 const RelatedReports = () => (
-  <article css={relatedWrapperStyle}>
-    <h3 css={h3Style}>Related Reports</h3>
-    <div>
-      <ReportButton
-        url="https://www.regionalhousingsolutions.org/"
-        title="Regional Housing Solutions"
-      />
-      <ReportButton
-        url="https://metroatlhousing.org/"
-        title="Metro Atlanta Housing Stategy"
-      />
+  <section css={relatedWrapperStyle}>
+    <div css={css`padding: 0 13rem;`}>
+      <h3 css={h3Style}>Related Reports</h3>
+      <div css={reportsRowStyle}>
+        <ReportButton
+          url="https://www.regionalhousingsolutions.org/"
+          title="Regional Housing Solutions"
+        />
+        <ReportButton
+          url="https://metroatlhousing.org/"
+          title="Metro Atlanta Housing Stategy"
+        />
+      </div>
     </div>
-  </article>
+  </section>
 );
 
 export default RelatedReports;

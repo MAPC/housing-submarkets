@@ -4,6 +4,7 @@ import React from 'react';
 import { css, jsx } from '@emotion/react';
 import SEO from '../components/seo';
 import Layout from '../components/layout';
+import DropdownSection from '../components/about/DropdownSection';
 import RelatedReports from '../components/about/RelatedReports';
 import AppendixCallout from '../components/about/AppendixCallout';
 import { themeColors, fonts } from '../utils/theme';
@@ -16,8 +17,8 @@ const contentWrapper = css`
 
 const introArticle = css`
   color: ${themeColors.white};
-  max-width: 78.6rem;
-  padding: 7.6rem 18rem;
+  max-width: 100rem;
+  padding: 7.6rem 13rem 0 13rem;
 
   @media (max-width: 1000px) {
     padding: 7rem 9rem;
@@ -44,9 +45,10 @@ const About = () => (
         <article css={introArticle}>
           <h2 css={h2Style}>About Housing Submarkets</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Semper aeterno percipit ut his, sea ex utinam referrentur repudiandae. Offendit eleifend moderatius ex vix, quem odio mazim et qui, ei denique consequuntur vix. Commune platonem mel id, brute adipiscing duo an. Pri posse graeco definitiones cu, id eam populo quaestio adipiscing, usu quod malorum te. Vivendum intellegat et qui, ei denique consequuntur vix. Eos verear percipit ex, eos ne eligendi inimicus. Offendit eleifend moderatius ex vix, quem odio mazim et qui, purto expetendis cotidieque quo cu, veri persius vituperata ei nec. Pri posse graeco definitiones cu, id eam populo quaestio adipiscing, usu quod malorum te. Pri posse graeco definitiones cu, id eam populo quaestio adipiscing, usu quod malorum te. Pri posse graeco definitiones cu, id eam populo quaestio adipiscing, usu quod malorum te. Vivendum intellegat et qui, ei denique consequuntur vix.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Semper aeterno percipit ut his, sea ex utinam referrentur repudiandae. Offendit eleifend moderatius ex vix, quem odio mazim et qui, ei denique consequuntur vix. Commune platonem mel id, brute adipiscing duo an.
           </p>
         </article>
+        <DropdownSection />
       </div>
     </div>
     <RelatedReports />
