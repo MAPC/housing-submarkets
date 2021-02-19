@@ -2,14 +2,13 @@
 
 import React, { useRef, useReducer, useCallback, useMemo } from 'react';
 import { jsx, css } from '@emotion/react';
-import { DataCsv } from './../../../types/gatsby-graphql';
 import ReactMapGL, { Source, Layer, NavigationControl } from 'react-map-gl';
 import Geocoder from "react-map-gl-geocoder";
 import municipalities from '../../utils/municipalities';
 import { submarketColors } from '../../utils/theme';
 
 type SearchMapProps = {
-  data: Pick<DataCsv, "ct10_id" | "class">[],
+  data: Array<unknown>,
   containerRef: React.RefObject<HTMLInputElement>
   selectedMuni: string|undefined,
   setMuni: React.Dispatch<React.SetStateAction<string|undefined>>,
@@ -69,7 +68,7 @@ const SearchMap: React.FC<SearchMapProps> = ({ data, containerRef, selectedMuni,
 
   const choropleth = ['match', ['get', 'ct10_id']];
   data.forEach((row) => {
-    choropleth.push(row.ct10_id, +row.class ? submarketColors[+row.class] : 'rgba(0, 0, 0, 0)');
+    choropleth.push(row.ct10Id, row.submktId ? submarketColors[row.submktId] : 'rgba(0, 0, 0, 0)');
   });
   choropleth.push('#B6B6B6');
 
