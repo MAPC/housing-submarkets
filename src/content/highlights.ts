@@ -13,10 +13,10 @@ const submarketHighlights: {[Key in Submarket]: {
   },
   2: {
     highlights: {
-      "A consequat mauris laoreet": "Nam rutrum, neque et rutrum sodales, turpis lacus sagittis nisi, volutpat varius dui ipsum id lectus.",
-      "Interdum et malesuada": "In placerat pretium urna, id pulvinar arcu dignissim vitae.",
-      "Proin lacinia": "Praesent ac commodo ligula, consectetur scelerisque odio.",
-      "Felis et neque tempus": "Curabitur et dapibus augue, id maximus felis. Nullam non dui rhoncus, sodales tellus nec, bibendum lacus.",
+      "Racially and ethnically diverse with two-thirds residents of color": "Nam rutrum, neque et rutrum sodales, turpis lacus sagittis nisi, volutpat varius dui ipsum id lectus.",
+      "Highest unemployment rate": "In placerat pretium urna, id pulvinar arcu dignissim vitae.",
+      "Highest rate of severe cost burden": "Praesent ac commodo ligula, consectetur scelerisque odio.",
+      "Highest home mortgage denial rate": "Curabitur et dapibus augue, id maximus felis. Nullam non dui rhoncus, sodales tellus nec, bibendum lacus.",
     }
   },
   3: {
