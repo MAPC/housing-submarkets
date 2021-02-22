@@ -53,7 +53,7 @@ const AppendixCallout = () => (
         <p>
           To learn more about how this data was collected and analyzed to produce the seven submarkets, you can read our technical appendix below.
         </p>
-        <a href="https://hcdtk.gitbook.io/housing-submarket-technical-appendix/" css={buttonStyle}>Read Appendix</a>
+        <a href="https://mapc.gitbook.io/housing-submarket-technical-appendix/" css={buttonStyle}>Read Appendix</a>
       </div>
     </div>
   </article>

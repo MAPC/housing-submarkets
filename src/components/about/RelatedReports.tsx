@@ -43,6 +43,10 @@ const RelatedReports = () => (
           url="https://metroatlhousing.org/"
           title="Metro Atlanta Housing Stategy"
         />
+        <ReportButton
+          url="https://dsl.richmond.edu/panorama/redlining/"
+          title="Mapping Inequality: Redlining in New Deal America"
+        />
       </div>
     </div>
   </section>
