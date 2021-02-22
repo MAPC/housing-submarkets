@@ -26,6 +26,16 @@ const submarketMap = {
   7: SM7
 }
 
+const submarketCredit = {
+  1: "Example of submarket one",
+  2: "Example of submarket two. Photo credit Amy Dain",
+  3: "Example of submarket three",
+  4: "Example of submarket four",
+  5: "Example of submarket five. Photo credit Alex Koppelman",
+  6: "Example of submarket six",
+  7: "Example of submarket seven",
+}
+
 const articleStyle = css`
   color: ${themeColors.white};
   display: flex;
@@ -69,7 +79,7 @@ const InfoCard: React.FC<InfoCardProps> = ({ submarket }) => (
       `}>
         <h2 css={h2Style}>{`Submarket ${submarket}`}</h2>
         <p>{data.allMarkdownRemark.nodes[submarket-1].internal.content}</p>
-        <img src={submarketMap[submarket]} css={css`margin: 2rem auto 0; width: 35rem;`} />
+        <img src={submarketMap[submarket]} alt={submarketCredit[submarket]} css={css`margin: 2rem auto 0; width: 35rem;`} />
       </article>
     )}
   />

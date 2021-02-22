@@ -1,8 +1,8 @@
 /** @jsx jsx */
 
 import React from 'react';
-import { StaticQuery, graphql } from "gatsby";
-import { css, jsx } from "@emotion/react";
+import { StaticQuery, graphql } from 'gatsby';
+import { css, jsx } from '@emotion/react';
 import GridItem from './GridItem';
 import ReportCallout from './ReportCallout';
 import SM1 from '../../images/SM1.jpg';
@@ -53,7 +53,8 @@ const righthandMobile = css`
 `;
 
 const SubmarketGrid = () => (
-  <StaticQuery query={graphql`{
+  <StaticQuery
+    query={graphql`{
     allMarkdownRemark(filter: {frontmatter: {folder: {in: "definitions"}}}, sort: {fields: frontmatter___submarket, order: ASC}) {
       nodes {
         internal {
@@ -62,7 +63,7 @@ const SubmarketGrid = () => (
           }
         }
     }`}
-    render={data =>
+    render={(data) => (
       <section css={gridStyle}>
         <GridItem
           submarket={1}
@@ -73,19 +74,22 @@ const SubmarketGrid = () => (
             grid-column: 1 / 2;
             grid-row: 1;
             position: relative;
-        `}>
+        `}
+        >
           {data.allMarkdownRemark.nodes[0].internal.content}
         </GridItem>
         <GridItem
           submarket={2}
           image={SM2}
+          credit="Credit Amy Dain"
           css={css`
             ${activeLinkStyle}
             ${righthandMobile}
             grid-column: 2 / 4;
             grid-row: 1;
             position: relative;
-        `}>
+        `}
+        >
           {data.allMarkdownRemark.nodes[1].internal.content}
         </GridItem>
         <GridItem
@@ -97,7 +101,8 @@ const SubmarketGrid = () => (
             grid-column: 1 / 3;
             grid-row: 2;
             position: relative;
-        `}>
+        `}
+        >
           {data.allMarkdownRemark.nodes[2].internal.content}
         </GridItem>
         <GridItem
@@ -109,19 +114,22 @@ const SubmarketGrid = () => (
             grid-column: 3 / 4;
             grid-row: 2;
             position: relative;
-        `}>
+        `}
+        >
           {data.allMarkdownRemark.nodes[3].internal.content}
         </GridItem>
         <GridItem
           submarket={5}
           image={SM5}
+          credit="Credit Alex Koppelman"
           css={css`
             ${activeLinkStyle}
             ${lefthandMobile}
             grid-column: 1 / 2;
             grid-row: 3;
             position: relative;
-        `}>
+        `}
+        >
           {data.allMarkdownRemark.nodes[4].internal.content}
         </GridItem>
         <GridItem
@@ -133,7 +141,8 @@ const SubmarketGrid = () => (
             grid-column: 2 / 4;
             grid-row: 3;
             position: relative;
-        `}>
+        `}
+        >
           {data.allMarkdownRemark.nodes[5].internal.content}
         </GridItem>
         <GridItem
@@ -145,7 +154,8 @@ const SubmarketGrid = () => (
             grid-column: 1 / 3;
             grid-row: 4;
             position: relative;
-        `}>
+        `}
+        >
           {data.allMarkdownRemark.nodes[6].internal.content}
         </GridItem>
         <ReportCallout
@@ -156,7 +166,7 @@ const SubmarketGrid = () => (
           `}
         />
       </section>
-    }
+    )}
   />
 );
 

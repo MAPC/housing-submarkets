@@ -8,6 +8,7 @@ import { fonts, themeColors, submarketColors } from '../../utils/theme';
 type GridItemProps = {
   submarket: 1 | 2 | 3 | 4 | 5 | 6 | 7,
   image: string,
+  credit: string|undefined,
 }
 
 const imageStyle = css`
@@ -28,7 +29,7 @@ const h3Style = css`
   z-index: 10;
 `;
 
-const GridItem: React.FC<GridItemProps> = ({ submarket, image, children, ...props }) => {
+const GridItem: React.FC<GridItemProps> = ({ submarket, image, credit, children, ...props }) => {
   const [isActive, toggleActive] = useState(false);
   const overlayStyle = css`
     background-color: rgba(255, 255, 255, 0.15);
@@ -64,10 +65,14 @@ const GridItem: React.FC<GridItemProps> = ({ submarket, image, children, ...prop
         }
       }}
     >
-      <div css={css`
-        ${imageStyle}
-        background-image: url(${image});
-      `}/>
+      <div
+        css={css`
+          ${imageStyle}
+          background-image: url(${image});
+        `}
+        role="img"
+        alt={credit}
+      />
       <div css={overlayStyle} />
       <h3 css={css`
         ${h3Style}
