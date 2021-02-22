@@ -1,6 +1,7 @@
 ---
 folder: policies
 title: Tenant Legal Aid Fund
+strategy: Housing stability protections
 submarkets:
   - 1
   - 2

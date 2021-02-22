@@ -1,6 +1,7 @@
 ---
 folder: policies
 title: Fair Tenant Screening
+strategy: Housing stability protections
 submarkets:
   - 4
   - 5

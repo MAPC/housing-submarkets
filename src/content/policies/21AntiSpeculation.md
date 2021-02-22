@@ -1,6 +1,8 @@
 ---
 folder: policies
 title: Anti-Speculation Tax
+strategies:
+  - Revenue sources for affordable housing
 submarkets:
   - 1
   - 2

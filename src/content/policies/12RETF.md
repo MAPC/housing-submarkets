@@ -1,6 +1,8 @@
 ---
 folder: policies
 title: Real Estate Transfer Fee (RETF)
+strategies:
+  - Revenue sources for affordable housing
 submarkets:
   - 1
   - 5

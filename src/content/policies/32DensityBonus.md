@@ -1,6 +1,8 @@
 ---
 folder: policies
 title: Density Bonus
+strategies:
+  - Multifamily production strategies
 submarkets:
   - 7
 ---

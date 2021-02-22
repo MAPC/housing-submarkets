@@ -1,6 +1,8 @@
 ---
 folder: policies
 title: Owner-Occupant Rehab Program
+strategies:
+  - Owner affordability strategies
 submarkets:
   - 4
 ---

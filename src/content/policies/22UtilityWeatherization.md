@@ -1,6 +1,8 @@
 ---
 folder: policies
 title: Utility and Weatherization Assistance
+strategies:
+  - Owner affordability strategies
 submarkets:
   - 4
 ---

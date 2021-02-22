@@ -1,6 +1,7 @@
 ---
 folder: policies
 title: Tenant Protection Ordinances
+strategy: Housing stability protections
 submarkets:
   - 1
   - 2

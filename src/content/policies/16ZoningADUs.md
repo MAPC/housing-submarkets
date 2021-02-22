@@ -1,6 +1,8 @@
 ---
 folder: policies
 title: Zoning for Accessory Dwelling Units (ADUs)
+strategies:
+  - Multifamily production strategies
 submarkets:
   - 7
 ---

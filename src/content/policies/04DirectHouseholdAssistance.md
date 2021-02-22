@@ -1,6 +1,9 @@
 ---
 folder: policies
 title: Direct Household Assistance
+strategy:
+  - Rental affordability strategies
+  - Owner affordability strategies
 submarkets:
   - 2
   - 3

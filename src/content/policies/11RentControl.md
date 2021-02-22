@@ -1,6 +1,7 @@
 ---
 folder: policies
 title: Rent Control
+strategy: Rental affordability strategies
 submarkets:
   - 6
   - 2

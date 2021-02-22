@@ -1,6 +1,8 @@
 ---
 folder: policies
 title: Shared Equity Ownership Program
+strategies:
+  - Owner affordability strategies
 submarkets:
   - 3
   - 5

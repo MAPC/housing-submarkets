@@ -1,6 +1,8 @@
 ---
 folder: policies
 title: Small Landlord Rental Rehabilitation Assistance
+strategies:
+  - Small landlord affordability incentives
 submarkets:
   - 3
   - 4

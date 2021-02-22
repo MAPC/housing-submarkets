@@ -1,6 +1,7 @@
 ---
 folder: policies
 title: Just Cause Eviction
+strategy: Housing stability protections
 submarkets:
   - 0
 ---

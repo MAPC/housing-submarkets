@@ -1,6 +1,8 @@
 ---
 folder: policies
 title: Good Landlord Program
+strategies:
+  - Small landlord affordability incentives
 submarkets:
   - 4
   - 6

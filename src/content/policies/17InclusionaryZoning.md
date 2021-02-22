@@ -1,6 +1,8 @@
 ---
 folder: policies
 title: Inclusionary Zoning (IZ)
+strategies:
+  - Affordable housing production strategies
 submarkets:
   - 1
   - 5

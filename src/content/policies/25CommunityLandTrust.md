@@ -1,6 +1,7 @@
 ---
 folder: policies
 title: Community Land Trust
+strategy: Community ownership of land
 submarkets:
   - 0
 ---

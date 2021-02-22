@@ -1,6 +1,7 @@
 ---
 folder: policies
 title: Land Disposition Process
+strategy: Community ownership of land
 submarkets:
   - 2
 ---

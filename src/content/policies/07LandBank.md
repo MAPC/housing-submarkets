@@ -1,6 +1,7 @@
 ---
 folder: policies
 title: Land Bank
+strategy: Community ownership of land
 submarkets:
   - 2
   - 3

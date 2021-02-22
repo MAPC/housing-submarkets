@@ -1,6 +1,8 @@
 ---
 folder: policies
 title: Vacancy Tax
+strategies:
+  - Revenue sources for affordable housing
 submarkets:
   - 0
 ---
