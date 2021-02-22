@@ -28,7 +28,7 @@ const PolicyStrategy = () => (
       <h2 css={h2Style}>Policy Strategy</h2>
       <iframe
         className="airtable-embed"
-        src="https://airtable.com/embed/shrmmTszSZhmYMa3t?backgroundColor=orange&viewControls=on"
+        src="https://airtable.com/embed/shrGMg0mJGu8klhTi?backgroundColor=orange&viewControls=on"
         frameBorder="0"
         width="100%"
         height="650"
