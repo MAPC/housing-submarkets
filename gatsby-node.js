@@ -12,11 +12,21 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         allHousSubmarketsCtsList {
           ct10Id
           submktId
-          rhuP
           medhv
-          yrblt59P
-          cash17P
           chMedhvP
+          medconr
+          chMedcrP
+          rhuP
+          chRhuP
+          cash17P
+          bizbuy17P
+          fd17P
+          bdrm3OP
+          u1P
+          u24P
+          u5OvP
+          yrblt59P
+          yrblt00P
         }
       }
     }`);
