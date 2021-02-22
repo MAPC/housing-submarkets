@@ -44,11 +44,10 @@ const submarketHighlights: {[Key in Submarket]: {
   },
   6: {
     highlights: {
-      "Cras est dolor, pulvinar eu magna": "Duis consectetur arcu vel mauris ullamcorper, et accumsan est ullamcorper.",
-      "Egestas ullamcorper tellus": "Sed eget purus eget ante tempor consequat. Quisque elementum urna vitae ligula dignissim dictum.",
-      "A consequat mauris laoreet": "Nunc arcu diam, semper tincidunt egestas vitae, viverra nec libero.",
-      "Interdum et malesuada": "In sit amet nulla sollicitudin purus mollis aliquam. Lorem ipsum dolor sit amet.",
-      "Fames ac ante ipsum primis": "Consectetur adipiscing elit. Nunc nec sapien et lectus elementum porta ac quis mi."
+      "Like the region in many ways ": "Duis consectetur arcu vel mauris ullamcorper, et accumsan est ullamcorper.",
+      "Racially and ethnically diverse ": "Sed eget purus eget ante tempor consequat. Quisque elementum urna vitae ligula dignissim dictum.",
+      "Fastest growth of Black, Latinx, and Asian populations ": "Nunc arcu diam, semper tincidunt egestas vitae, viverra nec libero.",
+      "High public school growth performance ": "In sit amet nulla sollicitudin purus mollis aliquam. Lorem ipsum dolor sit amet.",
     }
   },
   7: {
