@@ -11,7 +11,7 @@ const HigherEducation = () => {
       extent: "min-max",
       size: 30,
     },
-    height: 350,
+    height: 300,
     width: 400,
     encoding: {
       x: {

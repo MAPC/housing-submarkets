@@ -5,11 +5,10 @@ const submarketHighlights: {[Key in Submarket]: {
 }} = {
   1: {
     highlights: {
-      "Lorem ipsum dolor": "Duis auctor, sapien scelerisque euismod laoreet, justo leo porta nisl, non cursus lectus lacus et mauris.",
-      "Consectetur adipiscing elit": "Nulla gravida justo scelerisque nibh bibendum bibendum. Fusce et tempor urna, vel gravida turpis. Aenean varius volutpat justo vitae pretium.",
-      "Interdum et malesuada": "Ut a est dui. Ut malesuada dui ac enim auctor egestas. Integer consequat ligula quis tincidunt molestie. Phasellus at eleifend erat.",
-      "Cras est dolor, pulvinar eu magna": "Phasellus laoreet ex turpis. Maecenas sed vehicula velit.",
-      "A consequat mauris laoreet": "Fusce ultrices mi in sapien ultrices maximus.",
+      "Racially and ethnically diverse, but with declining Black and growing White population": "Duis auctor, sapien scelerisque euismod laoreet, justo leo porta nisl, non cursus lectus lacus et mauris.",
+      "Mostly younger adults without children": "Nulla gravida justo scelerisque nibh bibendum bibendum. Fusce et tempor urna, vel gravida turpis. Aenean varius volutpat justo vitae pretium.",
+      "High rate of college education": "Phasellus laoreet ex turpis. Maecenas sed vehicula velit.",
+      "Above average rate of severe cost burden": "Fusce ultrices mi in sapien ultrices maximus.",
     }
   },
   2: {
