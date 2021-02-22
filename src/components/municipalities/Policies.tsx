@@ -4,6 +4,7 @@ import React from 'react';
 import { css, jsx } from '@emotion/react';
 import { StaticQuery, graphql } from "gatsby";
 import { submarketColors, fonts } from '../../utils/theme';
+import StrategyAccordion from './StrategyAccordion';
 
 interface PoliciesProps {
   submarket: 1 | 2 | 3 | 4 | 5 | 6 | 7
@@ -13,37 +14,24 @@ const Policies: React.FC<PoliciesProps> = ({ submarket }) => (
   <StaticQuery
     query={graphql`
       query Policies {
-        allMarkdownRemark(filter: {frontmatter: {folder: {in: "policies"}}}) {
+        allMarkdownRemark(filter: {frontmatter: {folder: {in: "strategies"}}}) {
           nodes {
-            internal {
-              content
-            }
+            html
             frontmatter {
-              submarkets
-              title
+              submarket
             }
           }
         }
       }
     `}
-    render={(data) => (
-      <div>
-        Policies
-        <ul>
-          {
-            data.allMarkdownRemark.nodes.reduce((policyArray, node) => {
-              if (node.frontmatter.submarkets.includes(+submarket)) {
-                const item = (
-                  <li><strong>{node.frontmatter.title}:</strong> {node.internal.content}</li>
-                )
-                policyArray.push(item)
-              }
-              return policyArray;
-            }, [])
-          }
-        </ul>
-      </div>
-    )}
+    render={(data) => {
+      const submarketList = data.allMarkdownRemark.nodes.find((node) => node.frontmatter.submarket == submarket);
+      return (
+        <StrategyAccordion title="Housing Strategy Examples">
+          <div dangerouslySetInnerHTML={{ __html: submarketList.html }} />
+        </StrategyAccordion>
+      )
+    }}
   />
 );
 

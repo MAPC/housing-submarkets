@@ -33,7 +33,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const submarketSummary = await graphql(`
     query submarketSummaries {
-      allMarkdownRemark(filter: {frontmatter: {folder: {in: "summaries"}}}, sort: {fields: frontmatter___submarket, order: ASC}) {
+      allMarkdownRemark(filter: {frontmatter: {folder: {in: "narratives"}}}, sort: {fields: frontmatter___submarket, order: ASC}) {
         nodes {
           html
         }

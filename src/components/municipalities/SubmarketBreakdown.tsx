@@ -37,7 +37,7 @@ const h4Style = css`
 function findPercents(submarketData) {
   return Object.entries(submarketData.submarkets).map(([submarket, count]) => (
     <StaticQuery query={graphql`{
-      allMarkdownRemark(filter: {frontmatter: {folder: {in: "definitions"}}}, sort: {fields: frontmatter___submarket, order: ASC}) {
+      allMarkdownRemark(filter: {frontmatter: {folder: {in: "summaries"}}}, sort: {fields: frontmatter___submarket, order: ASC}) {
         nodes {
           internal {
             content
