@@ -11,6 +11,7 @@ const Households65Over = () => {
       extent: "min-max",
       size: 30,
     },
+    title: "Households with Someone 65+ Years Old",
     height: 300,
     width: 400,
     encoding: {
@@ -21,7 +22,7 @@ const Households65Over = () => {
       y: {
         field: "hh65O",
         type: "quantitative",
-        title: "Households with Someone 65+",
+        title: "Households",
       },
       color: {
         legend: null,

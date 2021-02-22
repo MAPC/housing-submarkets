@@ -11,6 +11,7 @@ const PercentCostBurdened = () => {
       extent: "min-max",
       size: 30,
     },
+    title: "% Population Severely Housing Cost-Burdened",
     height: 300,
     width: 400,
     encoding: {
@@ -21,7 +22,7 @@ const PercentCostBurdened = () => {
       y: {
         field: "cb50P",
         type: "quantitative",
-        title: "% Population Severely Housing Cost-Burdened",
+        title: "% Population",
       },
       color: {
         legend: null,

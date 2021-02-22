@@ -11,6 +11,7 @@ const PercentCollegeAttainment = () => {
       extent: "min-max",
       size: 30,
     },
+    title: "% Change in Population with Bachelors Degree or Higher",
     height: 300,
     width: 400,
     encoding: {
@@ -21,7 +22,7 @@ const PercentCollegeAttainment = () => {
       y: {
         field: "deltBaplp",
         type: "quantitative",
-        title: "% Change in Population with Bachelors Degree+",
+        title: "% Change in Population",
       },
       color: {
         legend: null,

@@ -2,7 +2,7 @@ import React from 'react';
 import SectionWithChart from '../SectionWithChart';
 import SectionWithoutChart from '../SectionWithoutChart';
 import HoverablePhrase from '../../HoverablePhrase';
-import PercentLimitedEnglishSpeakers from '../visualizations/PercentLimitedEnglishSpeakers';
+import MCASScores from '../visualizations/MCASScores';
 import PercentUnemployed from '../visualizations/PercentUnemployed';
 import PercentCostBurdened from '../visualizations/PercentCostBurdened';
 
@@ -35,8 +35,7 @@ const SubmarketTwoNarrative = () => (
           In contrast to Submarket 1, however, adults in Submarket 2 have the lowest rate of college educational attainment of the seven submarkets, at 33 percent. The submarket has seen the highest growth in adults with a college degree, a 34 percent increase—ten points higher than growth in the region overall.
         </p>
       </div>
-      <div>Box plot - MCAS scores</div>
-      {/* <PercentLimitedEnglishSpeakers /> */}
+      <MCASScores />
     </SectionWithChart>
     <SectionWithChart>
       <div>

@@ -2,7 +2,7 @@ import React from 'react';
 import { VegaLite, VisualizationSpec } from 'react-vega';
 import { StaticQuery, graphql } from "gatsby";
 
-const PercentHouseholdsWithChildren = () => {
+const MCASScores = () => {
   const spec: VisualizationSpec = {
     $schema: 'https://vega.github.io/schema/vega-lite/v4.json',
     data: { name: "adjustedData" },
@@ -11,18 +11,20 @@ const PercentHouseholdsWithChildren = () => {
       extent: "min-max",
       size: 30,
     },
-    title: "% Households with Children",
     height: 300,
     width: 400,
+    title: "MCAS Math achievement score growth, 3rd to 8th grade",
     encoding: {
       x: {
         field: "Submarket",
         type: "nominal",
       },
       y: {
-        field: "hhkidsP",
+        field: "mthGrwth",
         type: "quantitative",
-        title: "% Households",
+        title: "Score growth",
+        scale: { zero: false },
+        axis: { tickCount: 5}
       },
       color: {
         legend: null,
@@ -30,7 +32,8 @@ const PercentHouseholdsWithChildren = () => {
         type: 'nominal',
         scale: {
           range: ['#C7024E', '#80CDC1', '#06614d', '#F37B74', '#BF812D', '#8C510A', '#6EA1C9'],
-          domain: [1,2,3,4,5,6,7]
+          domain: [1,2,3,4,5,6,7],
+          zero: false,
         }
       },
     }
@@ -41,15 +44,15 @@ const PercentHouseholdsWithChildren = () => {
       graphql`{
         postgres {
           allHousSubmarketsCtsList {
-            hhkidsP
+            mthGrwth
             submktId
           }
         }
       }`}
       render={(data) => {
-        const adjustedData = data.postgres.allHousSubmarketsCtsList.map((row: { hhkidsP: number, submktId: number }) => {
+        const adjustedData = data.postgres.allHousSubmarketsCtsList.map((row: { mthGrwth: number, submktId: number }) => {
           return {
-          'hhkidsP': row.hhkidsP,
+          'mthGrwth': row.mthGrwth,
           'Submarket': row.submktId
         }})
         return (
@@ -60,4 +63,4 @@ const PercentHouseholdsWithChildren = () => {
   )
 };
 
-export default PercentHouseholdsWithChildren;
+export default MCASScores;

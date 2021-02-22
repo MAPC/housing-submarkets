@@ -11,6 +11,7 @@ const PercentForeignBorn = () => {
       extent: "min-max",
       size: 30,
     },
+    title: "% Foreign Born Population",
     height: 300,
     width: 400,
     encoding: {

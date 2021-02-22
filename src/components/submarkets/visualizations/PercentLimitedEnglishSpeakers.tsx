@@ -11,6 +11,7 @@ const PercentLimitedEnglishSpeakers = () => {
       extent: "min-max",
       size: 30,
     },
+    title: "% Population Speaking Limited English",
     height: 300,
     width: 400,
     encoding: {
@@ -21,7 +22,7 @@ const PercentLimitedEnglishSpeakers = () => {
       y: {
         field: "enlimP",
         type: "quantitative",
-        title: "% Population Speaking Limited English",
+        title: "% Population",
       },
       color: {
         legend: null,

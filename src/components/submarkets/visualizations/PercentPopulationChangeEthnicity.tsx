@@ -11,6 +11,7 @@ const PercentPopulationChangeEthnicity = () => {
       extent: "min-max",
       size: 30,
     },
+    title: "% Change in Latinx Population",
     height: 350,
     width: 400,
     encoding: {
@@ -21,7 +22,7 @@ const PercentPopulationChangeEthnicity = () => {
       y: {
         field: "deltLatp",
         type: "quantitative",
-        title: "% Change in Latinx Population",
+        title: "% Change",
       },
       color: {
         legend: null,

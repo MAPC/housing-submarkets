@@ -11,6 +11,7 @@ const HigherEducation = () => {
       extent: "min-max",
       size: 30,
     },
+    title: "% Population with Bachelors Degree or Higher",
     height: 300,
     width: 400,
     encoding: {
@@ -21,7 +22,7 @@ const HigherEducation = () => {
       y: {
         field: "baplP",
         type: "quantitative",
-        title: "% Population with more than Bachelors Degree",
+        title: "% Population",
       },
       color: {
         legend: null,

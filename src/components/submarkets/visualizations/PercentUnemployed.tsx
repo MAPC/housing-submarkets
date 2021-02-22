@@ -11,6 +11,7 @@ const PercentUnemployed = () => {
       extent: "min-max",
       size: 30,
     },
+    title: "% Population Unemployed",
     height: 300,
     width: 400,
     encoding: {
