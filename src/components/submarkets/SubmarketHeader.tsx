@@ -4,11 +4,11 @@ import React from 'react';
 import { css, jsx } from "@emotion/react";
 import InfoCard from './InfoCard';
 import { themeColors } from '../../utils/theme';
-import SM1 from '../../images/SM1.png';
+import SM1 from '../../images/SM1.jpg';
 import SM2 from '../../images/SM2.png';
 import SM3 from '../../images/SM3.png';
 import SM4 from '../../images/SM4.png';
-import SM5 from '../../images/SM5.png';
+import SM5 from '../../images/SM5.jpg';
 import SM6 from '../../images/SM6.png';
 import SM7 from '../../images/SM7.png';
 
