@@ -9,6 +9,7 @@ module.exports = {
     'import',
   ],
   rules: {
+    'max-len': 'off',
     'react/jsx-filename-extension': 'off',
     'import/extensions': [
       'error',
