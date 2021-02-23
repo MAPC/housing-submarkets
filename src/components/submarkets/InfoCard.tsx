@@ -4,13 +4,13 @@ import React from 'react';
 import { StaticQuery, graphql } from "gatsby";
 import { css, jsx } from "@emotion/react";
 import { fonts, themeColors, submarketColors } from '../../utils/theme';
-import SM1 from '../../images/maps/Submarkets_2021_S1.png';
-import SM2 from '../../images/maps/Submarkets_2021_S2.png';
-import SM3 from '../../images/maps/Submarkets_2021_S3.png';
-import SM4 from '../../images/maps/Submarkets_2021_S4.png';
-import SM5 from '../../images/maps/Submarkets_2021_S5.png';
-import SM6 from '../../images/maps/Submarkets_2021_S6.png';
-import SM7 from '../../images/maps/Submarkets_2021_S7.png';
+import SM1 from '../../images/maps/Submarkets_2021_Release_1.png';
+import SM2 from '../../images/maps/Submarkets_2021_Release_2.png';
+import SM3 from '../../images/maps/Submarkets_2021_Release_3.png';
+import SM4 from '../../images/maps/Submarkets_2021_Release_4.png';
+import SM5 from '../../images/maps/Submarkets_2021_Release_5.png';
+import SM6 from '../../images/maps/Submarkets_2021_Release_6.png';
+import SM7 from '../../images/maps/Submarkets_2021_Release_7.png';
 
 type InfoCardProps = {
   submarket: 1 | 2 | 3 | 4 | 5 | 6 | 7
