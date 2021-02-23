@@ -24,7 +24,7 @@ const ViewSelector = ({ dispatch }) => {
         font-size: 2.8rem;
         font-weight: 600;
         margin: 0 auto 1rem auto;
-        width: 55rem;
+        width: 60rem;
       `}
       onChange={(e) => dispatch({ type: 'setChartView', chartView: e.target.value })}
     >
