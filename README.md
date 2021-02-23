@@ -7,10 +7,11 @@ All these strategies are part of the puzzle of building better housing opportuni
 ## Local development
 This site was built with [Gatsby](https://www.gatsbyjs.com) and uses [yarn](https://yarnpkg.com/) for package management. Install the Gatsby CLI with `npm install -g gatsby-cli`, then install local dependencies with `yarn install`.
 
-For database access, you'll need to set the following variables in your .ENV file at the root of the project. The Mapbox access token allows the maps to load properly; the remaining three are used to connect to the Housing Submarkets data table:
+For database access, you'll need to set the following variables in your .ENV file at the root of the project. The Mapbox access token allows the maps to load properly; the Google Analytics ID can be obtained from the MAPC GA account. The remaining three are used to connect to the Housing Submarkets data table:
 
 ```
 GATSBY_MAPBOX_ACCESS_TOKEN
+GOOGLE_ANALYTICS_IDS
 DB_PASS
 DB_USER
 HOST

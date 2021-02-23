@@ -26,6 +26,12 @@ module.exports = {
       },
     },
     'gatsby-plugin-fontawesome-css',
+    {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: `${process.env.GOOGLE_ANALYTICS_ID}`,
+      },
+    },
     // {
     //   resolve: `gatsby-plugin-graphql-codegen`,
     //   options: {
