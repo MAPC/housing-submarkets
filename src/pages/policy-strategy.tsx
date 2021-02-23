@@ -51,9 +51,6 @@ const PolicyStrategy = () => (
             A one-size-fits-all approach to housing policy can’t meet the many and varied housing challenges facing Greater Boston. Reducing the cost of living, enabling access to suitable housing, and protecting housing stability will require different strategies in different places.
           </p>
           <p>
-            A one-size-fits-all approach to housing policy can’t meet the many and varied housing challenges facing Greater Boston. Reducing the cost of living, enabling access to suitable housing, and protecting housing stability will require different strategies in different places.
-          </p>
-          <p>
             All these strategies are part of the puzzle of building better housing opportunities for the residents of Greater Boston—they are just more critical in some places than others.
           </p>
           <p>
