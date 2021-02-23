@@ -45,15 +45,31 @@ const buttonStyle = css`
   }
 `;
 
+const buttonRowStyle = css`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 70rem;
+
+  @media (max-width: 1000px) {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+`;
+
 const AppendixCallout = () => (
   <article css={appendixWrapperStyle}>
     <div css={contentWrapperStyle}>
       <div css={paddingWrapperStyle}>
-        <h3 css={h3Style}>Technical Appendix</h3>
+        <h3 css={h3Style}>Data & Technical Appendix</h3>
         <p>
-          To learn more about how this data was collected and analyzed to produce the seven submarkets, you can read our technical appendix below.
+          To explore the data yourself and learn more about how this data was collected, you can download our full dataset and read the technical appendix below.
         </p>
-        <a href="https://mapc.gitbook.io/housing-submarket-technical-appendix/" css={buttonStyle}>Read Appendix</a>
+        <div css={buttonRowStyle}>
+          <a href="https://mapc365.sharepoint.com/:x:/s/DataServicesSP/ERELMzy1cYZClzCd3WLjIoUB0Y55MRkZSRAKD1Ovucgs6g" css={buttonStyle}>Download Data</a>
+          <a href="https://mapc365.sharepoint.com/:x:/s/DataServicesSP/EWw6ruh136JDva8xmlwb4y4BTuHs5VK75zwiCSG5o6ncgw" css={buttonStyle}>Download Metadata</a>
+          <a href="https://mapc.gitbook.io/housing-submarket-technical-appendix/" css={buttonStyle}>Read Appendix</a>
+        </div>
       </div>
     </div>
   </article>
