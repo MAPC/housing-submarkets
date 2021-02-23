@@ -6,7 +6,7 @@ import { css, jsx } from "@emotion/react";
 import { fonts, themeColors, submarketColors } from '../../utils/theme';
 import SM1 from '../../images/maps/Submarkets_2021_Release_1.png';
 import SM2 from '../../images/maps/Submarkets_2021_Release_2.png';
-import SM3 from '../../images/maps/Submarkets_2021_Release_3.png';
+import SM3 from '../../images/maps/Submarkets_2021_Release_3.jpg';
 import SM4 from '../../images/maps/Submarkets_2021_Release_4.png';
 import SM5 from '../../images/maps/Submarkets_2021_Release_5.png';
 import SM6 from '../../images/maps/Submarkets_2021_Release_6.png';
