@@ -1,7 +1,8 @@
 ---
 folder: policies
 title: Tenant Right to Counsel
-strategy: Housing stability protections
+strategies:
+  - Housing stability protections
 submarkets:
   - 1
   - 2

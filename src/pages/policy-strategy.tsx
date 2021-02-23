@@ -5,6 +5,7 @@ import { jsx, css } from '@emotion/react';
 import SEO from '../components/seo';
 import Layout from '../components/layout';
 import { themeColors, fonts } from '../utils/theme';
+import Strategies from '../components/policies/Strategies';
 
 const contentWrapper = css`
   max-width: 136.6rem;
@@ -37,10 +38,11 @@ const PolicyStrategy = () => (
         src="https://airtable.com/embed/shrGMg0mJGu8klhTi?backgroundColor=orange&viewControls=on"
         frameBorder="0"
         width="100%"
-        height="650"
+        height="400"
         style={{ background: 'transparent', border: '1px solid #ccc' }}
         title="Policy Matrix"
       />
+      <Strategies />
     </section>
   </Layout>
 );

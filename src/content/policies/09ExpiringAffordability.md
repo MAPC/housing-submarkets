@@ -1,7 +1,8 @@
 ---
 folder: policies
 title: Expiring Affordability Right of First Refusal
-strategy: Housing stability protections
+strategies:
+  - Housing stability protections
 submarkets:
   - 1
   - 2

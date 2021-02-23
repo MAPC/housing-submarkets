@@ -1,7 +1,8 @@
 ---
 folder: policies
 title: Vacant Site Acquisition Program
-strategy: Community ownership of land
+strategies:
+  - Community ownership of land
 submarkets:
   - 2
   - 3

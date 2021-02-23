@@ -1,7 +1,8 @@
 ---
 folder: policies
 title: Tenant Right of First Refusal
-strategy: Housing stability protections
+strategies:
+  - Housing stability protections
 submarkets:
   - 2
   - 5

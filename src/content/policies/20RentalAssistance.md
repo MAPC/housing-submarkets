@@ -1,7 +1,8 @@
 ---
 folder: policies
 title: Rental Assistance for At-Risk Pregnant Women
-strategy: Rental affordability strategies
+strategies:
+  - Rental affordability strategies
 submarkets:
   - 2
   - 3

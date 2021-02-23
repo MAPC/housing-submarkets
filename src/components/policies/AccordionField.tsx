@@ -2,8 +2,8 @@
 
 import React, { useState } from 'react';
 import { css, jsx } from '@emotion/react';
-import { fonts, themeColors } from '../utils/theme';
-import metrocommonTriangle from '../images/metrocommonTriangle.svg';
+import { themeColors } from '../../utils/theme';
+import metrocommonTriangle from '../../images/metrocommonTrianglePurple.svg';
 
 function toggleVisibility(currentState: boolean, setActive: React.Dispatch<React.SetStateAction<boolean>>) {
   if (currentState === true) {
