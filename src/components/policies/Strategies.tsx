@@ -46,6 +46,10 @@ const listStyle = css`
   padding: 0 4rem;
 `;
 
+const linkStyle = css`
+  color: ${themeColors.bgPurple};
+`;
+
 const Strategies = () => (
   <StaticQuery
     query={graphql`{
@@ -74,6 +78,9 @@ const Strategies = () => (
         <section css={contentWrapper}>
           <div css={innerWrapper}>
             <h2 css={h2Style}>Explore Strategies</h2>
+            <p css={css`margin-bottom: 4rem;`}>
+              These example strategies were identified through MAPC’s Metropolitan Mayors Coalition Housing Taskforce. To learn more and find additional strategies, explore <a href="https://housingtaskforce.mapc.org/" css={linkStyle}>housingtaskforce.mapc.org</a>.
+            </p>
             <AccordionField title="Housing stability protections">
               <ul css={listStyle}>
                 {housingStability.map(node => <PolicyItem title={node.frontmatter.title} body={node.internal.content} />)}
