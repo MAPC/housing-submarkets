@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { css, jsx } from '@emotion/react';
-import { Plus } from 'phosphor-react';
+import { Plus, Minus } from 'phosphor-react';
 import { themeColors } from '../../utils/theme';
 
 function toggleVisibility(currentState: boolean, setActive: React.Dispatch<React.SetStateAction<boolean>>) {
@@ -23,6 +23,7 @@ const accordionHeaderStyle = css`
 `;
 
 const h5Style = css`
+  color: ${themeColors.darkPurple};
   font-size: 1.6rem;
   font-weight: 800;
   margin: 0 0 0 1rem;
@@ -48,7 +49,7 @@ const StrategyAccordion: React.FC<AccordionFieldProps> = ({ title, children }) =
         role="button"
         tabIndex={0}
       >
-        <Plus size={16} weight="bold" color={themeColors.bgPurple} />
+        {isActive ? <Minus size={16} weight="bold" color={themeColors.darkPurple} /> : <Plus size={16} weight="bold" color={themeColors.darkPurple} /> }
         <h5 css={h5Style}>{ title }</h5>
       </header>
       {isActive ? <div css={contentStyle}>{children}</div> : ''}
