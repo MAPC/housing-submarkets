@@ -1,6 +1,6 @@
 import { choroplethColors, themeColors } from './theme';
 
-type View = 'medhv' | 'chMedhvP' | 'medconr' | 'chMedrcP' | 'rhuP' | 'chRhuP' | 'cash17P' | 'bizbuy17P' | 'fd17P' | 'bdrm3OP' | 'u1P' | 'u24P' | 'u5OvP' | 'yrblt59P' | 'yrblt00P';
+type View = 'medhv' | 'chMedhvP' | 'medconr' | 'chMedcrP' | 'rhuP' | 'chRhuP' | 'cash17P' | 'bizbuy17P' | 'fd17P' | 'bdrm3OP' | 'u1P' | 'u24P' | 'u5OvP' | 'yrblt59P' | 'yrblt00P';
 type ChoroplethFunc = (value: number) => string;
 
 const viewData: {[Key in View]: {
@@ -49,45 +49,44 @@ const viewData: {[Key in View]: {
       return choroplethColors[4];
     }
   },
-  // 'medconr': {
-  //   id: 3,
-  //   title: 'Median Rent',
-  //   domain: [0, 3500], //
-  //   format: '$f', //
-  //   legendKeys: ['$0 – $1,000', '$1,001 – $1,500', '$1,501 – $2,000', '$2,001 – $2,500', '$2,501+'], //
-  //   choroplethFunc: (value) => {
-  //     if (value <= 1000) {
-  //       return choroplethColors[0];
-  //     } if (value <= 1500) {
-  //       return choroplethColors[1];
-  //     } if (value <= 2000) {
-  //       return choroplethColors[2];
-  //     } if (value <= 2500) {
-  //       return choroplethColors[3];
-  //     }
-  //     return choroplethColors[4];
-  //   }
-  // },
-  // 'chMedrcP': {
-  //   id: 4,
-  //   title: '% Change in Median Rent',
-  //   domain: [-100, 450], //
-  //   format: 'f', //
-  //   legendKeys: ['-50% – 0%', '0% – 25%', '25% – 50%', '50% – 75%', '75%+'], //
-  //   choroplethFunc: (value) => {
-  //     console.log(value)
-  //     if (value <= 0) {
-  //       return choroplethColors[0];
-  //     } if (value <= 25) {
-  //       return choroplethColors[1];
-  //     } if (value <= 50) {
-  //       return choroplethColors[2];
-  //     } if (value <= 75) {
-  //       return choroplethColors[3];
-  //     }
-  //     return choroplethColors[4];
-  //   }
-  // },
+  'medconr': {
+    id: 3,
+    title: 'Median Rent',
+    domain: [0, 3500],
+    format: '$f',
+    legendKeys: ['$0 – $1,000', '$1,001 – $1,500', '$1,501 – $2,000', '$2,001 – $2,500', '$2,501+'],
+    choroplethFunc: (value) => {
+      if (value <= 1000) {
+        return choroplethColors[0];
+      } if (value <= 1500) {
+        return choroplethColors[1];
+      } if (value <= 2000) {
+        return choroplethColors[2];
+      } if (value <= 2500) {
+        return choroplethColors[3];
+      }
+      return choroplethColors[4];
+    }
+  },
+  'chMedcrP': {
+    id: 4,
+    title: '% Change in Median Rent',
+    domain: [-100, 450], //
+    format: 'f', //
+    legendKeys: ['-100% – 0%', '0% – 25%', '25% – 50%', '50% – 75%', '75%+'], //
+    choroplethFunc: (value) => {
+      if (value <= 0) {
+        return choroplethColors[0];
+      } if (value <= 25) {
+        return choroplethColors[1];
+      } if (value <= 50) {
+        return choroplethColors[2];
+      } if (value <= 75) {
+        return choroplethColors[3];
+      }
+      return choroplethColors[4];
+    }
+  },
   'rhuP': {
     id: 5,
     title: '% Renter Households',
@@ -145,44 +144,44 @@ const viewData: {[Key in View]: {
       return choroplethColors[4];
     }
   },
-  // 'bizbuy17P': {
-  //   id: 8,
-  //   title: '% Residential Sales with Business Purchaser',
-  //   domain: [0, 100],
-  //   format: 'f', //
-  //   legendKeys: ['-50% – 0%', '0% – 25%', '25% – 50%', '50% – 75%', '75%+'], //
-  //   choroplethFunc: (value) => {
-  //     if (value <= 10) {
-  //       return choroplethColors[0];
-  //     } if (value <= 20) {
-  //       return choroplethColors[1];
-  //     } if (value <= 30) {
-  //       return choroplethColors[2];
-  //     } if (value <= 40) {
-  //       return choroplethColors[3];
-  //     }
-  //     return choroplethColors[4];
-  //   }
-  // },
-  // 'fd17P': {
-  //   id: 9,
-  //   title: '% Residential Sales with a Foreclosure Deed',
-  //   domain: [0, 20],
-  //   format: 'f', //
-  //   legendKeys: ['-50% – 0%', '0% – 25%', '25% – 50%', '50% – 75%', '75%+'], //
-  //   choroplethFunc: (value) => {
-  //     if (value <= 2) {
-  //       return choroplethColors[0];
-  //     } if (value <= 5) {
-  //       return choroplethColors[1];
-  //     } if (value <= 10) {
-  //       return choroplethColors[2];
-  //     } if (value <= 15) {
-  //       return choroplethColors[3];
-  //     }
-  //     return choroplethColors[4];
-  //   }
-  // },
+  'bizbuy17P': {
+    id: 8,
+    title: '% Residential Sales with Business Purchaser',
+    domain: [0, 80],
+    format: 'f',
+    legendKeys: ['0% – 10%', '10% – 20%', '20% – 30%', '30% – 40%', '40%+'], //
+    choroplethFunc: (value) => {
+      if (value <= 10) {
+        return choroplethColors[0];
+      } if (value <= 20) {
+        return choroplethColors[1];
+      } if (value <= 30) {
+        return choroplethColors[2];
+      } if (value <= 40) {
+        return choroplethColors[3];
+      }
+      return choroplethColors[4];
+    }
+  },
+  'fd17P': {
+    id: 9,
+    title: '% Residential Sales with a Foreclosure Deed',
+    domain: [0, 20],
+    format: 'f',
+    legendKeys: ['0% – 2%', '2% – 5%', '5% – 10%', '10% – 15%', '15%+'], //
+    choroplethFunc: (value) => {
+      if (value <= 2) {
+        return choroplethColors[0];
+      } if (value <= 5) {
+        return choroplethColors[1];
+      } if (value <= 10) {
+        return choroplethColors[2];
+      } if (value <= 15) {
+        return choroplethColors[3];
+      }
+      return choroplethColors[4];
+    }
+  },
   'bdrm3OP': {
     id: 10,
     title: '% of Housing Units with 3+ Bedrooms',
@@ -221,44 +220,44 @@ const viewData: {[Key in View]: {
       return choroplethColors[4];
     }
   },
-  // 'u24P': {
-  //   id: 12,
-  //   title: '% 2- to 4-Family Homes',
-  //   domain: [0, 100],
-  //   format: 'f', //
-  //   legendKeys: ['-50% – 0%', '0% – 25%', '25% – 50%', '50% – 75%', '75%+'], //
-  //   choroplethFunc: (value) => {
-  //     if (value <= 5) {
-  //       return choroplethColors[0];
-  //     } if (value <= 15) {
-  //       return choroplethColors[1];
-  //     } if (value <= 30) {
-  //       return choroplethColors[2];
-  //     } if (value <= 50) {
-  //       return choroplethColors[3];
-  //     }
-  //     return choroplethColors[4];
-  //   }
-  // },
-  // 'u5OvP': {
-  //   id: 13,
-  //   title: '% 5+ Family Homes',
-  //   domain: [0, 100],
-  //   format: 'f', //
-  //   legendKeys: ['-50% – 0%', '0% – 25%', '25% – 50%', '50% – 75%', '75%+'], //
-  //   choroplethFunc: (value) => {
-  //     if (value <= 10) {
-  //       return choroplethColors[0];
-  //     } if (value <= 25) {
-  //       return choroplethColors[1];
-  //     } if (value <= 50) {
-  //       return choroplethColors[2];
-  //     } if (value <= 75) {
-  //       return choroplethColors[3];
-  //     }
-  //     return choroplethColors[4];
-  //   }
-  // },
+  'u24P': {
+    id: 12,
+    title: '% 2- to 4-Family Homes',
+    domain: [0, 100],
+    format: 'f', //
+    legendKeys: ['0% – 5%', '5% – 15%', '15% – 30%', '30% – 50%', '50%+'], //
+    choroplethFunc: (value) => {
+      if (value <= 5) {
+        return choroplethColors[0];
+      } if (value <= 15) {
+        return choroplethColors[1];
+      } if (value <= 30) {
+        return choroplethColors[2];
+      } if (value <= 50) {
+        return choroplethColors[3];
+      }
+      return choroplethColors[4];
+    }
+  },
+  'u5OvP': {
+    id: 13,
+    title: '% 5+ Family Homes',
+    domain: [0, 100],
+    format: 'f',
+    legendKeys: ['0% – 10%', '10% – 25%', '25% – 50%', '50% – 75%', '75%+'], //
+    choroplethFunc: (value) => {
+      if (value <= 10) {
+        return choroplethColors[0];
+      } if (value <= 25) {
+        return choroplethColors[1];
+      } if (value <= 50) {
+        return choroplethColors[2];
+      } if (value <= 75) {
+        return choroplethColors[3];
+      }
+      return choroplethColors[4];
+    }
+  },
   'yrblt59P': {
     id: 14,
     title: '% Built Prior to 1960',
@@ -278,25 +277,25 @@ const viewData: {[Key in View]: {
       return choroplethColors[4];
     }
   },
-  // 'yrblt00P': {
-  //   id: 15,
-  //   title: '% of Housing Units in Structure built in 2000+',
-  //   domain: [0, 60], //
-  //   format: 'f', //
-  //   legendKeys: ['-50% – 0%', '0% – 25%', '25% – 50%', '50% – 75%', '75%+'], //
-  //   choroplethFunc: (value) => {
-  //     if (value <= 5) {
-  //       return choroplethColors[0];
-  //     } if (value <= 10) {
-  //       return choroplethColors[1];
-  //     } if (value <= 15) {
-  //       return choroplethColors[2];
-  //     } if (value <= 25) {
-  //       return choroplethColors[3];
-  //     }
-  //     return choroplethColors[4];
-  //   }
-  // },
+  'yrblt00P': {
+    id: 15,
+    title: '% of Housing Units in Structure built in 2000+',
+    domain: [0, 60], //
+    format: 'f', //
+    legendKeys: ['0% – 5%', '5% – 10%', '10% – 15%', '15% – 25%', '25%+'], //
+    choroplethFunc: (value) => {
+      if (value <= 5) {
+        return choroplethColors[0];
+      } if (value <= 10) {
+        return choroplethColors[1];
+      } if (value <= 15) {
+        return choroplethColors[2];
+      } if (value <= 25) {
+        return choroplethColors[3];
+      }
+      return choroplethColors[4];
+    }
+  },
 };
 
 function vegaSchema(submarket: number, field: View, domain: Array<number>, format: string, selectedTract: string|undefined, color: string, width: number) {
