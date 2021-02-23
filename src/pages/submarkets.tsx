@@ -47,17 +47,14 @@ const Submarkets = () => (
       <section css={introArticle}>
         <h2 css={h2Style}>A different approach to housing strategies</h2>
         <p>
-          Greater Boston is not one housing market, but many. Anyone who has tried to find housing in the region knows this through experience. Depending on the kind of housing you are looking for, where you want to live, and what you can afford to pay, you may or may not be able to find what you need. What is more, where you live can influence your opportunities, experiences, and access.
+          Greater Boston is not one housing market, but many. Anyone who has tried to find housing in the region knows this through experience. Depending on the kind of housing you are looking for, where you want to live, and what you can afford to pay, you may or may not be able to find what you need. What’s more, where you live can influence your opportunities, experiences, and access.
         </p>
         <p>
-          In order for Greater Boston to become a more affordable region with stable housing and equitable, integrated communities, housing policies and programs must address the needs and challenges specific to the markets in which they are implemented. Those needs and challenges are different in different places in the region.
+          For Greater Boston to become a more affordable region with stable housing and equitable, integrated communities, housing policies and programs must address the needs and challenges specific to the markets in which they are implemented. Those needs and challenges are different in different places in the region.
         </p>
         <h2 css={h2Style}>What is a submarket?</h2>
         <p>
-          A housing submarket is a collection of neighborhoods—some next to each other, some not—that share similarities in housing stock and housing market characteristics. These characteristics determine who can find, afford, and remain in suitable housing in that neighborhood.
-        </p>
-        <p>
-          MAPC’s regional study identified communities with similar characteristics across Greater Boston—the study revealed seven distinct housing submarkets in the region that share common needs and challenges, regardless of physical proximity.
+          A housing submarket is a collection of neighborhoods—some next to each other, some not—with similar housing stock and housing market characteristics. These characteristics determine who can find, afford, and remain in suitable housing in that neighborhood. The neighborhoods in each submarket share common needs and challenges, regardless of geographic location. MAPC’s study revealed seven distinct housing submarkets in the Greater Boston region.
         </p>
       </section>
       <SubmarketGrid />

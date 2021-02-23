@@ -7,9 +7,10 @@ const submarketHighlights: {[Key in Submarket]: Array<string> } = {
     "Declining numbers of renters"
   ],
   2: [
-    "High-density, lower-cost urban markets",
+    "Highest renter share",
     "High rates of foreclosure and cash sales",
-    "Rapid sale price escalation",
+    "Highest rate of business buyers",
+    "Rapid sale price escalation "
   ],
   3: [
     "Oldest housing stock",
@@ -19,19 +20,20 @@ const submarketHighlights: {[Key in Submarket]: Array<string> } = {
   4: [
     "Older housing stock in suburbs and regional urban centers",
     "Low density and housing costs",
-    "Moderate incomes, minimal change"
+    "Minimal change in rents",
+    "Slowest population growth"
   ],
   5: [
     "Premium-priced low-density suburbs",
-    "Large, older housing stock in very expensive single-family home neighborhoods"
+    "Large, older housing stock in very expensive single-family home neighborhoods",
+    "Low and declining renter share"
   ],
   6: [
-    "Suburban edges and new urban centers",
-    "Newest housing stock and lowest home prices",
+    "Suburban edges with the newest housing stock and lowest home prices",
     "Rapid increases in density, rents, and renters"
   ],
   7: [
-    "Low-density, moderate-cost single-family suburbs",
+    "Moderate-cost single-family suburbs",
     "Newer housing stock",
     "Few renters"
   ]
