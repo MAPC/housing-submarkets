@@ -2,7 +2,7 @@ import React from 'react';
 import { VegaLite, VisualizationSpec } from 'react-vega';
 import { StaticQuery, graphql } from "gatsby";
 
-const MCASScores = () => {
+const PercentWhite = () => {
   const spec: VisualizationSpec = {
     $schema: 'https://vega.github.io/schema/vega-lite/v4.json',
     data: { name: "adjustedData" },
@@ -11,20 +11,28 @@ const MCASScores = () => {
       extent: "min-max",
       size: 30,
     },
-    height: 300,
-    width: 400,
-    title: "MCAS Math achievement scores for 3rd graders",
+    title: {text: "% of Population that is Non-Hispanic White", fontSize: 24},
+    height: 800,
+    width: 1000,
     encoding: {
       x: {
         field: "Submarket",
         type: "nominal",
+        axis: {
+          titleFontSize: 20,
+          labelFontSize: 16
+        }
       },
       y: {
-        field: "mthAchv",
+        field: "nhwhiP",
         type: "quantitative",
-        title: "Achievement score",
-        scale: { zero: false },
-        axis: { tickCount: 5}
+        title: "% Population",
+        axis: {
+          titleFontSize: 20,
+          labelFontSize: 16,
+          tickCount: 10,
+        }
+        // title: {text: "% of Population", fontSize: 20},
       },
       color: {
         legend: null,
@@ -32,8 +40,7 @@ const MCASScores = () => {
         type: 'nominal',
         scale: {
           range: ['#C7024E', '#80CDC1', '#06614d', '#F37B74', '#BF812D', '#8C510A', '#6EA1C9'],
-          domain: [1,2,3,4,5,6,7],
-          zero: false,
+          domain: [1,2,3,4,5,6,7]
         }
       },
     }
@@ -44,15 +51,15 @@ const MCASScores = () => {
       graphql`{
         postgres {
           allHousSubmarketsCtsList {
-            mthAchv
+            nhwhiP
             submktId
           }
         }
       }`}
       render={(data) => {
-        const adjustedData = data.postgres.allHousSubmarketsCtsList.map((row: { mthAchv: number, submktId: number }) => {
+        const adjustedData = data.postgres.allHousSubmarketsCtsList.map((row: { nhwhiP: number, submktId: number }) => {
           return {
-          'mthAchv': row.mthAchv,
+          'nhwhiP': row.nhwhiP,
           'Submarket': row.submktId
         }})
         return (
@@ -63,4 +70,4 @@ const MCASScores = () => {
   )
 };
 
-export default MCASScores;
+export default PercentWhite;
