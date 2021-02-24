@@ -49,9 +49,9 @@ const buttonRowStyle = css`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 70rem;
+  width: 38rem;
 
-  @media (max-width: 1000px) {
+  @media (max-width: 650px) {
     align-items: flex-start;
     flex-direction: column;
   }
@@ -66,8 +66,7 @@ const AppendixCallout = () => (
           To explore the data yourself and learn more about how this data was collected, you can download our full dataset and read the technical appendix below.
         </p>
         <div css={buttonRowStyle}>
-          <a href="https://mapc365.sharepoint.com/:x:/s/DataServicesSP/ERELMzy1cYZClzCd3WLjIoUB0Y55MRkZSRAKD1Ovucgs6g" css={buttonStyle}>Download Data</a>
-          <a href="https://mapc365.sharepoint.com/:x:/s/DataServicesSP/EWw6ruh136JDva8xmlwb4y4BTuHs5VK75zwiCSG5o6ncgw" css={buttonStyle}>Download Metadata</a>
+          <a href="https://mapc365.sharepoint.com/:f:/s/DataServicesSP/Etzt4EdJjWZBhw_A3fN6qu4BH8kq0-nYbAx5cUGCjOfV4w" css={buttonStyle}>Download Data</a>
           <a href="https://mapc.gitbook.io/housing-submarket-technical-appendix/" css={buttonStyle}>Read Appendix</a>
         </div>
       </div>
