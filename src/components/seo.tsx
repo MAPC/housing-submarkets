@@ -1,6 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
+import card from '../images/social-card.png';
 
 type SEOProps = {
   title?: string,
@@ -59,6 +60,10 @@ const SEO: React.FC<SEOProps> = ({ title, children }) => {
         {
           name: `twitter:description`,
           content: site.siteMetadata.description,
+        },
+        {
+          name: 'og:image',
+          content: `https://housing-submarkets.mapc.org/${card}`,
         },
       ]}
     >
