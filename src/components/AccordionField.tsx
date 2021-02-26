@@ -2,8 +2,9 @@
 
 import React, { useState } from 'react';
 import { css, jsx } from '@emotion/react';
-import { themeColors } from '../../utils/theme';
-import metrocommonTriangle from '../../images/metrocommonTrianglePurple.svg';
+import { themeColors } from '../utils/theme';
+import metrocommonTriangleWhite from '../images/metrocommonTriangle.svg';
+import metrocommonTrianglePurple from '../images/metrocommonTrianglePurple.svg';
 
 function toggleVisibility(currentState: boolean, setActive: React.Dispatch<React.SetStateAction<boolean>>) {
   if (currentState === true) {
@@ -14,7 +15,13 @@ function toggleVisibility(currentState: boolean, setActive: React.Dispatch<React
 
 type AccordionFieldProps = {
   title: string,
+  triangleColor: 'white' | 'purple',
   children: React.HTMLAttributes<HTMLParagraphElement>
+}
+
+const icon = {
+  white: metrocommonTriangleWhite,
+  purple: metrocommonTrianglePurple,
 }
 
 const accordionHeaderStyle = css`
@@ -50,7 +57,7 @@ const accordionDividerStyle = css`
   margin: 3rem 0;
 `;
 
-const AccordionField: React.FC<AccordionFieldProps> = ({ title, children }) => {
+const AccordionField: React.FC<AccordionFieldProps> = ({ title, triangleColor, children }) => {
   const [isActive, setActive] = useState(false);
   return (
     <div>
@@ -67,7 +74,7 @@ const AccordionField: React.FC<AccordionFieldProps> = ({ title, children }) => {
       >
         <h3 css={h3Style}>{ title }</h3>
         <img
-          src={metrocommonTriangle}
+          src={icon[triangleColor]}
           alt="Decorative triangle"
           className={isActive ? 'accordion__icon accordion__icon--active' : 'accordion__icon'}
           css={isActive ? activeIconStyle : iconStyle}

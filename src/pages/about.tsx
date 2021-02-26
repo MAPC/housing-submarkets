@@ -6,6 +6,7 @@ import SEO from '../components/seo';
 import Layout from '../components/layout';
 import RelatedReports from '../components/about/RelatedReports';
 import AppendixCallout from '../components/about/AppendixCallout';
+import AccordionField from '../components/AccordionField';
 import { themeColors, fonts } from '../utils/theme';
 
 const contentWrapper = css`
@@ -33,7 +34,11 @@ const h2Style = css`
   font-size: 4.4rem;
   font-weight: 600;
   line-height: 6.2rem;
-  margin: 0;
+  margin: 0 0 1.6rem 0;
+`;
+
+const linkStyle = css`
+  color: ${themeColors.accentPurple};
 `;
 
 const About = () => (
@@ -43,25 +48,39 @@ const About = () => (
       <div css={contentWrapper}>
         <article css={introArticle}>
           <h2 css={h2Style}>About Housing Submarkets</h2>
-          <p>
-            This Housing Submarkets research website is the result of the work of many MAPC staff and interns. Here they are listed in alphabetical order, by last name:
-          </p>
-          <ul>
-            <li>Karen Adelman (Senior Communications Strategist)</li>
-            <li>Seleeke Flingai (Research Analyst, former)</li>
-            <li>Kasia Hart (Policy Analyst)</li>
-            <li>Guy Hydrick (GIS Administrator)</li>
-            <li>Ryan Kelly (Digital Services Manager)</li>
-            <li>Karina Oliver-Milchman (Chief of Housing and Neighborhood Development)</li>
-            <li>Jessie Partidge Guerrero (Research Manager)</li>
-            <li>Taylor Perez (Research Intern, former)</li>
-            <li>Sarah Philbrick (Senior Research Analyst)</li>
-            <li>Tim Reardon (Director of Data Services)</li>
-            <li>Caitlin Spence (GIS and Planning Analyst)</li>
-            <li>Annabelle Thomas Taylor (Front End Web Developer)</li>
-            <li>Kit Un (Visual Designer)</li>
-            <li>Lizzi Weyant (Director of Government Affairs)</li>
-          </ul>
+          <AccordionField title="Where can I download the data?" triangleColor="white">
+            You can download the full dataset and accompanying metadata on
+            {' '}
+            <a href="https://datacommon.mapc.org/browser/datasets/422" css={linkStyle}>MAPC's DataCommon</a>
+            .
+          </AccordionField>
+          <AccordionField title="Who should I contact with questions?" triangleColor="white">
+            For questions, comments, or other inqueries, feel free to reach out to us at
+            {' '}
+            <a href="mailto:research@mapc.org" css={linkStyle}>research@mapc.org</a>
+            .
+          </AccordionField>
+          <AccordionField title="Contributors" triangleColor="white">
+            <p>
+              This Housing Submarkets research website is the result of the work of many MAPC staff and interns. Here they are listed in alphabetical order, by last name:
+            </p>
+            <ul>
+              <li>Karen Adelman (Senior Communications Strategist)</li>
+              <li>Seleeke Flingai (Research Analyst, former)</li>
+              <li>Kasia Hart (Policy Analyst)</li>
+              <li>Guy Hydrick (GIS Administrator)</li>
+              <li>Ryan Kelly (Digital Services Manager)</li>
+              <li>Karina Oliver-Milchman (Chief of Housing and Neighborhood Development)</li>
+              <li>Jessie Partidge Guerrero (Research Manager)</li>
+              <li>Taylor Perez (Research Intern, former)</li>
+              <li>Sarah Philbrick (Senior Research Analyst)</li>
+              <li>Tim Reardon (Director of Data Services)</li>
+              <li>Caitlin Spence (GIS and Planning Analyst)</li>
+              <li>Annabelle Thomas Taylor (Front End Web Developer)</li>
+              <li>Kit Un (Visual Designer)</li>
+              <li>Lizzi Weyant (Director of Government Affairs)</li>
+            </ul>
+          </AccordionField>
         </article>
       </div>
     </div>

@@ -4,13 +4,8 @@ import React from 'react';
 import { css, jsx } from '@emotion/react';
 import { StaticQuery, graphql } from 'gatsby';
 import { themeColors, fonts } from '../../utils/theme';
-import AccordionField from './AccordionField';
+import AccordionField from '../AccordionField';
 import PolicyItem from './PolicyItem';
-
-// const strategiesWrapperStyle = css`
-//   margin-top: 5rem;
-//   max-width: 76.8rem;
-// `;
 
 const contentWrapper = css`
   max-width: 136.6rem;
@@ -81,42 +76,42 @@ const Strategies = () => (
             <p css={css`margin-bottom: 4rem;`}>
               These example strategies were identified through MAPC’s Metropolitan Mayors Coalition Housing Taskforce. To learn more and find additional strategies, explore <a href="https://housingtaskforce.mapc.org/" css={linkStyle}>housingtaskforce.mapc.org</a>.
             </p>
-            <AccordionField title="Housing stability protections">
+            <AccordionField title="Housing stability protections" triangleColor="purple">
               <ul css={listStyle}>
                 {housingStability.map(node => <PolicyItem title={node.frontmatter.title} body={node.internal.content} />)}
               </ul>
             </AccordionField>
-            <AccordionField title="Community ownership of land">
+            <AccordionField title="Community ownership of land" triangleColor="purple">
               <ul css={listStyle}>
                 {communityOwnership.map(node => <PolicyItem title={node.frontmatter.title} body={node.internal.content} />)}
               </ul>
             </AccordionField>
-            <AccordionField title="Rental affordability strategies">
+            <AccordionField title="Rental affordability strategies" triangleColor="purple">
               <ul css={listStyle}>
                 {rentalAffordability.map(node => <PolicyItem title={node.frontmatter.title} body={node.internal.content} />)}
               </ul>
             </AccordionField>
-            <AccordionField title="Owner affordability strategies">
+            <AccordionField title="Owner affordability strategies" triangleColor="purple">
               <ul css={listStyle}>
                 {ownerAffordability.map(node => <PolicyItem title={node.frontmatter.title} body={node.internal.content} />)}
               </ul>
             </AccordionField>
-            <AccordionField title="Small landlord affordability incentives">
+            <AccordionField title="Small landlord affordability incentives" triangleColor="purple">
               <ul css={listStyle}>
                 {smallLandlord.map(node => <PolicyItem title={node.frontmatter.title} body={node.internal.content} />)}
               </ul>
             </AccordionField>
-            <AccordionField title="Affordable housing production strategies">
+            <AccordionField title="Affordable housing production strategies" triangleColor="purple">
               <ul css={listStyle}>
                 {affordableHousing.map(node => <PolicyItem title={node.frontmatter.title} body={node.internal.content} />)}
               </ul>
             </AccordionField>
-            <AccordionField title="Revenue sources for affordable housing">
+            <AccordionField title="Revenue sources for affordable housing" triangleColor="purple">
               <ul css={listStyle}>
                 {revenueSources.map(node => <PolicyItem title={node.frontmatter.title} body={node.internal.content} />)}
               </ul>
             </AccordionField>
-            <AccordionField title="Multifamily production strategies">
+            <AccordionField title="Multifamily production strategies" triangleColor="purple">
               <ul css={listStyle}>
                 {multifamily.map(node => <PolicyItem title={node.frontmatter.title} body={node.internal.content} />)}
               </ul>
