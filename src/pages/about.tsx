@@ -60,6 +60,12 @@ const About = () => (
             <a href="mailto:research@mapc.org" css={linkStyle}>research@mapc.org</a>
             .
           </AccordionField>
+          <AccordionField title="Where can I watch the research release webinar?" triangleColor="white">
+            <p>
+              On February 23, 2021, MAPC released the Housing Submarkets research with a Zoom webinar. You can watch the webinar and following panel discussion below, or <a href="https://www.youtube.com/watch?v=ztN6UuXcedM" css={linkStyle}>click here</a> to watch on YouTube.
+            </p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/ztN6UuXcedM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </AccordionField>
           <AccordionField title="Contributors" triangleColor="white">
             <p>
               This Housing Submarkets research website is the result of the work of many MAPC staff and interns. Here they are listed in alphabetical order, by last name:

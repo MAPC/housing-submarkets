@@ -34,7 +34,7 @@ const h3Style = css`
   font-size: 2rem;
   font-weight: 400;
   margin: 0;
-  width: 40rem;
+  width: 45rem;
 `;
 
 const iconStyle = css`
