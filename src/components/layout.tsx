@@ -3,7 +3,7 @@
 import React from "react";
 import { css, jsx, Global } from "@emotion/react";
 import Header from "./Header"
-import { Footer } from 'mapc-design-system/src';
+import { Footer } from 'mapc-design-system';
 import { themeColors, fonts } from '../utils/theme';
 
 type LayoutProps = {

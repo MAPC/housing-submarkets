@@ -12845,10 +12845,10 @@ mapbox-gl@^1.0.0:
     tinyqueue "^2.0.3"
     vt-pbf "^3.1.1"
 
-mapc-design-system@0.1.6:
-  version "0.1.6"
-  resolved "https://registry.yarnpkg.com/mapc-design-system/-/mapc-design-system-0.1.6.tgz#7ebe54c3bd23f896a7083ad1fe81064421cb9057"
-  integrity sha512-MFSwuXqNMd0/GD0KWBC2aeCx6+pV7YDdcdImW32NodWsCE/+tSs9vCR3xRg5vdDUM6jlaU++2uxx/CC7lf+IwA==
+mapc-design-system@0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/mapc-design-system/-/mapc-design-system-0.2.0.tgz#7a1d24cf3056f212f8198d0343923b07d0ef5e71"
+  integrity sha512-1xP/qOJRUxUpujod9ApyxAN+qIhxhnPDRI40k1xYZiwCDBrV1xI4csDXC0hrIMS2zUV8nguNP61oqI+2GesQ/g==
   dependencies:
     "@emotion/react" "^11.1.4"
     "@fortawesome/fontawesome-svg-core" "^1.2.34"
