@@ -13,7 +13,7 @@ const viewData: {[Key in View]: {
 }} = {
   'medhv': {
     id: 1,
-    title: 'Median Home Value',
+    title: 'Median Sale Price',
     domain: [100000, 2000000],
     format: '$,f',
     legendKeys: ['≤ $250,000', '$250,001 – $500,000', '$500,001 – $750,000', '$750,001 – $1,000,000', '$1,000,001+'],
@@ -32,7 +32,7 @@ const viewData: {[Key in View]: {
   },
   'chMedhvP': {
     id: 2,
-    title: '% Change in Median Home Value',
+    title: '% Change in Median Sale Price',
     domain: [-50, 800],
     format: 'f',
     legendKeys: ['-50% – 0%', '0% – 25%', '25% – 50%', '50% – 75%', '75%+'],
