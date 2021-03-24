@@ -54,13 +54,7 @@ const PolicyStrategy = () => (
             All these strategies are part of the puzzle of building better housing opportunities for the residents of Greater Boston—they are just more critical in some places than others.
           </p>
           <p>
-            The Housing Strategies matrix below presents examples of submarket-specific strategies we think are important to achieving the vision of a more affordable, more housing-stable, more integrated, and more equitable Greater Boston. We are open to feedback, and hope to engage with you through our MetroCommon 2050 planning and implementation processes to ensure that the housing strategies we present here reflect the needs and challenges of your communities. If a conversation about these policies interests you, please join our MetroCommon housing policy workshops:
-            {' '}
-            <a href="https://zoom.us/meeting/register/tJMscO6gqzMqHdD7wVXhMozuQm4g3Oi33HtA" css={linkStyle}>Affordable Housing Preservation and Anti-Displacement</a>
-            , on March 24 at 1:30pm, and
-            {' '}
-            <a href="https://zoom.us/meeting/register/tJwtdO-grDotHdf1ArRmLXv2MDWWrbdAiw_-" css={linkStyle}>Housing Production</a>
-            , on March 16 at 1:30pm, or email us at
+            The Housing Strategies matrix below presents examples of submarket-specific strategies we think are important to achieving the vision of a more affordable, more housing-stable, more integrated, and more equitable Greater Boston. We are open to feedback, and hope to engage with you through our MetroCommon 2050 planning and implementation processes to ensure that the housing strategies we present here reflect the needs and challenges of your communities. If a conversation about these policies interests you, please email us at
             {' '}
             <a href="mailto:research@mapc.org" css={linkStyle}>research@mapc.org</a>
             {' '}
